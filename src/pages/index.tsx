@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button, Flex} from 'src/components/base';
+import {Button, Flex, Stack} from 'src/components/base';
 import {Layout} from 'src/components/home/layout';
+import {Icon} from 'src/components/icons';
 
 export default function HomePage(): JSX.Element {
   return (
@@ -18,6 +19,16 @@ export default function HomePage(): JSX.Element {
         <div>Portfolio</div>
         <div>Notes</div>
       </Flex>
+      <Stack mainAxis='center' crossAxis='center'>
+        <Icon.Typescript />
+        <Icon.Javascript />
+        <Icon.Html />
+        <Icon.Css />
+        <Icon.Python />
+        <Icon.Electron />
+        <Icon.Express />
+        <Icon.Sass />
+      </Stack>
       {/* Homepage
       <Layout>
         <Button>Wow</Button>
