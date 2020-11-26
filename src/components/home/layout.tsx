@@ -1,4 +1,4 @@
-import {jsx} from '@emotion/react';
+/** @jsxImportSource @emotion/react */
 import {ReactNode} from 'react';
 import {Flex} from 'src/components/base';
 
@@ -7,5 +7,5 @@ type Props = {
 };
 
 export const Layout = ({children}: Props): JSX.Element => {
-  return <Flex>{children}</Flex>;
+  return <Flex flow='column'>{children}</Flex>;
 };
