@@ -28,6 +28,32 @@ export default function HomePage(): JSX.Element {
         <Icon.Electron />
         <Icon.Express />
         <Icon.Sass />
+        <Icon.Github />
+        <Icon.Redux />
+      </Stack>
+      <Stack>
+        <Icon.Kubernetes />
+        <Icon.Docker />
+        <Icon.Git />
+        <Icon.MongoDb />
+        <Icon.Postgres />
+        <Icon.Nodejs />
+        <Icon.Npm />
+        <Icon.React />
+        <Icon.Graphql />
+        <Icon.Webpack />
+      </Stack>
+      <Stack>
+        <Icon.Prisma />
+        <Icon.Jest />
+        <Icon.Deno />
+        <Icon.Fastify />
+        <Icon.GithubActions />
+        <Icon.Jupyter />
+        <Icon.Babel />
+        <Icon.Nextjs />
+        <Icon.Heroku />
+        <Icon.Java />
       </Stack>
       {/* Homepage
       <Layout>
