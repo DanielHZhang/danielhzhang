@@ -7,7 +7,7 @@ type SvgProps = {
   viewBox?: string | number;
   children: ReactNode;
   color?: string;
-  css?: Interpolation<Theme>;
+  innerCss?: Interpolation<Theme>;
   hoverColor?: string | false;
   size?: string;
 };
@@ -15,25 +15,27 @@ type SvgProps = {
 const SvgInternal = ({
   children,
   color,
-  css,
+  innerCss,
   hoverColor = false,
   size,
   viewBox = '0 0 128 128',
-}: SvgProps) => (
-  <svg
-    viewBox={typeof viewBox === 'number' ? `0 0 ${viewBox} ${viewBox}` : viewBox}
-    css={
-      css || {
-        width: size,
-        fill: color,
-        transition: 'all ease-in-out 200ms',
-        ':hover': {fill: hoverColor || undefined},
+}: SvgProps) => {
+  return (
+    <svg
+      viewBox={typeof viewBox === 'number' ? `0 0 ${viewBox} ${viewBox}` : viewBox}
+      css={
+        innerCss || {
+          width: size,
+          fill: color,
+          transition: 'all ease-in-out 200ms',
+          ':hover': {fill: hoverColor || undefined},
+        }
       }
-    }
-  >
-    {children}
-  </svg>
-);
+    >
+      {children}
+    </svg>
+  );
+};
 
 export type IconType =
   | 'javascript'
@@ -76,7 +78,8 @@ export type IconType =
 
 type Props = {
   type: IconType;
-  size?: `${number}rem`;
+  size?: string;
+  // size?: `${number}rem`;
   color?: string;
   hoverColor?: string | false;
 };
@@ -106,7 +109,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'python': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             .python {
               &1,
@@ -196,7 +199,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'java': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             .java {
               &1,
@@ -302,7 +305,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'webpack': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             .webpack {
               &1,
@@ -343,7 +346,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'kubernetes': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             .kube1 {
               fill: ${rest.color};
@@ -408,7 +411,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'actions': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             & > * {
               transition: all ease-in-out 200ms;
@@ -519,7 +522,7 @@ export const Icon = ({type, ...rest}: Props): JSX.Element => {
     case 'jupyter': {
       return (
         <SvgInternal
-          css={css`
+          innerCss={css`
             width: ${rest.size};
             .jupyter {
               &1,
