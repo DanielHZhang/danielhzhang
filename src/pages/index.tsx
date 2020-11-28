@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import {Button, Flex, Grid, GridItem, Stack} from 'src/components/base';
+import Link from 'next/link';
+import {Anchor, Button, Flex, Grid, GridItem, Stack} from 'src/components/base';
 import {Layout} from 'src/components/home/layout';
+import {LinkItem} from 'src/components/home/link-item';
 import {Icon} from 'src/components/icons';
 
 export default function HomePage(): JSX.Element {
@@ -21,22 +23,30 @@ export default function HomePage(): JSX.Element {
           <div>Entrepreneur</div>
         </Flex>
       </GridItem>
-      <GridItem css={{marginLeft: '2rem'}}>
-        <Flex flow='column'>
+      <GridItem css={{marginLeft: '3rem'}}>
+        <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
           <Flex>About</Flex>
           <Flex>Skills</Flex>
           <Flex>Portfolio</Flex>
           <Flex>Notes</Flex>
-        </Flex>
+        </Stack>
       </GridItem>
       <GridItem>Main</GridItem>
-      <GridItem css={{marginRight: '2rem'}}>
-        <Flex flow='column' mainAxis='flex-end'>
-          <div css={{textAlign: 'right'}}>GitHub</div>
-          <Flex>LinkedIn</Flex>
-          <Flex>Email</Flex>
-          <Flex>Resume</Flex>
-        </Flex>
+      <GridItem css={{marginRight: '3rem'}}>
+        <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
+          <LinkItem href='/' icon='github'>
+            GitHub
+          </LinkItem>
+          <LinkItem href='/linkedin' icon='linkedin'>
+            LinkedIn
+          </LinkItem>
+          <LinkItem href='mailto:wow@gmail.com' icon={<Icon.Mail size='2.4rem' />}>
+            Email
+          </LinkItem>
+          <LinkItem href='/resume' icon={<Icon.File size='2.4rem' />}>
+            Resume
+          </LinkItem>
+        </Stack>
       </GridItem>
       <GridItem column='1/-1'>Made with love from Toronto.</GridItem>
     </Grid>
