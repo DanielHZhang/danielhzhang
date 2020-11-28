@@ -17,7 +17,7 @@ export const LinkItem = ({href, icon, children}: Props): JSX.Element => {
         <a>
           <Flex>
             <span css={{marginRight: '1rem'}}>{children}</span>
-            {typeof icon === 'string' ? <Icon.Code type={icon} size='2.4rem' /> : icon}
+            {typeof icon === 'string' ? <Icon type={icon} size='2.4rem' /> : icon}
           </Flex>
         </a>
       </Link>
