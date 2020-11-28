@@ -4,19 +4,29 @@ import {Flex} from 'src/components/base';
 import {Icon, IconType} from 'src/components/icons';
 
 type Props = {
+  align: 'left' | 'right';
   href: string;
   icon: IconType;
   children: string;
 };
 
-export const LinkItem = ({href, icon, children}: Props): JSX.Element => {
+export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
   return (
-    <Flex mainAxis='flex-end'>
+    <Flex mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
       <Link href={href}>
         <a>
-          <Flex>
-            <span css={{marginRight: '1rem'}}>{children}</span>
-            <Icon type={icon} size='2.4rem' />
+          <Flex crossAxis='center'>
+            <span
+              css={{
+                margin: align === 'right' ? '0 1rem 0 0' : '0 0 0 1rem',
+                order: align === 'right' ? 0 : 1,
+              }}
+            >
+              {children}
+            </span>
+            <span css={{order: align === 'right' ? 1 : 0}}>
+              <Icon type={icon} size='2.4rem' />
+            </span>
           </Flex>
         </a>
       </Link>

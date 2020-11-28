@@ -25,25 +25,33 @@ export default function HomePage(): JSX.Element {
       </GridItem>
       <GridItem css={{marginLeft: '3rem'}}>
         <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
-          <Flex>About</Flex>
-          <Flex>Skills</Flex>
-          <Flex>Portfolio</Flex>
-          <Flex>Notes</Flex>
+          <LinkItem align='left' href='/about' icon='user-circle'>
+            About
+          </LinkItem>
+          <LinkItem align='left' href='/skills' icon='shield-check'>
+            Skills
+          </LinkItem>
+          <LinkItem align='left' href='/porfolio' icon='suitcase'>
+            Portfolio
+          </LinkItem>
+          <LinkItem align='left' href='/notes' icon='notes'>
+            Notes
+          </LinkItem>
         </Stack>
       </GridItem>
       <GridItem>Main</GridItem>
       <GridItem css={{marginRight: '3rem'}}>
         <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
-          <LinkItem href='/' icon='github'>
+          <LinkItem align='right' href='/' icon='github'>
             GitHub
           </LinkItem>
-          <LinkItem href='/linkedin' icon='linkedin'>
+          <LinkItem align='right' href='/linkedin' icon='linkedin'>
             LinkedIn
           </LinkItem>
-          <LinkItem href='mailto:wow@gmail.com' icon={<Icon.Mail size='2.4rem' />}>
+          <LinkItem align='right' href='mailto:wow@gmail.com' icon='mail'>
             Email
           </LinkItem>
-          <LinkItem href='/resume' icon={<Icon.File size='2.4rem' />}>
+          <LinkItem align='right' href='/resume' icon='file'>
             Resume
           </LinkItem>
         </Stack>
