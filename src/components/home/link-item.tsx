@@ -14,7 +14,7 @@ export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
   return (
     <Flex mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
       <Link href={href}>
-        <Anchor>
+        <Anchor href={href}>
           <Flex crossAxis='center'>
             <span
               css={{
