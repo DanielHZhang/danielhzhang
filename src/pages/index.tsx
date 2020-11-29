@@ -41,13 +41,53 @@ export default function HomePage(): JSX.Element {
       </GridItem>
       <GridItem>
         <Flex
+          flow='column'
           css={{backgroundColor: '#252525', borderRadius: '6px', margin: '1rem', padding: '1rem'}}
         >
-          <Icon type='javascript' />
-          <Icon type='typescript' />
-          <Icon type='html' />
-          <Icon type='css' />
-          <Icon type='python' />
+          <div>Languages</div>
+          <Stack spacing='1.6rem'>
+            <Icon type='javascript' />
+            <Icon type='typescript' />
+            <Icon type='html' />
+            <Icon type='css' />
+            <Icon type='sass' />
+            <Icon type='python' />
+            <Icon type='java' />
+          </Stack>
+          <div>Frameworks</div>
+          <Stack spacing='1.6rem'>
+            <Icon type='react' />
+            <Icon type='redux' />
+            <Icon type='nextjs' />
+            <Icon type='graphql' />
+            <Icon type='express' />
+            <Icon type='fastify' />
+            <Icon type='kubernetes' />
+          </Stack>
+          <div>Runtimes</div>
+          <Stack spacing='1.6rem'>
+            <Icon type='nodejs' />
+            <Icon type='deno' />
+            <Icon type='docker' />
+            <Icon type='electron' />
+            <Icon type='jupyter' />
+          </Stack>
+          <div>Tools</div>
+          <Stack spacing='1.6rem'>
+            <Icon type='git' />
+            <Icon type='npm' />
+            <Icon type='webpack' />
+            <Icon type='babel' />
+            <Icon type='jest' />
+            <Icon type='actions' />
+            <Icon type='heroku' />
+          </Stack>
+          <div>Databases</div>
+          <Stack spacing='1.6rem'>
+            <Icon type='mongodb' />
+            <Icon type='postgres' />
+            <Icon type='prisma' />
+          </Stack>
         </Flex>
       </GridItem>
       <GridItem css={{marginRight: '3rem'}}>

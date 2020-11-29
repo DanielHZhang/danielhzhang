@@ -1,8 +1,10 @@
-// import styled from '@emotion/styled';
-// // import Link from 'next/link';
+import styled from '@emotion/styled';
 
-// export const Anchor = styled.a`
-//   display: inline-flex;
-//   flex-flow: row;
-//   cursor: pointer;
-// `;
+export const Anchor = styled.a`
+  color: #dac9a6;
+  cursor: pointer;
+  transition: color ease-in-out 200ms;
+  &:hover {
+    color: #fff;
+  }
+`;

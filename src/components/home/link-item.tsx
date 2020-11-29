@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link';
-import {Flex} from 'src/components/base';
+import {Anchor, Flex} from 'src/components/base';
 import {Icon, IconType} from 'src/components/icons';
 
 type Props = {
@@ -14,7 +14,7 @@ export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
   return (
     <Flex mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
       <Link href={href}>
-        <a>
+        <Anchor>
           <Flex crossAxis='center'>
             <span
               css={{
@@ -28,7 +28,7 @@ export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
               <Icon type={icon} size='2.4rem' />
             </span>
           </Flex>
-        </a>
+        </Anchor>
       </Link>
     </Flex>
   );
