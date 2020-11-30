@@ -1,19 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import {AnimatePresence, motion, MotionValue, useMotionValue, useTransform} from 'framer-motion';
+import {AnimatePresence, motion, MotionValue, useMotionValue, useSpring} from 'framer-motion';
 import {
-  ReactNode,
   Children,
-  FC,
   ReactElement,
   Ref,
+  Fragment,
   createRef,
   forwardRef,
+  useEffect,
   useState,
-  Fragment,
+  MouseEvent,
 } from 'react';
-import {createPortal} from 'react-dom';
 import {Portal} from 'src/components/base/portal';
-import {useAnimationFrame} from 'src/hooks';
 
 type TooltipPortalProps = {
   mouseX: MotionValue<number>;
@@ -21,37 +19,39 @@ type TooltipPortalProps = {
 };
 
 const TooltipPortal = forwardRef<HTMLDivElement, TooltipPortalProps>((props, ref) => {
-  // const x = useTransform(props.mouseX, [0, 400], [45, -45]);
-  // useAnimationFrame(() => {
-  //   // console.log(props.mouseX.get());
-  //   //
-  // }, true);
-  // console.log('motion value:', props.mouseX, props.mouseX.get());
-  // props.mouseX.
+  const springX = useSpring(props.mouseX, {stiffness: 300, damping: 25});
+  const springY = useSpring(props.mouseY, {stiffness: 300, damping: 25});
+
+  useEffect(() => {
+    return () => {
+      console.log('unmounting');
+    };
+  }, []);
 
   return (
     <Portal selector='body'>
-      {/* <div css={{position: 'fixed'}}> */}
-      <motion.div
-        ref={ref}
-        style={{
-          x: props.mouseX,
-          y: props.mouseY,
-        }}
-        css={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          // left: 0,
-          // top: 0,
-          color: '#ffffff',
-          backgroundColor: '#444444',
-          zIndex: 10,
-        }}
-      >
-        THIS IS THE HOVER
-      </motion.div>
-      {/* </div> */}
+      <div>
+        <motion.div
+          key='tooltip'
+          ref={ref}
+          style={{
+            x: springX,
+            y: springY,
+          }}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          css={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            color: '#ffffff',
+            backgroundColor: '#444444',
+            zIndex: 10,
+          }}
+        >
+          THIS IS THE HOVER
+        </motion.div>
+      </div>
     </Portal>
   );
 });
@@ -68,35 +68,21 @@ export const Tooltip = ({children}: Props): JSX.Element => {
   const mouseY = useMotionValue(-1);
   const [visible, setVisible] = useState(false);
 
-  // const onMouseMove = (event) => {
-  //   console.log('mouse', event);
-  //   console.log('got ref:', ref.current);
-  //   if (ref.current) {
-  //     window.requestAnimationFrame(() => {
-  //       //
-  //     });
-  //   }
-  // };
-  // console.log('mousex:', mouseX.;
-  console.log('visibility:', visible);
+  const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (ref.current) {
+      console.log('ref:', ref.current.getBoundingClientRect());
+    }
+    mouseX.set(event.nativeEvent.x - 20);
+    mouseY.set(event.nativeEvent.y + 20);
+    setVisible(true);
+  };
 
   return (
     <Fragment>
-      <div
-        onMouseLeave={() => {
-          mouseX.set(-1);
-          mouseY.set(-1);
-          setVisible(false);
-        }}
-        onMouseMove={(event) => {
-          mouseX.set(event.nativeEvent.x - 20);
-          mouseY.set(event.nativeEvent.y + 20);
-          setVisible(true);
-        }}
-      >
+      <div onMouseLeave={() => setVisible(false)} onMouseMove={onMouseMove}>
         {Children.only(children)}
       </div>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter={true}>
         {visible && <TooltipPortal ref={ref} mouseX={mouseX} mouseY={mouseY} />}
       </AnimatePresence>
     </Fragment>
