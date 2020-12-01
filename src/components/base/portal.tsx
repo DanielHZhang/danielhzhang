@@ -6,6 +6,9 @@ type Props = {
   selector: string;
 };
 
+/**
+ * See: https://github.com/vercel/next.js/blob/canary/examples/with-portals/components/ClientOnlyPortal.js
+ */
 export const Portal = ({children, selector}: Props): JSX.Element | null => {
   const ref = useRef<Element | null>(null);
   const [mounted, setMounted] = useState(false);
