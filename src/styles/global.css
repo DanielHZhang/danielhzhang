@@ -15,6 +15,7 @@ body {
 }
 
 #__next {
+  overflow: auto;
   background-color: #111111;
   min-height: 100%;
 }

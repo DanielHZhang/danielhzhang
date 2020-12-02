@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import {AnimatePresence, motion, useMotionValue, useSpring} from 'framer-motion';
+import {AnimatePresence, motion, useSpring} from 'framer-motion';
 import {Children, ReactElement, Fragment, createRef, useState, MouseEvent, useEffect} from 'react';
 import {Portal} from 'src/components/base/portal';
 
@@ -11,29 +11,9 @@ type Props = {
 export const Tooltip = ({label, children}: Props): JSX.Element => {
   const wrapperRef = createRef<HTMLDivElement>();
   const hoverRef = createRef<HTMLDivElement>();
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, {stiffness: 300, damping: 25});
-  const springY = useSpring(mouseY, {stiffness: 300, damping: 25});
+  const mouseX = useSpring(0, {stiffness: 300, damping: 25});
+  const mouseY = useSpring(0, {stiffness: 300, damping: 25});
   const [visible, setVisible] = useState(false);
-
-  const onMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
-    setVisible(true);
-    // console.log('mouse entered at pooint:', event.clientX, event.clientY);
-    // console.log(mouseX.get(), mouseY.get());
-    // if (mouseX.get() === 0 && mouseY.get() === 0) {
-    //   mouseX.set(event.clientX, false);
-    //   mouseY.set(event.clientY, false);
-    // }
-  };
-
-  useEffect(() => {
-    if (wrapperRef.current) {
-      const rect = wrapperRef.current.getBoundingClientRect();
-      mouseX.set(rect.x, false);
-      mouseY.set(rect.y, false);
-    }
-  }, [wrapperRef.current]);
 
   const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     let newX = event.clientX + 20;
@@ -53,12 +33,20 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
     mouseY.set(newY);
   };
 
+  useEffect(() => {
+    if (wrapperRef.current) {
+      const rect = wrapperRef.current.getBoundingClientRect();
+      mouseX.set(rect.x, false);
+      mouseY.set(rect.y, false);
+    }
+  }, [wrapperRef.current]);
+
   return (
     <Fragment>
       <div
         ref={wrapperRef}
         onMouseLeave={() => setVisible(false)}
-        onMouseEnter={onMouseEnter}
+        onMouseEnter={(event) => setVisible(true)}
         onMouseMove={onMouseMove}
       >
         {Children.only(children)}
@@ -70,7 +58,7 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
               <motion.div
                 key='tooltip'
                 ref={hoverRef}
-                style={{x: springX, y: springY}}
+                style={{x: mouseX, y: mouseY}}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
@@ -83,6 +71,7 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
                   borderRadius: '6px',
                   padding: '0.6rem 1rem',
                   zIndex: 10,
+                  pointerEvents: 'none',
                 }}
               >
                 {label}
