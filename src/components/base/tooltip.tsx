@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import {AnimatePresence, motion, useMotionValue, useSpring} from 'framer-motion';
-import {Children, ReactElement, Fragment, createRef, useState, MouseEvent, useEffect} from 'react';
+import {AnimatePresence, motion, useSpring} from 'framer-motion';
+import {Children, ReactElement, Fragment, createRef, useState, MouseEvent} from 'react';
 import {Portal} from 'src/components/base/portal';
 
 type Props = {
@@ -17,9 +17,9 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
 
   const onMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
     // @ts-ignore
-    mouseX.current = mouseX.prev = event.clientX;
+    mouseX.current = mouseX.prev = event.clientX + 10;
     // @ts-ignore
-    mouseY.current = mouseY.prev = event.clientY;
+    mouseY.current = mouseY.prev = event.clientY + 10;
     setVisible(true);
   };
 
@@ -40,40 +40,6 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
     mouseX.set(newX);
     mouseY.set(newY);
   };
-
-  // useEffect(() => {
-  //   setVisible(true);
-  // }, [initial]);
-
-  // useEffect(() => {
-  //   if (wrapperRef.current) {
-  //     const rect = wrapperRef.current.getBoundingClientRect();
-  //     mouseX.set(rect.x, false);
-  //     mouseY.set(rect.y, false);
-  //   }
-  // }, [wrapperRef.current]);
-
-  // console.log(mouseX);
-
-  // useEffect(() => {
-  //   const unsubscribe = mouseX.onChange(() => {
-  //     // console.log(
-  //     //   'getting latest:',
-  //     //   value,
-  //     //   mouseX.get(),
-  //     //   mouseX.getPrevious(),
-  //     //   mouseX.getVelocity()
-  //     // );
-  //     // const velocity = Math.abs(mouseX.getVelocity());
-  //     // if (velocity !== 0 && velocity < 10 && !visible) {
-  //     //   console.log('setting visible:', mouseX.getVelocity());
-  //     //   setVisible(true);
-  //     // }
-  //   });
-  //   return () => {
-  //     unsubscribe();
-  //   };
-  // }, []);
 
   return (
     <Fragment>
