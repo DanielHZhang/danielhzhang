@@ -23,9 +23,9 @@ export default function SkillsPage(): JSX.Element {
         }}
       >
         <Flex flow='column'>
-          <Flex flow='column' css={{marginBottom: '4rem'}}>
+          <Flex flow='column' css={{marginBottom: '3.6rem'}}>
             <Heading>Skills</Heading>
-            <div>What I'm good at</div>
+            <h2 css={{fontWeight: 300, fontSize: '2.4rem'}}>What I'm good at</h2>
           </Flex>
           <Stack flow='column' spacing='1.6rem'>
             <SkillsRow title='Languages' data={languages} />
