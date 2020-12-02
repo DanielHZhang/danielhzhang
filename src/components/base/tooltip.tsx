@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import {AnimatePresence, motion, useSpring} from 'framer-motion';
+import {AnimatePresence, motion, useMotionValue, useSpring} from 'framer-motion';
 import {Children, ReactElement, Fragment, createRef, useState, MouseEvent, useEffect} from 'react';
 import {Portal} from 'src/components/base/portal';
 
@@ -14,6 +14,14 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
   const mouseX = useSpring(0, {stiffness: 300, damping: 25});
   const mouseY = useSpring(0, {stiffness: 300, damping: 25});
   const [visible, setVisible] = useState(false);
+
+  const onMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
+    // @ts-ignore
+    mouseX.current = mouseX.prev = event.clientX;
+    // @ts-ignore
+    mouseY.current = mouseY.prev = event.clientY;
+    setVisible(true);
+  };
 
   const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     let newX = event.clientX + 20;
@@ -33,20 +41,46 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
     mouseY.set(newY);
   };
 
-  useEffect(() => {
-    if (wrapperRef.current) {
-      const rect = wrapperRef.current.getBoundingClientRect();
-      mouseX.set(rect.x, false);
-      mouseY.set(rect.y, false);
-    }
-  }, [wrapperRef.current]);
+  // useEffect(() => {
+  //   setVisible(true);
+  // }, [initial]);
+
+  // useEffect(() => {
+  //   if (wrapperRef.current) {
+  //     const rect = wrapperRef.current.getBoundingClientRect();
+  //     mouseX.set(rect.x, false);
+  //     mouseY.set(rect.y, false);
+  //   }
+  // }, [wrapperRef.current]);
+
+  // console.log(mouseX);
+
+  // useEffect(() => {
+  //   const unsubscribe = mouseX.onChange(() => {
+  //     // console.log(
+  //     //   'getting latest:',
+  //     //   value,
+  //     //   mouseX.get(),
+  //     //   mouseX.getPrevious(),
+  //     //   mouseX.getVelocity()
+  //     // );
+  //     // const velocity = Math.abs(mouseX.getVelocity());
+  //     // if (velocity !== 0 && velocity < 10 && !visible) {
+  //     //   console.log('setting visible:', mouseX.getVelocity());
+  //     //   setVisible(true);
+  //     // }
+  //   });
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
 
   return (
     <Fragment>
       <div
         ref={wrapperRef}
         onMouseLeave={() => setVisible(false)}
-        onMouseEnter={(event) => setVisible(true)}
+        onMouseEnter={onMouseEnter}
         onMouseMove={onMouseMove}
       >
         {Children.only(children)}
