@@ -10,11 +10,8 @@ type Props = {
 export const MainLayout = ({children}: Props): JSX.Element => {
   return (
     <Grid templateColumns='20rem auto 20rem' templateRows='14rem auto' css={{height: '100vh'}}>
-      <GridItem column='1' row='1/-1' css={{marginLeft: '3rem'}}>
+      <div css={{position: 'fixed', left: 0, padding: '3rem', height: '100%'}}>
         <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
-          {/* <LinkItem align='left' href='/' icon='user-circle'>
-            Index
-          </LinkItem> */}
           <LinkItem align='left' href='/about' icon='user-circle'>
             About
           </LinkItem>
@@ -28,18 +25,8 @@ export const MainLayout = ({children}: Props): JSX.Element => {
             Notes
           </LinkItem>
         </Stack>
-      </GridItem>
-      <GridItem column='2'>
-        <Flex flow='column' mainAxis='center' crossAxis='center' css={{height: '100%'}}>
-          {/* <div>Hey, I'm</div> */}
-          <div css={{fontSize: '3.2rem'}}>Daniel Zhang</div>
-          <Flex mainAxis='center' crossAxis='center'>
-            <div>Software Engineer</div>
-            <div>Entrepreneur</div>
-          </Flex>
-        </Flex>
-      </GridItem>
-      <GridItem column='3' row='1/-1' css={{marginRight: '3rem'}}>
+      </div>
+      <div css={{position: 'fixed', right: 0, padding: '3rem', height: '100%'}}>
         <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
           <LinkItem align='right' href='/' icon='github'>
             GitHub
@@ -54,6 +41,15 @@ export const MainLayout = ({children}: Props): JSX.Element => {
             Resume
           </LinkItem>
         </Stack>
+      </div>
+      <GridItem column='2'>
+        <Flex flow='column' mainAxis='center' crossAxis='center' css={{height: '100%'}}>
+          <div css={{fontSize: '4.2rem'}}>Daniel Zhang</div>
+          <Flex mainAxis='center' crossAxis='center'>
+            <div>Software Engineer</div>
+            <div>Entrepreneur</div>
+          </Flex>
+        </Flex>
       </GridItem>
       {children && (
         <GridItem column='2' css={{padding: '2.4rem'}}>

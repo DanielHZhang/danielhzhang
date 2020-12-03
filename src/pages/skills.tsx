@@ -9,10 +9,12 @@ import {
   SkillsRow,
   tools,
 } from 'src/components/skills/row';
+import {Title} from 'src/components/title';
 
 export default function SkillsPage(): JSX.Element {
   return (
     <MainLayout>
+      <Title description='Skills' />
       <Flex flow='column' crossAxis='center'>
         <Flex flow='column'>
           <Flex flow='column' css={{marginBottom: '3.6rem'}}>
