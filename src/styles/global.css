@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
   font-size: 62.5%;
+  --background-primary: #111111;
+  --selection-background: #fedfe1;
+  --scrollbar-background: #202324;
+  --scrollbar-thumb: #454a4d;
+  --scrollbar-corner: #181a1b;
 }
 
 body {
@@ -11,5 +14,22 @@ body {
   font-size: 1.6rem;
   font-family: 'Inter';
   overflow: hidden auto;
-  background-color: #111111;
+  background-color: var(--background-primary);
+}
+
+::selection {
+  color: var(--background-primary);
+  background-color: var(--selection-background);
+}
+
+::-webkit-scrollbar {
+  background-color: var(--scrollbar-background);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--scrollbar-corner);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
 }

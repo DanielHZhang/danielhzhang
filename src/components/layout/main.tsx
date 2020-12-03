@@ -57,10 +57,12 @@ export const MainLayout = ({children}: Props): JSX.Element => {
           }}
         >
           <div css={{fontSize: '4.2rem'}}>Daniel Zhang</div>
-          <Flex mainAxis='center' crossAxis='center'>
-            <div>software engineer</div>
-            <div> </div>
-            <div>entrepreneur</div>
+          <Flex
+            mainAxis='center'
+            crossAxis='center'
+            css={{fontFamily: 'Inconsolata', fontSize: '1.8rem'}}
+          >
+            <div>software engineer // entrepreneur</div>
           </Flex>
         </Flex>
       </GridItem>
