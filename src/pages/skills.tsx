@@ -13,19 +13,19 @@ import {
 export default function SkillsPage(): JSX.Element {
   return (
     <MainLayout>
-      <Flex
-        flow='column'
-        crossAxis='center'
-        css={{
-          /* backgroundColor: '#252525', */
-          borderRadius: '6px',
-          padding: '2.4rem',
-        }}
-      >
+      <Flex flow='column' crossAxis='center'>
         <Flex flow='column'>
           <Flex flow='column' css={{marginBottom: '3.6rem'}}>
-            <Heading>Skills</Heading>
-            <h2 css={{fontWeight: 300, fontSize: '2.4rem'}}>What I'm good at</h2>
+            <Heading css={{color: '#FCFAF2'}}>Skills</Heading>
+            <h2
+              css={{
+                fontWeight: 300,
+                /* fontSize: '2rem', */ color: '#dac9a6',
+                letterSpacing: '0.1rem',
+              }}
+            >
+              TECHNOLOGIES I WORK WITH
+            </h2>
           </Flex>
           <Stack flow='column' spacing='1.6rem'>
             <SkillsRow title='Languages' data={languages} />

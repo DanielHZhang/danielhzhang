@@ -9,17 +9,12 @@ type Props = {
 
 export const MainLayout = ({children}: Props): JSX.Element => {
   return (
-    <Grid
-      templateColumns='20rem auto 20rem'
-      templateRows='14rem auto'
-      // templateAreas='"header header header" "left main right"'
-      css={{height: '100vh'}}
-    >
+    <Grid templateColumns='20rem auto 20rem' templateRows='14rem auto' css={{height: '100vh'}}>
       <GridItem column='1' row='1/-1' css={{marginLeft: '3rem'}}>
         <Stack spacing='1.6rem' flow='column' mainAxis='center' css={{height: '100%'}}>
-          <LinkItem align='left' href='/' icon='user-circle'>
+          {/* <LinkItem align='left' href='/' icon='user-circle'>
             Index
-          </LinkItem>
+          </LinkItem> */}
           <LinkItem align='left' href='/about' icon='user-circle'>
             About
           </LinkItem>
@@ -60,7 +55,11 @@ export const MainLayout = ({children}: Props): JSX.Element => {
           </LinkItem>
         </Stack>
       </GridItem>
-      {children && <GridItem column='2'>{children}</GridItem>}
+      {children && (
+        <GridItem column='2' css={{padding: '2.4rem'}}>
+          {children}
+        </GridItem>
+      )}
     </Grid>
   );
 };
