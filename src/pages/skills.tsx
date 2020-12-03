@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import {Flex, Heading, Stack} from 'src/components/base';
+import {Flex, Heading, Stack, Subheading} from 'src/components/base';
 import {MainLayout} from 'src/components/layout/main';
 import {
   databases,
@@ -18,16 +18,8 @@ export default function SkillsPage(): JSX.Element {
       <Flex flow='column' crossAxis='center'>
         <Flex flow='column'>
           <Flex flow='column' css={{marginBottom: '3.6rem'}}>
-            <Heading css={{color: '#FCFAF2'}}>Skills</Heading>
-            <h2
-              css={{
-                fontWeight: 300,
-                /* fontSize: '2rem', */ color: '#dac9a6',
-                letterSpacing: '0.1rem',
-              }}
-            >
-              TECHNOLOGIES I WORK WITH
-            </h2>
+            <Heading>Skills</Heading>
+            <Subheading>TECHNOLOGIES I WORK WITH</Subheading>
           </Flex>
           <Stack flow='column' spacing='1.6rem'>
             <SkillsRow title='Languages' data={languages} />

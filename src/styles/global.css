@@ -1,20 +1,25 @@
 :root {
   font-size: 62.5%;
+  --font-text: 'Inter';
+  --font-code: 'Inconsolata';
+  --font-color-heading-primary: #fcfaf2;
+  --font-color-heading-secondary: #dac9a6;
+  --font-color-primary: #bdc0ba;
   --background-primary: #111111;
   --selection-background: #fedfe1;
   --scrollbar-background: #202324;
-  --scrollbar-thumb: #454a4d;
-  --scrollbar-corner: #181a1b;
+  --scrollbar-thumb-color: #454a4d;
+  --scrollbar-corner-color: #181a1b;
 }
 
 body {
   height: 100%;
   width: 100%;
-  color: #f5f5f5;
-  font-size: 1.6rem;
-  font-family: 'Inter';
-  overflow: hidden auto;
   background-color: var(--background-primary);
+  color: var(--font-color-primary);
+  font-size: 1.6rem;
+  font-family: var(--font-text);
+  overflow: hidden auto;
 }
 
 ::selection {
@@ -27,9 +32,9 @@ body {
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: var(--scrollbar-corner);
+  background-color: var(--scrollbar-corner-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
+  background-color: var(--scrollbar-thumb-color);
 }

@@ -4,12 +4,12 @@ import React, {Fragment} from 'react';
 import Head from 'next/head';
 import {AppProps} from 'next/app';
 import {Cursor} from 'src/components/cursor';
-import {GlobalCss} from 'src/components/global';
 import {Title} from 'src/components/title';
 
 export default function App({Component, pageProps}: AppProps): JSX.Element {
   return (
     <Fragment>
+      <Title />
       <Head>
         <link rel='preconnect' href='https://fonts.gstatic.com' />
         <link
@@ -17,8 +17,6 @@ export default function App({Component, pageProps}: AppProps): JSX.Element {
           rel='stylesheet'
         />
       </Head>
-      <Title />
-      <GlobalCss />
       <Component {...pageProps} />
       <Cursor />
     </Fragment>

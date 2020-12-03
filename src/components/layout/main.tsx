@@ -18,7 +18,7 @@ export const MainLayout = ({children}: Props): JSX.Element => {
           <LinkItem align='left' href='/skills' icon='shield-check'>
             Skills
           </LinkItem>
-          <LinkItem align='left' href='/porfolio' icon='suitcase'>
+          <LinkItem align='left' href='/portfolio' icon='suitcase'>
             Portfolio
           </LinkItem>
           <LinkItem align='left' href='/notes' icon='notes'>
