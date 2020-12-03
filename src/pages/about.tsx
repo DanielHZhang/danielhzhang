@@ -9,7 +9,7 @@ export default function AboutPage(): JSX.Element {
     <MainLayout>
       <Title description='About' />
       <Flex flow='column' crossAxis='center'>
-        <Flex flow='column' css={{maxWidth: '70rem'}}>
+        <Flex flow='column' css={{maxWidth: '72rem'}}>
           <Flex flow='column' css={{marginBottom: '3.6rem'}}>
             <Heading css={{color: '#FCFAF2'}}>About</Heading>
             <h2
@@ -54,19 +54,13 @@ export default function AboutPage(): JSX.Element {
                   <strong>resume</strong>
                 </a>
               </Link>
-              <span>{', '}</span>
+              <span>{' and '}</span>
               <Link href='/'>
                 <a>
                   <strong>email</strong>
                 </a>
               </Link>
-              <span>{', and '}</span>
-              <Link href='/'>
-                <a>
-                  <strong>LinkedIn</strong>
-                </a>
-              </Link>
-              <span>{", if you're interested in working with me."}</span>
+              <span>{" if you're interested in working with me."}</span>
             </p>
           </Stack>
         </Flex>

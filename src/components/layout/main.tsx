@@ -42,12 +42,25 @@ export const MainLayout = ({children}: Props): JSX.Element => {
           </LinkItem>
         </Stack>
       </div>
-      <GridItem column='2'>
-        <Flex flow='column' mainAxis='center' crossAxis='center' css={{height: '100%'}}>
+      <GridItem column='2' css={{position: 'relative'}}>
+        <Flex
+          flow='column'
+          mainAxis='center'
+          crossAxis='center'
+          css={{
+            position: 'fixed',
+            padding: '2.4rem',
+            height: '14rem',
+            left: 0,
+            right: 0,
+            userSelect: 'none',
+          }}
+        >
           <div css={{fontSize: '4.2rem'}}>Daniel Zhang</div>
           <Flex mainAxis='center' crossAxis='center'>
-            <div>Software Engineer</div>
-            <div>Entrepreneur</div>
+            <div>software engineer</div>
+            <div> </div>
+            <div>entrepreneur</div>
           </Flex>
         </Flex>
       </GridItem>
