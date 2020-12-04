@@ -2,8 +2,10 @@
   font-size: 62.5%;
   --font-text: 'Inter';
   --font-code: 'Inconsolata';
+  --font-color-link: #dac9a6;
   --font-color-heading-primary: #fcfaf2;
   --font-color-heading-secondary: #dac9a6;
+  --font-color-heading-tertiary: #9e7a7a;
   --font-color-primary: #bdc0ba;
   --background-primary: #111111;
   --selection-background: #fedfe1;

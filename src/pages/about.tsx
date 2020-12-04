@@ -1,20 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link';
-import {Flex, Heading, Stack, Subheading} from 'src/components/base';
-import {MainLayout} from 'src/components/layout/main';
-import {Title} from 'src/components/title';
+import {Flex, Stack} from 'src/components/base';
+import {MainLayout} from 'src/components/layout';
+import {PageTitle, HeadTitle} from 'src/components/title';
 
 export default function AboutPage(): JSX.Element {
   return (
     <MainLayout>
-      <Title description='About' />
+      <HeadTitle description='About' />
       <Flex flow='column' crossAxis='center'>
         <Flex flow='column' css={{maxWidth: '72rem'}}>
-          <Flex flow='column' css={{marginBottom: '3.6rem'}}>
-            <Heading>About</Heading>
-            <Subheading>WHO I AM</Subheading>
-          </Flex>
-          <Stack flow='column' spacing='1.6rem' css={{fontSize: '2rem'}}>
+          <PageTitle heading='About' subheading='WHO I AM' />
+          <Stack flow='column' spacing='1.6rem' css={{fontSize: '2rem', marginTop: '3.6rem'}}>
             <p>Hey there! I'm Daniel, a software engineer from Toronto, Canada.</p>
             <p>
               My experience in software development spans across the stack, having built substantial

@@ -60,15 +60,15 @@ export const Cursor = (): JSX.Element | null => {
               animate={{opacity: 1}}
               exit={{opacity: 0}}
               css={{
-                display: 'inline-block',
+                backfaceVisibility: 'hidden',
                 background: 'none',
+                border: '2px solid #ffffff',
+                borderRadius: '50%',
+                display: 'inline-block',
+                pointerEvents: 'none',
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                border: '2px solid #fff',
-                borderRadius: '50%',
-                pointerEvents: 'none',
-                backfaceVisibility: 'hidden',
               }}
             />
           </div>

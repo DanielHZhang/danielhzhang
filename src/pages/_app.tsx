@@ -4,12 +4,12 @@ import React, {Fragment} from 'react';
 import Head from 'next/head';
 import {AppProps} from 'next/app';
 import {Cursor} from 'src/components/cursor';
-import {Title} from 'src/components/title';
+import {HeadTitle} from 'src/components/title';
 
 export default function App({Component, pageProps}: AppProps): JSX.Element {
   return (
     <Fragment>
-      <Title />
+      <HeadTitle />
       <Head>
         <link rel='preconnect' href='https://fonts.gstatic.com' />
         <link

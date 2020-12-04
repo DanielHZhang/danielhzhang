@@ -1,4 +1,4 @@
-import {MainLayout} from 'src/components/layout/main';
+import {MainLayout} from 'src/components/layout';
 
 export default function PortfolioPage(): JSX.Element {
   return (

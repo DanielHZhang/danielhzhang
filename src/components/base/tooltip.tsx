@@ -63,15 +63,15 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
                 css={{
+                  backgroundColor: 'rgba(50, 50, 54, 0.95)',
+                  borderRadius: '6px',
+                  color: 'var(--font-color-link)',
+                  padding: '0.6rem 1rem',
+                  pointerEvents: 'none',
                   position: 'absolute',
                   left: 0,
                   top: 0,
-                  color: '#dac9a6',
-                  backgroundColor: 'rgba(50, 50, 54, 0.95)',
-                  borderRadius: '6px',
-                  padding: '0.6rem 1rem',
                   zIndex: 10,
-                  pointerEvents: 'none',
                 }}
               >
                 {label}
