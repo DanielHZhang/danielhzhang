@@ -24,10 +24,10 @@ export default function App({Component, pageProps}: AppProps): JSX.Element {
           href='https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap'
           rel='stylesheet'
         />
-        {/* <link
-          href='https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap'
+        <link
+          href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap'
           rel='stylesheet'
-        /> */}
+        />
       </Head>
       <Component {...pageProps} />
       <Cursor />

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {Flex, Stack} from 'src/components/base';
-import {MainLayout} from 'src/components/layout';
+import {MainLayout} from 'src/components/layouts';
 import {iconData, SkillsRow} from 'src/components/skills/row';
 import {PageTitle, HeadTitle} from 'src/components/title';
 

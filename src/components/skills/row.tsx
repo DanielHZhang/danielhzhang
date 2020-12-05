@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import {Heading, Stack, Tooltip} from 'src/components/base';
+import {Heading, Stack, Subheading, Tooltip} from 'src/components/base';
 import {Icon, IconType} from 'src/components/icons';
 
 type IconData = {
@@ -56,7 +56,7 @@ type Props = {
 
 export const SkillsRow = ({data, title}: Props): JSX.Element => (
   <div>
-    <Heading level={3}>{title}</Heading>
+    <Subheading>{title}</Subheading>
     <Stack spacing='2rem' css={{marginTop: '0.6rem'}}>
       {data.map(({type, label}, index) => (
         <Tooltip key={index} label={label}>

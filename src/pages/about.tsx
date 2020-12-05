@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link';
 import {Flex, Stack} from 'src/components/base';
-import {MainLayout} from 'src/components/layout';
+import {MainLayout} from 'src/components/layouts';
 import {PageTitle, HeadTitle} from 'src/components/title';
 
 export default function AboutPage(): JSX.Element {

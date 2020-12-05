@@ -1,6 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import {MainLayout} from 'src/components/layout';
+import {Flex} from 'src/components/base';
+import {MainLayout} from 'src/components/layouts';
 
 export default function HomePage(): JSX.Element {
-  return <MainLayout />;
+  return (
+    <Flex>
+      <div>DANIEL</div>
+      <div>ZHANG</div>
+    </Flex>
+  );
 }

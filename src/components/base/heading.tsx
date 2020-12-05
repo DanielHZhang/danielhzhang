@@ -7,9 +7,11 @@ type Props = {
 
 export const Heading = styled.h1<Props>(
   ({level = 1}) => css`
-    color: var(--font-color-heading-primary);
+    color: #9e7a7a;
+    /* color: var(--font-color-heading-primary); */
+    font-family: var(--font-heading);
     font-size: ${level === 1 ? '3.6rem' : level === 2 ? '3rem' : '2.4rem'};
-    font-weight: ${level === 1 ? 700 : level === 2 ? 600 : 500};
+    font-weight: ${level === 1 ? 600 : level === 2 ? 600 : 500};
     margin: 0;
   `
 );

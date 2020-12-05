@@ -58,11 +58,11 @@ export const MainLayout = ({children}: Props): JSX.Element => {
         >
           <div
             css={{
+              color: '#fff',
               fontSize: '5rem',
               fontFamily: 'Spartan',
               fontWeight: 500,
               lineHeight: '5rem',
-              // boxSizing: 'content-box',
               letterSpacing: '0.2rem',
             }}
           >

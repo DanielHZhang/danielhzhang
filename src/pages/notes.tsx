@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {Flex} from 'src/components/base';
-import {MainLayout} from 'src/components/layout';
+import {MainLayout} from 'src/components/layouts';
 import {PageTitle} from 'src/components/title';
 
 export default function NotesPage(): JSX.Element {
