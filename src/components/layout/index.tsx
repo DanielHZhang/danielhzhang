@@ -49,14 +49,25 @@ export const MainLayout = ({children}: Props): JSX.Element => {
           crossAxis='center'
           css={{
             position: 'fixed',
-            padding: '2.4rem',
+            paddingTop: '2.8rem',
             height: '14rem',
             left: 0,
             right: 0,
             userSelect: 'none',
           }}
         >
-          <div css={{fontSize: '4.2rem'}}>Daniel Zhang</div>
+          <div
+            css={{
+              fontSize: '5rem',
+              fontFamily: 'Spartan',
+              fontWeight: 500,
+              lineHeight: '5rem',
+              // boxSizing: 'content-box',
+              letterSpacing: '0.2rem',
+            }}
+          >
+            DANIEL ZHANG
+          </div>
           <Flex
             mainAxis='center'
             crossAxis='center'

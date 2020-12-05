@@ -16,6 +16,7 @@ export const Heading = styled.h1<Props>(
 
 export const Subheading = styled.h2`
   color: var(--font-color-heading-secondary);
-  font-weight: 300;
+  font-family: var(--font-subheading);
+  /* font-weight: 300; */
   letter-spacing: 0.1rem;
 `;

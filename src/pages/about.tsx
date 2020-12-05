@@ -20,8 +20,8 @@ export default function AboutPage(): JSX.Element {
             </p>
             <p>
               I deeply enjoy learning, creating, and growing with diverse people and teams. I owe a
-              lot of my knowledge to the open source community and adopting the values of
-              accessible, human-centric, problem-focused development.
+              lot of my knowledge to the open source community and adopting an accessible,
+              human-centric, problem-oriented approach to development.
             </p>
             <p>
               My goal as a software engineer is to build and empower others to build a healthier,
