@@ -12,9 +12,8 @@ export default function HomePage(): JSX.Element {
       <GridItem align='center'>
         <HanziHero />
       </GridItem> */}
-      <div css={{position: 'fixed', bottom: '4rem', left: '4rem'}}>
-        <ScrollReminder />
-      </div>
+
+      <ScrollReminder />
       {/* <svg width='5' height='40' viewBox='0 0 5 40' fill='#fff'>
         <title>Vector Smart Object</title>
         <path d='M0,40V0H1V35H5Z'></path>
