@@ -1,30 +1,24 @@
 /** @jsxImportSource @emotion/react */
-import {Flex, Grid, GridItem} from 'src/components/base';
-import {Hero} from 'src/components/home';
-import {Hanzi} from 'src/components/home/hanzi';
+import {motion} from 'framer-motion';
+import {Flex, Grid, GridItem, Subheading} from 'src/components/base';
+import {HanziHero, Hero, ScrollReminder} from 'src/components/home';
 
 export default function HomePage(): JSX.Element {
   return (
     <Grid templateColumns='auto 30%' css={{height: '100vh'}}>
-      <GridItem justify='end' align='center'>
+      {/* <GridItem justify='end' align='center'>
         <Hero />
       </GridItem>
-      <GridItem>
-        <Flex>
-          <Hanzi type='zhang' />
-        </Flex>
-      </GridItem>
-      <div
-        css={{
-          position: 'fixed',
-          bottom: '4rem',
-          left: '4rem',
-          transformOrigin: 'top left',
-          transform: 'rotate(-90deg)',
-        }}
-      >
-        ---- SCROLL TO SEE MORE
+      <GridItem align='center'>
+        <HanziHero />
+      </GridItem> */}
+      <div css={{position: 'fixed', bottom: '4rem', left: '4rem'}}>
+        <ScrollReminder />
       </div>
+      {/* <svg width='5' height='40' viewBox='0 0 5 40' fill='#fff'>
+        <title>Vector Smart Object</title>
+        <path d='M0,40V0H1V35H5Z'></path>
+      </svg> */}
     </Grid>
   );
 }

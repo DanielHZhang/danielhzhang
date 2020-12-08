@@ -65,7 +65,22 @@ export const Hero = (): JSX.Element => {
           NG
         </motion.div>
       </Flex>
-      <Flex>software engineer // entrepreneur</Flex>
+      <Flex
+        // mainAxis='center'
+        // crossAxis='center'
+        mainAxis='flex-start'
+        css={{fontFamily: 'Inconsolata', fontSize: '3.2rem', lineHeight: '3.6rem', width: '100%'}}
+      >
+        <motion.div
+          initial={{width: 0}}
+          animate={{width: 'initial'}}
+          transition={{delay: 1, duration: 10}}
+          css={{whiteSpace: 'nowrap', overflow: 'hidden'}}
+        >
+          software engineer // entrepreneur
+        </motion.div>
+        <motion.div css={{height: '3.6rem', width: '1.6rem', backgroundColor: 'orange'}} />
+      </Flex>
     </Flex>
   );
 };
