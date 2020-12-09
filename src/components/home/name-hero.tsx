@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import styled from '@emotion/styled';
 import {motion, Variants} from 'framer-motion';
 import {Flex} from 'src/components/base';
 
@@ -12,7 +13,7 @@ import {Flex} from 'src/components/base';
 //   },
 // };
 
-const firstNameVariant1: Variants = {
+const downUpVariants: Variants = {
   hidden: {
     // opacity: 0,
     y: 100,
@@ -28,7 +29,7 @@ const firstNameVariant1: Variants = {
   },
 };
 
-const firstNameVariant2: Variants = {
+const upDownVariants: Variants = {
   hidden: {
     // opacity: 0,
     y: -100,
@@ -45,26 +46,42 @@ const firstNameVariant2: Variants = {
 };
 
 const fontSize = '18rem';
+const firstName = 'DANIEL'.split('');
+const lastName = 'ZHANG'.split('');
+
+const NameWrapper = styled(Flex)`
+  overflow: hidden;
+  font-size: ${fontSize};
+  line-height: ${fontSize};
+`;
 
 export const Hero = (): JSX.Element => {
   return (
     <Flex flow='column' css={{userSelect: 'none'}}>
-      <Flex css={{overflow: 'hidden', fontSize, height: fontSize, lineHeight: fontSize}}>
-        <motion.div initial='hidden' animate='visible' variants={firstNameVariant1}>
-          DAN
-        </motion.div>
-        <motion.div initial='hidden' animate='visible' variants={firstNameVariant2}>
-          IEL
-        </motion.div>
-      </Flex>
-      <Flex css={{overflow: 'hidden', fontSize, height: fontSize, lineHeight: fontSize}}>
-        <motion.div initial='hidden' animate='visible' variants={firstNameVariant2}>
-          ZHA
-        </motion.div>
-        <motion.div initial='hidden' animate='visible' variants={firstNameVariant1}>
-          NG
-        </motion.div>
-      </Flex>
+      <NameWrapper>
+        {firstName.map((letter, index) => (
+          <motion.div
+            key={index}
+            initial='hidden'
+            animate='visible'
+            variants={index % 2 === 0 ? downUpVariants : upDownVariants}
+          >
+            {letter}
+          </motion.div>
+        ))}
+      </NameWrapper>
+      <NameWrapper>
+        {lastName.map((letter, index) => (
+          <motion.div
+            key={index}
+            initial='hidden'
+            animate='visible'
+            variants={index % 2 === 0 ? upDownVariants : downUpVariants}
+          >
+            {letter}
+          </motion.div>
+        ))}
+      </NameWrapper>
       <Flex
         // mainAxis='center'
         // crossAxis='center'
