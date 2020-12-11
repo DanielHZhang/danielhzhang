@@ -83,8 +83,6 @@ export const Hero = (): JSX.Element => {
         ))}
       </NameWrapper>
       <Flex
-        // mainAxis='center'
-        // crossAxis='center'
         mainAxis='flex-start'
         css={{fontFamily: 'Inconsolata', fontSize: '3.2rem', lineHeight: '3.6rem', width: '100%'}}
       >

@@ -1,21 +1,23 @@
 /** @jsxImportSource @emotion/react */
-import {motion} from 'framer-motion';
+import {AnimatePresence, motion} from 'framer-motion';
 import {useEffect, useRef, useState} from 'react';
 import {Flex, Grid, GridItem, Subheading} from 'src/components/base';
+import {ContinueNext} from 'src/components/continue';
 import {HanziHero, Hero, ScrollReminder} from 'src/components/home';
-import {IS_BROWSER} from 'src/config/constants';
-import {useEventListener} from 'src/hooks';
-// import {useDidMount} from 'src/hooks/use-did-mount';
+import {useDidMount, useEventListener} from 'src/hooks';
 
 export default function HomePage(): JSX.Element {
   const [next, setNext] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+
+  useEventListener('window', 'unload', () => {
+    // Prevent browser from remembering previous scroll position
+    // by tricking it to thinking we scrolled back to the top
+    window.scrollTo(0, 0);
+  });
 
   useEventListener('window', 'scroll', () => {
-    // Reached bottom of the page
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-      // console.log('Bottom of page');
-      setNext(true);
+      setNext(true); // Reached bottom of the page
     } else {
       setNext(false);
     }
@@ -27,7 +29,9 @@ export default function HomePage(): JSX.Element {
         <Hero />
         <HanziHero />
       </Flex>
-      <ScrollReminder />
+      <AnimatePresence exitBeforeEnter={true}>
+        {next ? <ContinueNext key='a' /> : <ScrollReminder key='b' />}
+      </AnimatePresence>
     </Flex>
   );
 }

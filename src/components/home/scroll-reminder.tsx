@@ -5,8 +5,12 @@ import {Flex, Subheading} from 'src/components/base';
 
 export const ScrollReminder = (): JSX.Element => {
   return (
-    <Flex
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
       css={{
+        display: 'flex',
         position: 'fixed',
         bottom: '3.6rem',
         left: '4.8rem',
@@ -42,6 +46,6 @@ export const ScrollReminder = (): JSX.Element => {
         </svg>
       </motion.div>
       <Subheading>SCROLL TO SEE MORE</Subheading>
-    </Flex>
+    </motion.div>
   );
 };
