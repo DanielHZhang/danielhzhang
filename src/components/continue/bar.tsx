@@ -2,25 +2,38 @@
 import {motion} from 'framer-motion';
 
 type Origin = {
-  bottom?: string;
-  top?: string;
-  left?: string;
-  right?: string;
+  bottom?: string | number;
+  top?: string | number;
+  left?: string | number;
+  right?: string | number;
 };
 
 type Props = {
   type: 'vertical' | 'horizontal';
-  end: string;
+  length?: string;
   origin: Origin;
+  color: string;
 };
 
-export const Bar = ({end, type, origin}: Props): JSX.Element => {
+export const Bar = ({length = '100%', type, origin, color}: Props): JSX.Element => {
   return (
     <motion.div
-      initial={{[type === 'horizontal' ? 'width' : 'height']: 0}}
-      animate={{[type === 'horizontal' ? 'width' : 'height']: end}}
+      variants={{
+        hidden: {
+          opacity: 0,
+          [type === 'horizontal' ? 'width' : 'height']: 0,
+        },
+        visible: {
+          opacity: 1,
+          [type === 'horizontal' ? 'width' : 'height']: length,
+          transition: {
+            duration: 0.8,
+            ease: 'easeInOut',
+          },
+        },
+      }}
       css={{
-        backgroundColor: '#fff',
+        backgroundColor: color,
         position: 'absolute',
         [type === 'horizontal' ? 'height' : 'width']: 2,
         ...origin,

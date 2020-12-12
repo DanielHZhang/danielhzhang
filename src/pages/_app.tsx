@@ -3,10 +3,23 @@ import 'src/styles/global.css';
 import React, {Fragment} from 'react';
 import Head from 'next/head';
 import {AppProps} from 'next/app';
+import {AnimatePresence, motion, Variants} from 'framer-motion';
 import {Cursor} from 'src/components/cursor';
 import {HeadTitle} from 'src/components/title';
 
-export default function App({Component, pageProps}: AppProps): JSX.Element {
+const pageVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
+export default function App({Component, pageProps, router}: AppProps): JSX.Element {
   return (
     <Fragment>
       <HeadTitle />
@@ -29,7 +42,17 @@ export default function App({Component, pageProps}: AppProps): JSX.Element {
           rel='stylesheet'
         />
       </Head>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter={true}>
+        <motion.div
+          key={router.route}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          variants={pageVariants}
+        >
+          <Component {...pageProps} />
+        </motion.div>
+      </AnimatePresence>
       <Cursor />
     </Fragment>
   );
