@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {AnimatePresence} from 'framer-motion';
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import {Flex} from 'src/components/base';
 import {ContinueNext} from 'src/components/continue';
 import {HanziHero, Hero, ScrollReminder} from 'src/components/home';
@@ -30,9 +30,15 @@ export default function HomePage(): JSX.Element {
         <Hero />
         <HanziHero />
       </Flex>
-      <PageNavigator />
       <AnimatePresence exitBeforeEnter={true}>
-        {next ? <ContinueNext key='a' /> : <ScrollReminder key='b' />}
+        {next ? (
+          <ContinueNext key='a' />
+        ) : (
+          <Fragment key='b'>
+            <PageNavigator />
+            <ScrollReminder />
+          </Fragment>
+        )}
       </AnimatePresence>
     </Flex>
   );
