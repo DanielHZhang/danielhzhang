@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable max-len */
 import {motion} from 'framer-motion';
-import {Flex, Subheading} from 'src/components/base';
+import {Subheading} from 'src/components/base';
 
 export const ScrollReminder = (): JSX.Element => {
   return (
@@ -12,21 +12,20 @@ export const ScrollReminder = (): JSX.Element => {
       css={{
         display: 'flex',
         position: 'fixed',
-        bottom: '3.6rem',
-        left: '4.8rem',
+        bottom: '3.2rem',
+        left: '3.6rem',
         transformOrigin: 'top left',
         transform: 'rotate(-90deg)',
         userSelect: 'none',
         pointerEvents: 'none',
-        overflow: 'hidden',
       }}
     >
       <motion.div
         initial={{opacity: 1, x: 0}}
-        animate={{opacity: 0.5, x: -50}}
+        animate={{opacity: 0.5, x: -32}}
         transition={{
-          ease: 'easeOut',
-          duration: 1,
+          ease: 'easeInOut',
+          duration: 1.5,
           repeat: Infinity,
           repeatType: 'mirror',
         }}

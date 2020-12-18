@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import {AnimatePresence, motion} from 'framer-motion';
-import {useEffect, useRef, useState} from 'react';
-import {Flex, Grid, GridItem, Subheading} from 'src/components/base';
+import {AnimatePresence} from 'framer-motion';
+import {useState} from 'react';
+import {Flex} from 'src/components/base';
 import {ContinueNext} from 'src/components/continue';
 import {HanziHero, Hero, ScrollReminder} from 'src/components/home';
-import {useDidMount, useEventListener} from 'src/hooks';
+import {PageNavigator} from 'src/components/home/navigator';
+import {useEventListener} from 'src/hooks';
 
 export default function HomePage(): JSX.Element {
   const [next, setNext] = useState(false);
@@ -29,6 +30,7 @@ export default function HomePage(): JSX.Element {
         <Hero />
         <HanziHero />
       </Flex>
+      <PageNavigator />
       <AnimatePresence exitBeforeEnter={true}>
         {next ? <ContinueNext key='a' /> : <ScrollReminder key='b' />}
       </AnimatePresence>
