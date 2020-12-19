@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import {css} from '@emotion/react';
-import {AnimatePresence, motion} from 'framer-motion';
+import {motion} from 'framer-motion';
 import {MouseEvent, useState} from 'react';
 import {HamburgerMenuBar} from 'src/components/hamburger/bar';
 

@@ -32,7 +32,7 @@ export default function HomePage(): JSX.Element {
       </Flex>
       <AnimatePresence exitBeforeEnter={true}>
         {next ? (
-          <ContinueNext key='a' />
+          <ContinueNext key='a' href='/about' />
         ) : (
           <Fragment key='b'>
             <PageNavigator />

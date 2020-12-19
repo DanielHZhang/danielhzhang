@@ -35,7 +35,7 @@ export const Bar = ({length = '100%', type, origin, color}: Props): JSX.Element 
       css={{
         backgroundColor: color,
         position: 'absolute',
-        [type === 'horizontal' ? 'height' : 'width']: 2,
+        [type === 'horizontal' ? 'height' : 'width']: 4,
         ...origin,
       }}
     />

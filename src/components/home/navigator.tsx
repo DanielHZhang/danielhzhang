@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
 
-import {css} from '@emotion/react';
-import {motion} from 'framer-motion';
+import {AnimatePresence, motion, Variants} from 'framer-motion';
 import Link from 'next/link';
 import {useState} from 'react';
-import {Flex, Stack, Tooltip} from 'src/components/base';
+import {Stack} from 'src/components/base';
 import {HamburgerMenu} from 'src/components/hamburger';
 
 type ItemData = {
@@ -23,8 +22,19 @@ const items: ItemData[] = [
   {name: 'Resume', href: '/resume'},
 ];
 
+const parentVariants: Variants = {
+  initial: {opacity: 0},
+  animate: {opacity: 1, transition: {staggerChildren: 0.1, stiffness: 400, damping: 100}},
+  exit: {transition: {staggerChildren: 0.05, stiffness: 400, damping: 100}},
+};
+
+const childVariants: Variants = {
+  initial: {x: -40, opacity: 0},
+  animate: {x: 0, opacity: 1},
+  exit: {x: -40, opacity: 0},
+};
+
 type ItemProps = {
-  // name: string;
   href: string;
   children: string;
 };
@@ -34,8 +44,9 @@ const PageMenuItem = ({href, children}: ItemProps): JSX.Element => {
     <Link href={href}>
       <motion.a
         href={href}
+        variants={childVariants}
         whileHover={{scale: 1.1, rotateX: 10, rotateZ: 5, color: '#49C1F0'}}
-        css={{cursor: 'pointer'}}
+        css={{cursor: 'pointer', fontWeight: 600}}
       >
         {children}
       </motion.a>
@@ -43,8 +54,12 @@ const PageMenuItem = ({href, children}: ItemProps): JSX.Element => {
   );
 };
 
-export const PageNavigator = (): JSX.Element => {
-  const [open, setOpen] = useState(false);
+type Props = {
+  initial?: boolean;
+};
+
+export const PageNavigator = ({initial = false}: Props): JSX.Element => {
+  const [open, setOpen] = useState(initial);
 
   return (
     <motion.div
@@ -54,15 +69,19 @@ export const PageNavigator = (): JSX.Element => {
       css={{position: 'fixed', top: '3.2rem', left: '3.2rem', display: 'flex', userSelect: 'none'}}
     >
       <HamburgerMenu open={open} onClick={() => setOpen(!open)} />
-      {open && (
-        <Stack as='ul' spacing='3.2rem' css={{marginLeft: '3.2rem'}}>
-          {items.map((item, index) => (
-            <PageMenuItem href={item.href} key={index}>
-              {item.name}
-            </PageMenuItem>
-          ))}
-        </Stack>
-      )}
+      <AnimatePresence exitBeforeEnter={true}>
+        {open && (
+          <motion.div initial='initial' animate='animate' exit='exit' variants={parentVariants}>
+            <Stack as='ul' spacing='3.2rem' css={{marginLeft: '3.2rem'}}>
+              {items.map((item, index) => (
+                <PageMenuItem key={index} href={item.href}>
+                  {item.name}
+                </PageMenuItem>
+              ))}
+            </Stack>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

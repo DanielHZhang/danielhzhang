@@ -6,7 +6,7 @@ import {PageTitle, HeadTitle} from 'src/components/title';
 
 export default function AboutPage(): JSX.Element {
   return (
-    <MainLayout>
+    <Flex>
       <HeadTitle description='About' />
       <Flex flow='column' crossAxis='center'>
         <Flex flow='column' css={{maxWidth: '72rem'}}>
@@ -49,6 +49,6 @@ export default function AboutPage(): JSX.Element {
           </Stack>
         </Flex>
       </Flex>
-    </MainLayout>
+    </Flex>
   );
 }

@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {motion, Variants} from 'framer-motion';
+import {useRouter} from 'next/dist/client/router';
 import {Bar} from 'src/components/continue/bar';
 
 const containerVariants: Variants = {
@@ -15,7 +16,13 @@ const containerVariants: Variants = {
   },
 };
 
-export const ContinueNext = (): JSX.Element => {
+type Props = {
+  href: string;
+};
+
+export const ContinueNext = ({href}: Props): JSX.Element => {
+  const router = useRouter();
+
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -24,25 +31,32 @@ export const ContinueNext = (): JSX.Element => {
       css={{position: 'fixed', top: '3.2rem', left: '3.2rem', bottom: '3.2rem', right: '3.2rem'}}
     >
       <motion.div
-        initial={{opacity: 0.5, scale: 1, translateX: '-50%'}}
-        animate={{opacity: 1, scale: 1.2, translateX: '-50%'}}
+        initial={{opacity: 0.2}}
+        animate={{opacity: 1}}
         transition={{ease: 'easeIn', duration: 2.2}}
-        css={{position: 'fixed', bottom: 20, left: '50%'}}
+        css={{
+          position: 'fixed',
+          bottom: 40,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          userSelect: 'none',
+          fontFamily: 'var(--font-code)',
+        }}
       >
-        <span css={{fontSize: '1.8rem'}}>hold to continue</span>
+        hold to continue
       </motion.div>
       <motion.div
         initial='hidden'
         animate='visible'
         variants={containerVariants}
-        onAnimationComplete={() => console.log('ended')}
+        onAnimationComplete={async () => router.push(href)}
         css={{position: 'relative', width: '100%', height: '100%'}}
       >
-        <Bar type='horizontal' origin={{bottom: 0, right: '60%'}} length='40%' color='#D0104C' />
+        <Bar type='horizontal' origin={{bottom: 0, right: '50%'}} length='50%' color='#D0104C' />
         <Bar type='vertical' origin={{bottom: 0, left: 0}} color='#DB4D6D' />
         <Bar type='horizontal' origin={{top: 0, left: 0}} color='#E16B8C' />
         <Bar type='vertical' origin={{top: 0, right: 0}} color='#F596AA' />
-        <Bar type='horizontal' origin={{bottom: 0, right: 0}} length='40%' color='#DC9FB4' />
+        <Bar type='horizontal' origin={{bottom: 0, right: 0}} length='50%' color='#DC9FB4' />
       </motion.div>
     </motion.div>
   );

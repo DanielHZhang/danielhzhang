@@ -7,7 +7,7 @@ import {PageTitle, HeadTitle} from 'src/components/title';
 export default function SkillsPage(): JSX.Element {
   return (
     <MainLayout>
-      <HeadTitle description='Skills' />
+      <HeadTitle description='Expertises' />
       <Flex flow='column' crossAxis='center'>
         <Flex flow='column'>
           <PageTitle heading='Skills' subheading='TECHNOLOGIES I WORK WITH' />
