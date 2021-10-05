@@ -4,7 +4,7 @@ import {AnimatePresence, motion, Variants} from 'framer-motion';
 import Link from 'next/link';
 import {useState} from 'react';
 import {Stack} from 'src/components/base';
-import {HamburgerMenu} from 'src/components/hamburger';
+import {HamburgerMenu} from 'src/components/navigator/hamburger';
 
 type ItemData = {
   name: string;
@@ -13,7 +13,7 @@ type ItemData = {
 
 const items: ItemData[] = [
   {name: 'About', href: '/about'},
-  {name: 'Specializations', href: '/specialization'},
+  {name: 'Specializations', href: '/skills'},
   {name: 'Portfolio', href: '/portfolio'},
   {name: 'Notes', href: '/notes'},
   {name: 'GitHub', href: 'https://github.com/DanielHZhang'},

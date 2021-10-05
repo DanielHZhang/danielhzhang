@@ -2,13 +2,14 @@
 
 type Props = {
   type: 'zhang' | 'hai' | 'yao';
+  size?: string;
 };
 
-export const Hanzi = ({type}: Props): JSX.Element => {
+export const Hanzi = ({size = '12rem', type}: Props): JSX.Element => {
   switch (type) {
     case 'zhang': {
       return (
-        <svg viewBox='0 0 1024 1024' width='12rem' fill=' #dac9a6'>
+        <svg viewBox='0 0 1024 1024' width={size} fill=' #dac9a6'>
           <path
             id='a'
             d='M380 343q27-88 55-113 24-25 0-41-19-13-46-31-19-12-64 13-61 21-109 30-13 0-10 7 1 6 14 13 16 9 92-8 39-12 46 0 7 7-4 44-12 37-27 82c-7 16 50 21 53 4z'
@@ -70,7 +71,7 @@ export const Hanzi = ({type}: Props): JSX.Element => {
     }
     case 'hai': {
       return (
-        <svg viewBox='0 0 1024 1024' width='12rem' fill=' #dac9a6'>
+        <svg viewBox='0 0 1024 1024' width={size} fill=' #dac9a6'>
           <path
             id='a'
             d='M246 189q21 25 43 56 13 16 31 19 13 1 20-13 9-16 3-51-4-30-94-67-16-6-25-4-6 3-6 18 1 13 28 42z'
@@ -156,7 +157,7 @@ export const Hanzi = ({type}: Props): JSX.Element => {
     }
     case 'yao': {
       return (
-        <svg viewBox='0 0 1024 1024' width='12rem' fill=' #dac9a6'>
+        <svg viewBox='0 0 1024 1024' width={size} fill=' #dac9a6'>
           <path
             id='a'
             d='M495 234q180-61 187-69 7-9 2-17-7-12-39-16-31-3-60 12-55 27-112 50c-27 10-27 10-40 15q-79 25-167 44-37 10-8 24 46 21 100 1 46-16 96-31c27-9 27-9 41-13z'

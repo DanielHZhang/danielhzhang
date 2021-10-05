@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
+import {Flex} from '@chakra-ui/react';
 import {AnimatePresence} from 'framer-motion';
 import {Fragment, useState} from 'react';
-import {Flex} from 'src/components/base';
+// import {Flex} from 'src/components/base';
 import {ContinueNext} from 'src/components/continue';
-import {HanziHero, Hero, ScrollReminder} from 'src/components/home';
-import {PageNavigator} from 'src/components/home/navigator';
+import {Hero, ScrollReminder} from 'src/components/home';
+import {PageNavigator} from 'src/components/navigator';
 import {useEventListener} from 'src/hooks';
 
 export default function HomePage(): JSX.Element {
@@ -17,6 +18,7 @@ export default function HomePage(): JSX.Element {
   });
 
   useEventListener('window', 'scroll', () => {
+    console.log(window.innerHeight + window.scrollY, document.body.scrollHeight);
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
       setNext(true); // Reached bottom of the page
     } else {
@@ -25,10 +27,9 @@ export default function HomePage(): JSX.Element {
   });
 
   return (
-    <Flex css={{height: '101vh', width: '100vw'}}>
-      <Flex css={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>
+    <Flex h='102vh' w='100vw' bgColor='black'>
+      <Flex position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)'>
         <Hero />
-        <HanziHero />
       </Flex>
       <AnimatePresence exitBeforeEnter={true}>
         {next ? (

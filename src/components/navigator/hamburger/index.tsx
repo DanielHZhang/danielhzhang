@@ -3,7 +3,7 @@
 import {css} from '@emotion/react';
 import {motion} from 'framer-motion';
 import {MouseEvent, useState} from 'react';
-import {HamburgerMenuBar} from 'src/components/hamburger/bar';
+import {HamburgerMenuBar} from 'src/components/navigator/hamburger/bar';
 
 type Props = {
   open?: boolean;

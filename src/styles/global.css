@@ -1,6 +1,6 @@
 :root {
   font-size: 62.5%;
-  --font-text: 'Inter';
+  /* --font-text: 'Inter';
   --font-code: 'Inconsolata';
   --font-heading: 'Playfair Display';
   --font-subheading: 'Josefin Sans';
@@ -9,7 +9,7 @@
   --font-color-heading-secondary: #dac9a6;
   --font-color-heading-tertiary: #9e7a7a;
   --font-color-primary: #bdc0ba;
-  --background-primary: #111111;
+  --background-primary: #111111; */
   --selection-background: #fedfe1;
   --scrollbar-background: #202324;
   --scrollbar-thumb-color: #454a4d;
