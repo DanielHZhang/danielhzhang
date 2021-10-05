@@ -1,13 +1,12 @@
+import {ChakraProvider} from '@chakra-ui/react';
+import {AnimatePresence, Variants} from 'framer-motion';
 import 'modern-normalize/modern-normalize.css';
-import 'src/styles/global.css';
-
-import React, {Fragment} from 'react';
-import Head from 'next/head';
 import {AppProps} from 'next/app';
-import {AnimatePresence, motion, Variants} from 'framer-motion';
+import Head from 'next/head';
+import React, {Fragment} from 'react';
 import {Cursor} from 'src/components/cursor';
 import {HeadTitle} from 'src/components/title';
-import {ChakraProvider} from '@chakra-ui/react';
+import 'src/styles/global.css';
 import theme from 'src/styles/theme';
 
 const pageVariants: Variants = {
@@ -47,15 +46,15 @@ export default function App({Component, pageProps, router}: AppProps): JSX.Eleme
       </Head>
       <ChakraProvider theme={theme}>
         <AnimatePresence exitBeforeEnter={true}>
-          <motion.div
+          {/* <motion.div
             key={router.route}
             initial='initial'
             animate='animate'
             exit='exit'
             variants={pageVariants}
-          >
-            <Component {...pageProps} />
-          </motion.div>
+          > */}
+          <Component {...pageProps} />
+          {/* </motion.div> */}
         </AnimatePresence>
         <Cursor />
       </ChakraProvider>

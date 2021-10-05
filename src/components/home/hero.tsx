@@ -1,80 +1,75 @@
 import {Box, Flex, Text} from '@chakra-ui/react';
-import {motion, Variants} from 'framer-motion';
+import {useAnimation, Variants} from 'framer-motion';
 import {MotionBox} from 'src/components/base/box';
-import {Hanzi} from 'src/components/home/hanzi';
-
-const downUpVariants: Variants = {
-  hidden: {
-    y: 300,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      delay: 1,
-      duration: 1,
-      staggerChildren: 1,
-    },
-  },
-};
-
-const upDownVariants: Variants = {
-  hidden: {
-    y: -300,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      delay: 1,
-      duration: 1,
-      staggerChildren: 1,
-    },
-  },
-};
+import {useDidMount} from 'src/hooks';
 
 const firstName = 'DANIEL'.split('');
 const lastName = 'ZHANG'.split('');
 
 export const Hero = (): JSX.Element => {
+  const heyControls = useAnimation();
+  const nameControls = useAnimation();
+
+  useDidMount(() => {
+    const run = async () => {
+      await heyControls.start({
+        x: 10,
+        opacity: 1,
+        transition: {
+          type: 'spring',
+          delay: 1,
+          duration: 0.8,
+        },
+      });
+      await nameControls.start((i) => ({
+        y: 0,
+        transition: {
+          delay: 0.3 * i,
+          duration: 2,
+        },
+      }));
+    };
+    run();
+  });
+
   return (
-    <Flex>
-      <Flex flexFlow='column' userSelect='none'>
-        <Box
-          fontFamily='Manrope'
-          fontWeight={500}
-          fontSize='18rem'
-          lineHeight='18rem'
-          color='white'
-        >
-          <Text as={Flex} overflow='hidden'>
-            {firstName.map((letter, index) => (
-              <MotionBox
-                as='span'
-                key={index}
-                initial='hidden'
-                animate='visible'
-                variants={(index & 1) === 0 ? downUpVariants : upDownVariants}
-                display='inline-block'
-              >
-                {letter}
-              </MotionBox>
-            ))}
-          </Text>
-          <Text as={Flex} overflow='hidden'>
-            {lastName.map((letter, index) => (
-              <MotionBox
-                as='span'
-                key={index}
-                initial='hidden'
-                animate='visible'
-                variants={(index & 1) === 0 ? upDownVariants : downUpVariants}
-                display='inline-block'
-              >
-                {letter}
-              </MotionBox>
-            ))}
-          </Text>
-        </Box>
-        {/* <Flex
+    <Flex flexFlow='column' userSelect='none'>
+      <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='white'>
+        <MotionBox initial={{x: -100, opacity: 0}} animate={heyControls}>
+          Hey there! I'm
+        </MotionBox>
+      </Box>
+      <Box fontFamily='Manrope' fontWeight={500} fontSize='18rem' lineHeight='18rem' color='white'>
+        <Text as={Flex} overflow='hidden'>
+          {firstName.map((letter, index) => (
+            <MotionBox
+              as='span'
+              key={index}
+              custom={index}
+              initial={{y: index % 2 === 0 ? 200 : -200}}
+              animate={nameControls}
+              display='inline-block'
+            >
+              {letter}
+            </MotionBox>
+          ))}
+        </Text>
+        <Text as={Flex} overflow='hidden'>
+          {lastName.map((letter, index) => (
+            <MotionBox
+              as='span'
+              key={index}
+              custom={index}
+              initial={{y: index % 2 === 0 ? -200 : 200}}
+              animate={nameControls}
+              display='inline-block'
+            >
+              {letter}
+            </MotionBox>
+          ))}
+        </Text>
+      </Box>
+      {/* <Flex
           mainAxis='flex-start'
 					fontFamily='Inconsolata'
 					fontSize='3.2rem'
@@ -92,12 +87,6 @@ export const Hero = (): JSX.Element => {
           </motion.div>
           <motion.div css={{height: '3.6rem', width: '1.6rem', backgroundColor: 'orange'}} />
         </Flex> */}
-      </Flex>
-      {/* <Flex flexFlow='column'>
-        <Hanzi type='zhang' />
-        <Hanzi type='hai' />
-        <Hanzi type='yao' />
-      </Flex> */}
     </Flex>
   );
 };

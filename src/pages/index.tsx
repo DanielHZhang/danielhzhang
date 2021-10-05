@@ -1,11 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import {Flex} from '@chakra-ui/react';
-import {AnimatePresence} from 'framer-motion';
-import {Fragment, useState} from 'react';
-// import {Flex} from 'src/components/base';
-import {ContinueNext} from 'src/components/continue';
-import {Hero, ScrollReminder} from 'src/components/home';
-import {PageNavigator} from 'src/components/navigator';
+import {useState} from 'react';
+import {Hero} from 'src/components/home';
 import {useEventListener} from 'src/hooks';
 
 export default function HomePage(): JSX.Element {
@@ -18,7 +14,7 @@ export default function HomePage(): JSX.Element {
   });
 
   useEventListener('window', 'scroll', () => {
-    console.log(window.innerHeight + window.scrollY, document.body.scrollHeight);
+    // console.log(window.innerHeight + window.scrollY, document.body.scrollHeight);
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
       setNext(true); // Reached bottom of the page
     } else {
@@ -31,7 +27,7 @@ export default function HomePage(): JSX.Element {
       <Flex position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)'>
         <Hero />
       </Flex>
-      <AnimatePresence exitBeforeEnter={true}>
+      {/* <AnimatePresence exitBeforeEnter={true}>
         {next ? (
           <ContinueNext key='a' href='/about' />
         ) : (
@@ -40,7 +36,7 @@ export default function HomePage(): JSX.Element {
             <ScrollReminder />
           </Fragment>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </Flex>
   );
 }
