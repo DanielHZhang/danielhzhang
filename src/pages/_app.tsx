@@ -1,5 +1,5 @@
 import {ChakraProvider} from '@chakra-ui/react';
-import {AnimatePresence, Variants} from 'framer-motion';
+import {Variants} from 'framer-motion';
 import 'modern-normalize/modern-normalize.css';
 import {AppProps} from 'next/app';
 import Head from 'next/head';
@@ -45,17 +45,17 @@ export default function App({Component, pageProps, router}: AppProps): JSX.Eleme
         />
       </Head>
       <ChakraProvider theme={theme}>
-        <AnimatePresence exitBeforeEnter={true}>
-          {/* <motion.div
+        {/* <AnimatePresence exitBeforeEnter={true}> */}
+        {/* <motion.div
             key={router.route}
             initial='initial'
             animate='animate'
             exit='exit'
             variants={pageVariants}
           > */}
-          <Component {...pageProps} />
-          {/* </motion.div> */}
-        </AnimatePresence>
+        <Component {...pageProps} />
+        {/* </motion.div> */}
+        {/* </AnimatePresence> */}
         <Cursor />
       </ChakraProvider>
     </Fragment>

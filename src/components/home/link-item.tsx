@@ -4,15 +4,15 @@ import {Anchor, Flex} from 'src/components/base';
 import {Icon, IconType} from 'src/components/icons';
 
 type Props = {
-  align: 'left' | 'right';
+  align?: 'left' | 'right';
+	title: string;
   href: string;
   icon: IconType;
-  children: string;
 };
 
-export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
+export const LinkItem = ({align, href, icon, title}: Props): JSX.Element => {
   return (
-    <Flex mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
+    <Flex inline={true} mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
       <Link href={href}>
         <Anchor href={href} css={{userSelect: 'none'}}>
           <Flex crossAxis='center'>
@@ -20,9 +20,10 @@ export const LinkItem = ({align, href, icon, children}: Props): JSX.Element => {
               css={{
                 margin: align === 'right' ? '0 1rem 0 0' : '0 0 0 1rem',
                 order: align === 'right' ? 0 : 1,
+								color: '#dac9a6',
               }}
             >
-              {children}
+              {title}
             </span>
             <span css={{order: align === 'right' ? 1 : 0}}>
               <Icon type={icon} size='2.4rem' />
