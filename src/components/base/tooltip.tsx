@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {AnimatePresence, motion, useSpring} from 'framer-motion';
-import {Children, ReactElement, Fragment, createRef, useState, MouseEvent} from 'react';
+import {Children, createRef, Fragment, MouseEvent, ReactElement, useState} from 'react';
 import {Portal} from 'src/components/base/portal';
 
 type Props = {
@@ -17,24 +17,24 @@ export const Tooltip = ({label, children}: Props): JSX.Element => {
 
   const onMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
     // @ts-ignore
-    mouseX.current = mouseX.prev = event.clientX + 10;
+    mouseX.current = mouseX.prev = event.pageX + 10;
     // @ts-ignore
-    mouseY.current = mouseY.prev = event.clientY + 10;
+    mouseY.current = mouseY.prev = event.pageY + 10;
     setVisible(true);
   };
 
   const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    let newX = event.clientX + 20;
-    let newY = event.clientY + 20;
+    let newX = event.pageX + 20;
+    let newY = event.pageY + 20;
     if (hoverRef.current) {
       const rect = hoverRef.current.getBoundingClientRect();
       // Tooltip exceeds right of screen -> move to bottom left
       if (rect.right > window.innerWidth) {
-        newX = event.clientX - rect.width - 20;
+        newX = event.pageX - rect.width - 20;
       }
       // Tooltip exceeds bottom of screen -> move to top right
       if (rect.bottom > window.innerHeight) {
-        newY = event.clientY - 20;
+        newY = event.pageY - 20;
       }
     }
     mouseX.set(newX);
