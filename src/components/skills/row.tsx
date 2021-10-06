@@ -1,5 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import {Heading, Stack, Subheading, Tooltip} from 'src/components/base';
+import {Flex, Stack, Text} from '@chakra-ui/react';
+import {Subheading, Tooltip} from 'src/components/base';
 import {Icon, IconType} from 'src/components/icons';
 
 type IconData = {
@@ -11,11 +11,11 @@ export const iconData: Record<string, IconData[]> = {
   languages: [
     {type: 'javascript', label: 'Javascript'},
     {type: 'typescript', label: 'Typescript'},
+    {type: 'python', label: 'Python'},
+    {type: 'java', label: 'Java'},
     {type: 'html', label: 'HTML'},
     {type: 'css', label: 'CSS'},
     {type: 'sass', label: 'Sass'},
-    {type: 'python', label: 'Python'},
-    {type: 'java', label: 'Java'},
   ],
   frameworks: [
     {type: 'react', label: 'React'},
@@ -31,7 +31,7 @@ export const iconData: Record<string, IconData[]> = {
     {type: 'deno', label: 'Deno'},
     {type: 'docker', label: 'Docker'},
     {type: 'electron', label: 'Electron'},
-    {type: 'jupyter', label: 'Jupyter Notebook'},
+    {type: 'jupyter', label: 'Jupyter'},
   ],
   tools: [
     {type: 'git', label: 'Git'},
@@ -39,7 +39,7 @@ export const iconData: Record<string, IconData[]> = {
     {type: 'webpack', label: 'Webpack'},
     {type: 'babel', label: 'Babel'},
     {type: 'jest', label: 'Jest'},
-    {type: 'actions', label: 'GitHub Actions CI'},
+    {type: 'actions', label: 'GitHub Actions'},
     {type: 'heroku', label: 'Heroku'},
   ],
   databases: [
@@ -57,10 +57,15 @@ type Props = {
 export const SkillsRow = ({data, title}: Props): JSX.Element => (
   <div>
     <Subheading>{title}</Subheading>
-    <Stack spacing='2rem' css={{marginTop: '0.6rem'}}>
+    <Stack mt='0.6rem' spacing='1rem'>
       {data.map(({type, label}, index) => (
         <Tooltip key={index} label={label}>
-          <Icon type={type} size='4.2rem' />
+          <Flex alignItems='center'>
+            <Icon type={type} size='3.2rem' />
+            <Text color='whiteAlpha.700' ml='0.8rem'>
+              {label}
+            </Text>
+          </Flex>
         </Tooltip>
       ))}
     </Stack>
