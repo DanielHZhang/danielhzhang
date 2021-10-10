@@ -27,7 +27,9 @@
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
 		"**/.git/subtree-cache/**": true,
-		"**/.hg/store/**": true
+		"**/.hg/store/**": true,
+		"**/.next/**": true,
+		"**/node_modules/**": true,
 	},
 	"javascript.format.enable": true,
 	"javascript.format.semicolons": "insert",
