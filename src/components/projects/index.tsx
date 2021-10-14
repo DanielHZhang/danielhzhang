@@ -1,8 +1,15 @@
-import {Flex} from '@chakra-ui/react';
+import {Flex, Stack, Text} from '@chakra-ui/react';
 import {PageTitle} from 'src/components/title';
 import {r} from 'src/utils';
 
-const projects = [
+type ProjectData = {
+  title: string;
+  tags: string[];
+  description: string;
+  url?: string;
+};
+
+const projects: ProjectData[] = [
   {
     title: 'Supersede',
     tags: ['React', 'Redux', 'Webpack'],
@@ -19,12 +26,10 @@ const projects = [
   {
     title: 'Cruizor',
     tags: ['React'],
-    type: 'Platform',
     description: '',
   },
   {
     title: 'Superbuffer',
-    type: 'Library',
     tags: ['TypeScript', 'Open Source'],
     description: r`Superbuffer is framework for serializing and deserializing JSON objects into a
 		raw binary format, allowing for over 50% compression over the wire compared to regular JSON.
@@ -32,8 +37,7 @@ const projects = [
   },
   {
     title: 'tsc-suppress',
-    type: 'Tool',
-    oss: true,
+    tags: ['TypeScript', 'Open Source', 'Compiler'],
     description: r`tsc-suppress is a lightweight wrapper for the TypeScript compiler that
 		automatically adds the ability to skip type-checking during development in order to speed
 		up compilation times.`,
@@ -41,11 +45,23 @@ const projects = [
   },
 ];
 
+const ProjectItem = (props: ProjectData): JSX.Element => {
+  return (
+    <Flex color='white' bgColor='blue.500' borderRadius='6px' padding='2rem'>
+      <Text>{props.title}</Text>
+    </Flex>
+  );
+};
+
 export const Projects = (): JSX.Element => {
   return (
-    <Flex>
+    <Flex direction='column'>
       <PageTitle heading='Projects' subheading='STUFF I HAVE WORKED ON' />
-      <Flex>Project here</Flex>
+      <Stack direction='column' spacing='8'>
+        {projects.map((data) => (
+          <ProjectItem {...data} />
+        ))}
+      </Stack>
     </Flex>
   );
 };

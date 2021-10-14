@@ -1,4 +1,5 @@
-import {Flex, Heading, Subheading} from 'src/components/base';
+import {Flex} from '@chakra-ui/react';
+import {Heading, Subheading} from 'src/components/base';
 
 type Props = {
   heading: string;
@@ -6,7 +7,7 @@ type Props = {
 };
 
 export const PageTitle = ({heading, subheading}: Props): JSX.Element => (
-  <Flex flow='column'>
+  <Flex direction='column' mb='3.6rem'>
     <Heading>{heading}</Heading>
     <Subheading>{subheading}</Subheading>
   </Flex>
