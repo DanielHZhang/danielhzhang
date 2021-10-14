@@ -1,4 +1,4 @@
-import {Flex, Stack, Text} from '@chakra-ui/react';
+import {Box, Flex, Grid, Stack, Text} from '@chakra-ui/react';
 import {PageTitle} from 'src/components/title';
 import {r} from 'src/utils';
 
@@ -47,8 +47,23 @@ const projects: ProjectData[] = [
 
 const ProjectItem = (props: ProjectData): JSX.Element => {
   return (
-    <Flex color='white' bgColor='blue.500' borderRadius='6px' padding='2rem'>
+    <Flex
+      direction='column'
+      color='white'
+      border='2px solid red'
+      /* bgColor='blue.500' */
+      borderRadius='6px'
+      padding='2rem'
+    >
       <Text>{props.title}</Text>
+      <Text>{props.description}</Text>
+      <Stack direction='row' align='flex-start'>
+        {props.tags.map((value) => (
+          <Box bgColor='red.400' padding='0.6rem 1.2rem' borderRadius='6px'>
+            {value}
+          </Box>
+        ))}
+      </Stack>
     </Flex>
   );
 };
@@ -57,11 +72,13 @@ export const Projects = (): JSX.Element => {
   return (
     <Flex direction='column'>
       <PageTitle heading='Projects' subheading='STUFF I HAVE WORKED ON' />
-      <Stack direction='column' spacing='8'>
+      {/* <Stack direction='column' spacing='8'> */}
+      <Grid templateColumns='repeat(2, 1fr)' gap='3.6rem'>
         {projects.map((data) => (
           <ProjectItem {...data} />
         ))}
-      </Stack>
+      </Grid>
+      {/* </Stack> */}
     </Flex>
   );
 };
