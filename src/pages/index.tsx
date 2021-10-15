@@ -8,11 +8,11 @@ export default function HomePage(): JSX.Element {
   const [finished, setFinished] = useState(false);
   return (
     <Flex direction='column' bgColor='black'>
-      <Flex h='100vh' w='100vw' justify='center' align='flex-start' grow={1} pt='10rem'>
+      <Flex h='100vh' w='100vw' justify='center' align='flex-start' grow={1} pt='10vh'>
         <Hero onAnimationEnd={() => setFinished(true)} />
       </Flex>
       {finished && (
-        <Stack direction='column' spacing='8rem' px='16rem'>
+        <Stack direction='column' spacing='8rem' px='16rem' mb='8rem'>
           <Skills />
           <Projects />
         </Stack>

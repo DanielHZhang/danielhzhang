@@ -1,8 +1,9 @@
 import {Box, Flex} from '@chakra-ui/react';
 import {useAnimation} from 'framer-motion';
-import {MotionBox} from 'src/components/base/box';
+import {useEffect, useState} from 'react';
+import {MotionBox} from 'src/components/base';
 import {LinkItem, ScrollReminder} from 'src/components/home';
-import {useDidMount} from 'src/hooks';
+import {useDidMount, useEventListener} from 'src/hooks';
 import {r} from 'src/utils';
 
 const firstName = 'DANIEL'.split('');
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export const Hero = (props: Props): JSX.Element => {
+  const [scrollAnim, setScrollAnim] = useState(false);
   const heyControls = useAnimation();
   const nameControls = useAnimation();
   const descriptionControls = useAnimation();
@@ -44,6 +46,22 @@ export const Hero = (props: Props): JSX.Element => {
           duration: 1,
         },
       }));
+      setScrollAnim(true);
+      props.onAnimationEnd?.();
+    };
+    run();
+  });
+
+  useEventListener('window', 'scroll', () => {
+    if (window.scrollY > 20) {
+      setScrollAnim(false);
+    } else {
+      setScrollAnim(true);
+    }
+  });
+
+  useEffect(() => {
+    if (scrollAnim) {
       arrowControls.start({
         opacity: 0.5,
         y: 32,
@@ -51,13 +69,14 @@ export const Hero = (props: Props): JSX.Element => {
           ease: 'easeInOut',
           duration: 1.5,
           repeat: Infinity,
-          repeatType: 'mirror',
+          repeatType: 'mirror' as const,
         },
       });
-      props.onAnimationEnd?.();
-    };
-    run();
-  });
+    } else {
+      arrowControls.stop();
+      arrowControls.set({opacity: 0, y: 0});
+    }
+  }, [scrollAnim]);
 
   return (
     <Flex flexFlow='column' userSelect='none'>
@@ -126,7 +145,7 @@ export const Hero = (props: Props): JSX.Element => {
           </MotionBox>
         </Flex>
       </Box>
-      <Flex justify='center' mt='8rem'>
+      <Flex justify='center' mt='3vh'>
         <ScrollReminder controls={arrowControls} />
       </Flex>
     </Flex>
