@@ -1,26 +1,35 @@
 import {Box, Grid} from '@chakra-ui/layout';
-import {ReactNode, useRef} from 'react';
+import {ReactNode, RefObject, useCallback, useRef, useState} from 'react';
+import {useDidMount} from 'src/hooks';
 
 type ItemProps = {
-  gridRef: any;
+  gridRef: RefObject<HTMLDivElement>;
   children: ReactNode;
 };
 
 const WaterfallGridItem = (props: ItemProps): JSX.Element => {
+  const [size, setSize] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
-  const resize = (item) => {
+  const resize = () => {
     if (!contentRef.current) {
       return;
     }
-    const rowHeight = parseInt(window.getComputedStyle().getPropertyValue('grid-auto-rows'), 10);
-    const rowGap = parseInt(window.getComputedStyle().getPropertyValue('grid-row-gap'), 10);
+    const gridRef = props.gridRef.current!;
+    const rowHeight = 16;
+    const rowGap = 20;
     const rowSpan = Math.ceil(
       (contentRef.current.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap)
     );
+    console.log('row height:', rowHeight, 'row gap:', rowGap, 'row span:', rowSpan);
+    setSize(rowSpan);
   };
 
+  useDidMount(() => {
+    resize();
+  });
+
   return (
-    <Box gridRowEnd='span '>
+    <Box gridRowEnd={`span ${size}`}>
       <Box ref={contentRef}>{props.children}</Box>
     </Box>
   );
@@ -34,8 +43,23 @@ type Props<T> = {
 // repeat(2, 1fr)
 export const WaterfallGrid = <T,>(props: Props<T>): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
+  const measuredRef = useCallback((el: HTMLDivElement) => {
+    if (!(el instanceof HTMLDivElement)) {
+      return;
+    }
+    const computedStyle = window.getComputedStyle(el);
+    const rowHeight = parseInt(computedStyle.getPropertyValue('grid-auto-rows'), 10);
+    const rowGap = parseInt(computedStyle.getPropertyValue('grid-row-gap'), 10);
+    console.log('what is this', computedStyle.getPropertyValue('grid-auto-rows'));
+    console.log('what is this', computedStyle.getPropertyValue('grid-row-gap'));
+  }, []);
   return (
-    <Grid templateColumns='repeat(auto-fill, minmax(300px,1fr))' gap='2rem' /* autoRows='10px' */>
+    <Grid
+      ref={measuredRef}
+      templateColumns='repeat(auto-fill, minmax(300px,1fr))'
+      gap='16px'
+      autoRows='16px'
+    >
       {props.items.map((value, index) => (
         <WaterfallGridItem key={index} gridRef={ref}>
           {props.children(value, index)}

@@ -5,7 +5,7 @@ import {Projects} from 'src/components/projects';
 import {Skills} from 'src/components/skills';
 
 export default function HomePage(): JSX.Element {
-  const [finished, setFinished] = useState(false);
+  const [finished, setFinished] = useState(true); // TODO: change back to false
   return (
     <Flex direction='column' bgColor='black'>
       <Flex h='100vh' w='100vw' justify='center' align='flex-start' grow={1} pt='10vh'>
