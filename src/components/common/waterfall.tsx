@@ -14,13 +14,11 @@ const WaterfallGridItem = (props: ItemProps): JSX.Element => {
     if (!contentRef.current) {
       return;
     }
-    const gridRef = props.gridRef.current!;
-    const rowHeight = 16;
-    const rowGap = 20;
-    const rowSpan = Math.ceil(
-      (contentRef.current.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap)
-    );
-    console.log('row height:', rowHeight, 'row gap:', rowGap, 'row span:', rowSpan);
+    const rect = contentRef.current.getBoundingClientRect();
+    const rowHeight = 8;
+    const rowGap = 16;
+    const rowSpan = Math.ceil((rect.height + rowGap) / (rowHeight + rowGap));
+    console.log('content height:', rect.height, 'row span:', rowSpan);
     setSize(rowSpan);
   };
 
@@ -47,18 +45,18 @@ export const WaterfallGrid = <T,>(props: Props<T>): JSX.Element => {
     if (!(el instanceof HTMLDivElement)) {
       return;
     }
-    const computedStyle = window.getComputedStyle(el);
-    const rowHeight = parseInt(computedStyle.getPropertyValue('grid-auto-rows'), 10);
-    const rowGap = parseInt(computedStyle.getPropertyValue('grid-row-gap'), 10);
-    console.log('what is this', computedStyle.getPropertyValue('grid-auto-rows'));
-    console.log('what is this', computedStyle.getPropertyValue('grid-row-gap'));
+    // const computedStyle = window.getComputedStyle(el);
+    // const rowHeight = parseInt(computedStyle.getPropertyValue('grid-auto-rows'), 10);
+    // const rowGap = parseInt(computedStyle.getPropertyValue('grid-row-gap'), 10);
+    // console.log('what is this', computedStyle.getPropertyValue('grid-auto-rows'));
+    // console.log('what is this', computedStyle.getPropertyValue('grid-row-gap'));
   }, []);
   return (
     <Grid
       ref={measuredRef}
       templateColumns='repeat(auto-fill, minmax(300px,1fr))'
       gap='16px'
-      autoRows='16px'
+      autoRows='8px'
     >
       {props.items.map((value, index) => (
         <WaterfallGridItem key={index} gridRef={ref}>

@@ -9,12 +9,28 @@
 // --font-color-primary: #bdc0ba;
 // --background-primary: #111111;
 
-import {extendTheme, Theme} from '@chakra-ui/react';
+import {extendTheme} from '@chakra-ui/react';
 
 const theme = extendTheme({
   colors: {
-    black: '#111111',
+    black: '#202324',
+    // black: '#111111',
+    gold: '#dac9a6',
     white: '#fcfaf2',
+  },
+  components: {
+    Heading: {
+      baseStyle: {
+        fontFamily: 'Josefin Sans',
+      },
+    },
+  },
+  styles: {
+    global: {
+      body: {
+        fontFamily: 'Inter',
+      },
+    },
   },
 });
 

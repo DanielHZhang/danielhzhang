@@ -1,4 +1,4 @@
-import {Box, Flex, Stack, Text} from '@chakra-ui/react';
+import {Box, Flex, Heading, Stack, Text} from '@chakra-ui/react';
 import {WaterfallGrid} from 'src/components/common/waterfall';
 import {PageTitle} from 'src/components/title';
 import {r} from 'src/utils';
@@ -20,8 +20,8 @@ const projects: ProjectData[] = [
   {
     title: 'DevCertified',
     tags: ['React', 'Docker'],
-    description: r`DevCertified is an online platform that allows recruiters to conduct real-time
-		coding interviews`,
+    description: r`DevCertified is an online code editor and execution environment that simplifies
+		conducting coding interviews with prospective candidates for recruiters.`,
     url: 'https://www.devcertified.com',
   },
   {
@@ -32,9 +32,8 @@ const projects: ProjectData[] = [
   {
     title: 'Superbuffer',
     tags: ['TypeScript', 'Open Source'],
-    description: r`Superbuffer is framework for serializing and deserializing JSON objects into a
-		raw binary format, allowing for over 50% compression over the wire compared to regular JSON.
-		Superbuffer is fully type-safe and is able to infer object types from your schema.`,
+    description: r`Superbuffer is a type-safe library for serializing and deserializing JSON
+		into raw binary and for over 50% compression over the wire compared to regular JSON.`,
   },
   {
     title: 'tsc-suppress',
@@ -56,11 +55,11 @@ const ProjectItem = (props: ProjectData): JSX.Element => {
       borderRadius='12px'
       padding='2rem'
     >
-      <Text>{props.title}</Text>
-      <Text>{props.description}</Text>
+      <Heading color='gold'>{props.title}</Heading>
+      <Text color='whiteAlpha.700'>{props.description}</Text>
       <Stack direction='row' align='flex-start'>
         {props.tags.map((value, index) => (
-          <Box key={index} bgColor='red.400' padding='0.6rem 1.2rem' borderRadius='6px'>
+          <Box key={index} bgColor='red.400' p='0.4rem 0.8rem' borderRadius='8px'>
             {value}
           </Box>
         ))}
