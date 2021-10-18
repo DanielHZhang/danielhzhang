@@ -39,5 +39,5 @@
 	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"typescript.preferences.quoteStyle": "single",
 	"typescript.preferences.useAliasesForRenames": false,
-	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"typescript.tsdk": "node_modules/typescript/lib",
 }
