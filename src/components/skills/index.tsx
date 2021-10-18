@@ -7,7 +7,7 @@ export const Skills = (): JSX.Element => {
   return (
     <Flex direction='column'>
       <PageTitle heading='Skills' subheading='TECHNOLOGIES I HAVE USED EXTENSIVELY' />
-      <Flex justify='space-between'>
+      <Flex justify='space-between' wrap='wrap'>
         <SkillsRow title='Languages' data={skills.languages} />
         <SkillsRow title='Frameworks' data={skills.frameworks} />
         <SkillsRow title='Runtimes' data={skills.runtimes} />
