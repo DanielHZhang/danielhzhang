@@ -1,8 +1,7 @@
 import {Flex, Heading, LinkBox, LinkOverlay, Tag, Text} from '@chakra-ui/react';
 import NextLink from 'next/link';
-import {WaterfallGrid} from 'src/components/common/waterfall';
+import {SectionTitle, WaterfallGrid} from 'src/components/common';
 import {Icon} from 'src/components/icons';
-import {PageTitle} from 'src/components/title';
 import {ProjectData, projects} from 'src/content';
 
 const ProjectItem = (props: ProjectData): JSX.Element => {
@@ -57,7 +56,7 @@ const ProjectItem = (props: ProjectData): JSX.Element => {
 export const Projects = (): JSX.Element => {
   return (
     <Flex direction='column' mb='4rem'>
-      <PageTitle heading='Projects' subheading='STUFF I HAVE WORKED ON' />
+      <SectionTitle heading='Projects' subheading='STUFF I HAVE WORKED ON' />
       <WaterfallGrid items={projects}>
         {(data, index) => <ProjectItem key={index} {...data} />}
       </WaterfallGrid>

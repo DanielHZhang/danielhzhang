@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
 import {Interpolation} from '@emotion/react';
-import {styledOptions} from 'src/components/props';
+import styled from '@emotion/styled';
+import {styledOptions} from 'src/components/base/props';
 
 type Props = {
   basis?: string;

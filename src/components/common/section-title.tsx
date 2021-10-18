@@ -6,7 +6,7 @@ type Props = {
   subheading: string;
 };
 
-export const PageTitle = ({heading, subheading}: Props): JSX.Element => (
+export const SectionTitle = ({heading, subheading}: Props): JSX.Element => (
   <Flex direction='column' mb='3.6rem'>
     <Heading>{heading}</Heading>
     <Subheading>{subheading}</Subheading>
