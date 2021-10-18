@@ -80,7 +80,7 @@ export const Hero = (props: Props): JSX.Element => {
 
   return (
     <Flex flexFlow='column' userSelect='none'>
-      <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='#dac9a6'>
+      <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='blue.100'>
         <MotionBox initial={{x: -100, opacity: 0}} animate={heyControls}>
           Hey there! I'm
         </MotionBox>

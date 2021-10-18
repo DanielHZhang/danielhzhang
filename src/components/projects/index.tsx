@@ -1,70 +1,56 @@
-import {Box, Flex, Heading, Stack, Text} from '@chakra-ui/react';
+import {Flex, Heading, LinkBox, LinkOverlay, Tag, Text} from '@chakra-ui/react';
+import NextLink from 'next/link';
 import {WaterfallGrid} from 'src/components/common/waterfall';
+import {Icon} from 'src/components/icons';
 import {PageTitle} from 'src/components/title';
-import {r} from 'src/utils';
-
-type ProjectData = {
-  title: string;
-  tags: string[];
-  description: string;
-  url?: string;
-};
-
-const projects: ProjectData[] = [
-  {
-    title: 'Supersede',
-    tags: ['React', 'Redux', 'Webpack'],
-    description: 'Supersede is a web platform that allows students',
-    url: 'https://www.memorizeanything.net',
-  },
-  {
-    title: 'DevCertified',
-    tags: ['React', 'Docker'],
-    description: r`DevCertified is an online code editor and execution environment that simplifies
-		conducting coding interviews with prospective candidates for recruiters.`,
-    url: 'https://www.devcertified.com',
-  },
-  {
-    title: 'Cruizor',
-    tags: ['React'],
-    description: '',
-  },
-  {
-    title: 'Superbuffer',
-    tags: ['TypeScript', 'Open Source'],
-    description: r`Superbuffer is a type-safe library for serializing and deserializing JSON
-		into raw binary and for over 50% compression over the wire compared to regular JSON.`,
-  },
-  {
-    title: 'tsc-suppress',
-    tags: ['TypeScript', 'Open Source', 'Compiler'],
-    description: r`tsc-suppress is a lightweight wrapper for the TypeScript compiler that
-		automatically adds the ability to skip type-checking during development in order to speed
-		up compilation times.`,
-    url: '',
-  },
-];
+import {ProjectData, projects} from 'src/content';
 
 const ProjectItem = (props: ProjectData): JSX.Element => {
   return (
-    <Flex
-      direction='column'
-      color='white'
-      border='2px solid red'
-      /* bgColor='blue.500' */
-      borderRadius='12px'
-      padding='2rem'
-    >
-      <Heading color='gold'>{props.title}</Heading>
-      <Text color='whiteAlpha.700'>{props.description}</Text>
-      <Stack direction='row' align='flex-start'>
-        {props.tags.map((value, index) => (
-          <Box key={index} bgColor='red.400' p='0.4rem 0.8rem' borderRadius='8px'>
-            {value}
-          </Box>
-        ))}
-      </Stack>
-    </Flex>
+    <LinkBox as='article'>
+      <Flex
+        direction='column'
+        color='white'
+        borderWidth='2px'
+        borderColor='gold'
+        borderRadius='12px'
+        padding='2rem'
+      >
+        <Flex justify='space-between'>
+          <Flex>
+            <Heading fontSize='2.2rem' lineHeight='2.2rem' color='gold' mr='0.8rem' mt='2px'>
+              <NextLink href={props.url || '#'} passHref={true}>
+                <LinkOverlay>{props.title}</LinkOverlay>
+              </NextLink>
+            </Heading>
+            {props.url?.startsWith('https://github') ? (
+              <Icon type='github' size='2.4rem' />
+            ) : (
+              <Icon type='link' size='2.4rem' />
+            )}
+          </Flex>
+          <Icon type={props.language} size='2.4rem' />
+        </Flex>
+        <Text mt='0.8rem' color='whiteAlpha.700'>
+          {props.description}
+        </Text>
+        <Flex direction='row' wrap='wrap' align='flex-start'>
+          {props.tags.map((value, index) => (
+            <Tag
+              key={index}
+              size='lg'
+              colorScheme='blue'
+              py='0.4rem'
+              mt='0.8rem'
+              mr='0.8rem'
+              fontSize='1.6rem'
+            >
+              {value}
+            </Tag>
+          ))}
+        </Flex>
+      </Flex>
+    </LinkBox>
   );
 };
 
