@@ -79,7 +79,7 @@ export const Hero = (props: Props): JSX.Element => {
   }, [scrollAnim]);
 
   return (
-    <Flex flexFlow='column' userSelect='none'>
+    <Flex direction='column' userSelect='none'>
       <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='blue.100'>
         <MotionBox initial={{x: -100, opacity: 0}} animate={heyControls}>
           Hey there! I'm
@@ -145,7 +145,7 @@ export const Hero = (props: Props): JSX.Element => {
           </MotionBox>
         </Flex>
       </Box>
-      <Flex justify='center' mt='3vh'>
+      <Flex position='fixed' justify='center' bottom='7rem' left='50%' translateX='-50%'>
         <ScrollReminder controls={arrowControls} />
       </Flex>
     </Flex>

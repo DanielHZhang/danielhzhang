@@ -4,8 +4,7 @@ import 'modern-normalize/modern-normalize.css';
 import {AppProps} from 'next/app';
 import Head from 'next/head';
 import React, {Fragment} from 'react';
-import {Cursor} from 'src/components/common';
-import {HeadTitle} from 'src/components/title';
+import {Cursor, HeadTitle} from 'src/components/common';
 import 'src/styles/global.css';
 import theme from 'src/styles/theme';
 

@@ -36,10 +36,17 @@ export const projects: ProjectData[] = [
   {
     title: 'Superbuffer',
     language: 'typescript',
-    tags: ['Open Source', 'Compression', 'ArrayBuffer'],
+    tags: ['Open Source', 'Data Structure', 'Compression', 'Buffer'],
     description: r`Superbuffer is a type-safe library for serializing and deserializing JSON
 		into raw binary and for over 50% compression over the wire compared to regular JSON.`,
     url: 'https://github.com/DanielHZhang/superbuffer',
+  },
+  {
+    title: 'rusty-avl',
+    language: 'rust',
+    tags: ['Open Source', 'Data Structure'],
+    description: r`rusty-avl is a performant and purely iterative AVL tree implementation in Rust.`,
+    url: 'https://github.com/DanielHZhang/rusty-avl',
   },
   {
     title: 'xsurf',
