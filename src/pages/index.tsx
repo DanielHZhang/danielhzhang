@@ -13,7 +13,12 @@ export default function HomePage(): JSX.Element {
         <Hero onAnimationEnd={() => setFinished(true)} />
       </Flex>
       {finished && (
-        <Stack direction='column' spacing='8rem' px={[null, null, '8rem', '16rem']} mb='8rem'>
+        <Stack
+          direction='column'
+          spacing='8rem'
+          px={['1rem', '2.4rem', '4rem', '8rem', '16rem']}
+          mb='8rem'
+        >
           <Skills />
           <Projects />
         </Stack>

@@ -3,9 +3,9 @@ import {createBreakpoints} from '@chakra-ui/theme-tools';
 
 const breakpoints = createBreakpoints({
   sm: '24em',
-  md: '48em',
-  lg: '62em',
-  xl: '80em',
+  md: '36em',
+  lg: '48em',
+  xl: '72em',
 });
 
 // --font-text: 'Inter';
