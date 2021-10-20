@@ -21,7 +21,7 @@ export const projects: ProjectData[] = [
   {
     title: 'DevCertified',
     language: 'javascript',
-    tags: ['Next.js', 'React', 'Docker', 'Firebase'],
+    tags: ['Next.js', 'React', 'Apollo GraphQL', 'Docker', 'Firebase'],
     description: r`DevCertified is an online code editor and execution environment that simplifies
 		conducting coding interviews with prospective candidates for recruiters.`,
     url: 'https://www.devcertified.com',
@@ -51,14 +51,14 @@ export const projects: ProjectData[] = [
   {
     title: 'xsurf',
     language: 'typescript',
-    tags: ['Open Source', 'Security', 'Tokens'],
+    tags: ['Open Source', 'Security', 'Token'],
     description: r`xsurf is a middleware library for generating and validating CSRF tokens.`,
     url: 'https://github.com/DanielHZhang/xsurf',
   },
   {
     title: 'tsc-suppress',
     language: 'typescript',
-    tags: ['Open Source', 'Compiler'],
+    tags: ['Open Source', 'Compiler', 'CLI'],
     description: r`tsc-suppress is a lightweight extension of the TypeScript compiler that adds the
 		ability to skip type-checking in order to speed up compilation times during development.`,
     url: 'https://github.com/DanielHZhang/tsc-suppress',
@@ -83,6 +83,7 @@ export const skills: Record<string, SkillsData[]> = {
     {type: 'javascript', label: 'Javascript'},
     {type: 'typescript', label: 'Typescript'},
     {type: 'python', label: 'Python'},
+    {type: 'rust', label: 'Rust'},
     {type: 'java', label: 'Java'},
     {type: 'html', label: 'HTML'},
     {type: 'css', label: 'CSS'},
@@ -91,17 +92,17 @@ export const skills: Record<string, SkillsData[]> = {
   frameworks: [
     {type: 'react', label: 'React'},
     {type: 'redux', label: 'Redux'},
-    {type: 'graphql', label: 'GraphQL'},
     {type: 'nextjs', label: 'Next.js'},
     {type: 'express', label: 'Express'},
     {type: 'fastify', label: 'Fastify'},
-    {type: 'kubernetes', label: 'Kubernetes'},
+    {type: 'graphql', label: 'GraphQL'},
   ],
   runtimes: [
     {type: 'nodejs', label: 'Node.js'},
     {type: 'deno', label: 'Deno'},
-    {type: 'docker', label: 'Docker'},
     {type: 'electron', label: 'Electron'},
+    {type: 'docker', label: 'Docker'},
+    {type: 'kubernetes', label: 'Kubernetes'},
     {type: 'jupyter', label: 'Jupyter'},
   ],
   tools: [
@@ -111,11 +112,13 @@ export const skills: Record<string, SkillsData[]> = {
     {type: 'babel', label: 'Babel'},
     {type: 'jest', label: 'Jest'},
     {type: 'actions', label: 'GitHub Actions'},
+    {type: 'aws', label: 'AWS'},
     {type: 'heroku', label: 'Heroku'},
   ],
   databases: [
     {type: 'mongodb', label: 'MongoDB'},
     {type: 'postgres', label: 'PostgreSQL'},
+    {type: 'sqlite', label: 'SQLite'},
     {type: 'prisma', label: 'Prisma'},
   ],
 };
