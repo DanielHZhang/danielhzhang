@@ -1,3 +1,13 @@
+import {extendTheme} from '@chakra-ui/react';
+import {createBreakpoints} from '@chakra-ui/theme-tools';
+
+const breakpoints = createBreakpoints({
+  sm: '24em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+});
+
 // --font-text: 'Inter';
 // --font-code: 'Inconsolata';
 // --font-heading: 'Playfair Display';
@@ -9,9 +19,8 @@
 // --font-color-primary: #bdc0ba;
 // --background-primary: #111111;
 
-import {extendTheme} from '@chakra-ui/react';
-
 const theme = extendTheme({
+  breakpoints,
   colors: {
     black: '#202324',
     'blue.100': '#81C7D4',
