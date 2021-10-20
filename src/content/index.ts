@@ -21,7 +21,7 @@ export const projects: ProjectData[] = [
   {
     title: 'DevCertified',
     language: 'javascript',
-    tags: ['Next.js', 'React', 'Apollo GraphQL', 'Docker', 'Firebase'],
+    tags: ['Next.js', 'GraphQL', 'Docker', 'Firebase'],
     description: r`DevCertified is an online code editor and execution environment that simplifies
 		conducting coding interviews with prospective candidates for recruiters.`,
     url: 'https://www.devcertified.com',
@@ -29,7 +29,7 @@ export const projects: ProjectData[] = [
   {
     title: 'Unlike the Others',
     language: 'typescript',
-    tags: ['React', 'Recoil', 'Node.js', 'Fastify', 'Prisma', 'PostgreSQL'],
+    tags: ['React', 'Recoil', 'Fastify', 'Prisma', 'PostgreSQL'],
     description: r`Unlike the Others is an online multiplayer social deduction game.`,
     url: 'https://github.com/DanielHZhang/unlike-the-others',
   },
@@ -88,6 +88,7 @@ export const skills: Record<string, SkillsData[]> = {
     {type: 'html', label: 'HTML'},
     {type: 'css', label: 'CSS'},
     {type: 'sass', label: 'Sass'},
+    {type: 'graphql', label: 'GraphQL'},
   ],
   frameworks: [
     {type: 'react', label: 'React'},
@@ -95,7 +96,6 @@ export const skills: Record<string, SkillsData[]> = {
     {type: 'nextjs', label: 'Next.js'},
     {type: 'express', label: 'Express'},
     {type: 'fastify', label: 'Fastify'},
-    {type: 'graphql', label: 'GraphQL'},
   ],
   runtimes: [
     {type: 'nodejs', label: 'Node.js'},
@@ -120,5 +120,6 @@ export const skills: Record<string, SkillsData[]> = {
     {type: 'postgres', label: 'PostgreSQL'},
     {type: 'sqlite', label: 'SQLite'},
     {type: 'prisma', label: 'Prisma'},
+    {type: 'firebase', label: 'Firebase'},
   ],
 };

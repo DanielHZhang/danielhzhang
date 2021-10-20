@@ -5,7 +5,7 @@ import {Icon, IconType} from 'src/components/icons';
 
 type Props = {
   align?: 'left' | 'right';
-	title: string;
+  title: string;
   href: string;
   icon: IconType;
 };
@@ -13,14 +13,14 @@ type Props = {
 export const LinkItem = ({align, href, icon, title}: Props): JSX.Element => {
   return (
     <Flex inline={true} mainAxis={align === 'right' ? 'flex-end' : 'flex-start'}>
-      <Link href={href}>
-        <Anchor href={href} css={{userSelect: 'none'}}>
+      <Link href={href} passHref={true}>
+        <Anchor css={{userSelect: 'none'}}>
           <Flex crossAxis='center'>
             <span
               css={{
                 margin: align === 'right' ? '0 1rem 0 0' : '0 0 0 1rem',
                 order: align === 'right' ? 0 : 1,
-								color: '#dac9a6',
+                color: '#dac9a6',
               }}
             >
               {title}

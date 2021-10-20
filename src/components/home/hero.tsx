@@ -138,7 +138,7 @@ export const Hero = (props: Props): JSX.Element => {
             />
           </MotionBox>
           <MotionBox custom={3} initial={{opacity: 0}} animate={descriptionControls}>
-            <LinkItem title='Email' href='mailto:daniel100204@gmail.com' icon='mail' />
+            <LinkItem title='Email' href='mailto:me@danielhzhang.com' icon='mail' />
           </MotionBox>
           <MotionBox custom={4} initial={{opacity: 0}} animate={descriptionControls}>
             <LinkItem title='Resume' href='/resume.pdf' icon='file' />
