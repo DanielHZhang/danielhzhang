@@ -1,65 +1,80 @@
 import {Box, Grid} from '@chakra-ui/layout';
-import {ReactNode, RefObject, useCallback, useRef, useState} from 'react';
-import {useDidMount} from 'src/hooks';
+import {ReactNode, useRef, useState} from 'react';
+import {useResizeObserver} from 'src/hooks';
+
+const ROW_GAP = 16;
+const ROW_HEIGHT = 8;
 
 type ItemProps = {
-  gridRef: RefObject<HTMLDivElement>;
+  // setRef: (ref: HTMLDivElement | null) => any;
   children: ReactNode;
 };
 
 const WaterfallGridItem = (props: ItemProps): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const resize = () => {
-    if (!contentRef.current) {
-      return;
-    }
-    const rect = contentRef.current.getBoundingClientRect();
-    const rowHeight = 8;
-    const rowGap = 16;
-    const rowSpan = Math.ceil((rect.height + rowGap) / (rowHeight + rowGap));
-    console.log('content height:', rect.height, 'row span:', rowSpan);
-    setSize(rowSpan);
-  };
+  // const contentRef = useRef<HTMLDivElement>(null);
+  // const resize = () => {
+  //   if (!contentRef.current) {
+  //     return;
+  //   }
+  //   const rect = contentRef.current.getBoundingClientRect();
+  //   const rowSpan = Math.ceil((rect.height + ROW_GAP) / (ROW_HEIGHT + ROW_GAP));
+  //   console.log('content height:', rect.height, 'row span:', rowSpan);
+  //   setSize(rowSpan);
+  // };
 
-  useDidMount(() => {
-    resize();
-  });
+  useResizeObserver((entry) => {
+		const contentHeight = entry.contentRect.height;
+		const spans = Math.ceil((contentHeight + ROW_GAP) / (ROW_HEIGHT + ROW_GAP));
+		setSize(spans);
+    // console.log('entry:', entry.target, entry);
+  }, ref);
 
   return (
     <Box gridRowEnd={`span ${size}`}>
-      <Box ref={contentRef}>{props.children}</Box>
+      <Box ref={ref} /* ref={(el) => props.setRef(el)} */>{props.children}</Box>
     </Box>
   );
 };
 
 type Props<T> = {
   items: T[];
-  children: (value: T, index: number /* gridRef: RefObject<HTMLDivElement> */) => ReactNode;
+  children: (value: T, index: number) => ReactNode;
 };
 
-// repeat(2, 1fr)
 export const WaterfallGrid = <T,>(props: Props<T>): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null);
-  const measuredRef = useCallback((el: HTMLDivElement) => {
-    if (!(el instanceof HTMLDivElement)) {
-      return;
-    }
-    // const computedStyle = window.getComputedStyle(el);
-    // const rowHeight = parseInt(computedStyle.getPropertyValue('grid-auto-rows'), 10);
-    // const rowGap = parseInt(computedStyle.getPropertyValue('grid-row-gap'), 10);
-    // console.log('what is this', computedStyle.getPropertyValue('grid-auto-rows'));
-    // console.log('what is this', computedStyle.getPropertyValue('grid-row-gap'));
-  }, []);
+  // const childRefs = useRef<(HTMLDivElement | null)[]>(Array(props.items.length));
+  // const setChildRef = (index: number) => (el: HTMLDivElement | null) => {
+  //   childRefs.current[index] = el;
+  // };
+
+  // useDidMount(() => {
+  //   const observer = new ResizeObserver((entries) => {
+  //     // console.log('entries', entries);
+  //     for (const entry of entries) {
+  //       // console.log('resize entry:', entry);
+  //     }
+  //   });
+  //   childRefs.current.forEach((element) => {
+  //     if (element) {
+  //       observer.observe(element);
+  //     }
+  //   });
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // });
+
   return (
     <Grid
-      ref={measuredRef}
-      templateColumns='repeat(auto-fill, minmax(300px,1fr))'
-      gap='16px'
-      autoRows='8px'
+      templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
+      autoRows={`${ROW_HEIGHT}px`}
+      rowGap={`${ROW_GAP}px`}
+      columnGap='32px'
     >
       {props.items.map((value, index) => (
-        <WaterfallGridItem key={index} gridRef={ref}>
+        <WaterfallGridItem key={index} /* setRef={setChildRef(index)} */>
           {props.children(value, index)}
         </WaterfallGridItem>
       ))}
