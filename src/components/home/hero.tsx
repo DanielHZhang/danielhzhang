@@ -80,12 +80,23 @@ export const Hero = (props: Props): JSX.Element => {
 
   return (
     <Flex direction='column' userSelect='none'>
-      <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='blue.100'>
+      <Box
+        fontFamily='Playfair Display'
+        fontSize={['3rem', '5rem']}
+        fontStyle='italic'
+        color='blue.100'
+      >
         <MotionBox initial={{x: -100, opacity: 0}} animate={heyControls}>
           Hey there! I'm
         </MotionBox>
       </Box>
-      <Box fontFamily='Manrope' fontWeight={500} fontSize='18rem' lineHeight='18rem' color='white'>
+      <Box
+        fontFamily='Manrope'
+        fontWeight={500}
+        fontSize={['9rem', '18rem']}
+        lineHeight={['9rem', '18rem']}
+        color='white'
+      >
         <Flex overflow='hidden'>
           {firstName.map((letter, index) => (
             <MotionBox
@@ -126,7 +137,10 @@ export const Hero = (props: Props): JSX.Element => {
           {r`I'm a self-taught software engineer from Toronto. I'm passionate about start-ups,
 					 web technologies, and building the future.`}
         </MotionBox>
-        <Flex mt='3.2rem' justifyContent='space-between'>
+        {/* <Grid>
+
+				</Grid> */}
+        <Flex mt='3.2rem' justifyContent='space-between' wrap='wrap'>
           <MotionBox custom={1} initial={{opacity: 0}} animate={descriptionControls}>
             <LinkItem title='GitHub' href='https://github.com/danielhzhang' icon='github' />
           </MotionBox>
