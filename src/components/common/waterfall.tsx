@@ -25,9 +25,9 @@ const WaterfallGridItem = (props: ItemProps): JSX.Element => {
   // };
 
   useResizeObserver((entry) => {
-		const contentHeight = entry.contentRect.height;
-		const spans = Math.ceil((contentHeight + ROW_GAP) / (ROW_HEIGHT + ROW_GAP));
-		setSize(spans);
+    const contentHeight = entry.contentRect.height;
+    const spans = Math.ceil((contentHeight + ROW_GAP) / (ROW_HEIGHT + ROW_GAP));
+    setSize(spans);
     // console.log('entry:', entry.target, entry);
   }, ref);
 
@@ -44,28 +44,6 @@ type Props<T> = {
 };
 
 export const WaterfallGrid = <T,>(props: Props<T>): JSX.Element => {
-  // const childRefs = useRef<(HTMLDivElement | null)[]>(Array(props.items.length));
-  // const setChildRef = (index: number) => (el: HTMLDivElement | null) => {
-  //   childRefs.current[index] = el;
-  // };
-
-  // useDidMount(() => {
-  //   const observer = new ResizeObserver((entries) => {
-  //     // console.log('entries', entries);
-  //     for (const entry of entries) {
-  //       // console.log('resize entry:', entry);
-  //     }
-  //   });
-  //   childRefs.current.forEach((element) => {
-  //     if (element) {
-  //       observer.observe(element);
-  //     }
-  //   });
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // });
-
   return (
     <Grid
       templateColumns='repeat(auto-fill, minmax(400px, 1fr))'

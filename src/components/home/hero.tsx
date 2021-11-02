@@ -1,4 +1,4 @@
-import {Box, Flex} from '@chakra-ui/react';
+import {Box, Flex, SimpleGrid} from '@chakra-ui/react';
 import {useAnimation} from 'framer-motion';
 import {useEffect, useState} from 'react';
 import {MotionBox} from 'src/components/base';
@@ -6,8 +6,8 @@ import {LinkItem, ScrollReminder} from 'src/components/home';
 import {useDidMount, useEventListener} from 'src/hooks';
 import {r} from 'src/utils';
 
-const firstName = 'DANIEL'.split('');
-const lastName = 'ZHANG'.split('');
+const firstName = 'Daniel'.split('');
+const lastName = 'Zhang'.split('');
 
 type Props = {
   onAnimationEnd?: () => void;
@@ -23,7 +23,7 @@ export const Hero = (props: Props): JSX.Element => {
   useDidMount(() => {
     const run = async () => {
       await heyControls.start({
-        x: 10,
+        x: 4,
         opacity: 1,
         transition: {
           delay: 1,
@@ -79,54 +79,67 @@ export const Hero = (props: Props): JSX.Element => {
   }, [scrollAnim]);
 
   return (
-    <Flex direction='column' userSelect='none'>
-      <Box fontFamily='Playfair Display' fontSize='5rem' fontStyle='italic' color='blue.100'>
+    <Flex direction='column' userSelect='none' mx={['1rem', '2.4rem', '4rem', null]}>
+      <Box fontFamily='Josefin Sans' fontSize={['3.2rem', null, '4.2rem']} color='whiteAlpha.800'>
         <MotionBox initial={{x: -100, opacity: 0}} animate={heyControls}>
           Hey there! I'm
         </MotionBox>
       </Box>
-      <Box fontFamily='Manrope' fontWeight={500} fontSize='18rem' lineHeight='18rem' color='white'>
-        <Flex overflow='hidden'>
-          {firstName.map((letter, index) => (
-            <MotionBox
-              as='span'
-              key={index}
-              custom={index}
-              initial={{y: index % 2 === 0 ? 180 : -180}}
-              animate={nameControls}
-              display='inline-block'
-            >
-              {letter}
-            </MotionBox>
-          ))}
-        </Flex>
-        <Flex overflow='hidden'>
-          {lastName.map((letter, index) => (
-            <MotionBox
-              as='span'
-              key={index}
-              custom={index}
-              initial={{y: index % 2 === 0 ? -180 : 180}}
-              animate={nameControls}
-              display='inline-block'
-            >
-              {letter}
-            </MotionBox>
-          ))}
-        </Flex>
+      <Box
+        fontFamily='Manrope'
+        color='blue.100'
+        fontWeight={500}
+        fontSize={['9rem', '10rem', null, '11rem', '12rem']}
+        lineHeight={['12rem', '14rem', null, '18rem']}
+      >
+        <SimpleGrid columns={[1, null, null, 2]}>
+          <Flex overflow='hidden' mr={[null, null, null, null, '3rem']}>
+            {firstName.map((letter, index) => (
+              <MotionBox
+                as='span'
+                key={index}
+                custom={index}
+                initial={{y: index % 2 === 0 ? 180 : -180}}
+                animate={nameControls}
+                display='inline-block'
+              >
+                {letter}
+              </MotionBox>
+            ))}
+          </Flex>
+          <Flex overflow='hidden'>
+            {lastName.map((letter, index) => (
+              <MotionBox
+                as='span'
+                key={index}
+                custom={index}
+                initial={{y: index % 2 === 0 ? -180 : 180}}
+                animate={nameControls}
+                display='inline-block'
+              >
+                {letter}
+              </MotionBox>
+            ))}
+          </Flex>
+        </SimpleGrid>
       </Box>
       <Box
         fontSize='2rem'
         color='whiteAlpha.700'
         overflowWrap='break-word'
-        maxW='609px'
+        maxW={[null, null, null, '742px']}
+        pr={['2.4rem', null]}
         mt='1.6rem'
       >
         <MotionBox as='span' custom={0} initial={{opacity: 0}} animate={descriptionControls}>
           {r`I'm a self-taught software engineer from Toronto. I'm passionate about start-ups,
 					 web technologies, and building the future.`}
         </MotionBox>
-        <Flex mt='3.2rem' justifyContent='space-between'>
+        <SimpleGrid
+          mt={['3rem', null, '6rem']}
+          templateColumns={['repeat(2,minmax(0,1fr))', null, null, 'repeat(4,auto)']}
+          justifyContent='space-between'
+        >
           <MotionBox custom={1} initial={{opacity: 0}} animate={descriptionControls}>
             <LinkItem title='GitHub' href='https://github.com/danielhzhang' icon='github' />
           </MotionBox>
@@ -143,7 +156,7 @@ export const Hero = (props: Props): JSX.Element => {
           <MotionBox custom={4} initial={{opacity: 0}} animate={descriptionControls}>
             <LinkItem title='Resume' href='/resume.pdf' icon='file' />
           </MotionBox>
-        </Flex>
+        </SimpleGrid>
       </Box>
       <Flex position='fixed' justify='center' bottom='7rem' left='50%' translateX='-50%'>
         <ScrollReminder controls={arrowControls} />

@@ -9,7 +9,14 @@ export default function HomePage(): JSX.Element {
   const [finished, setFinished] = useState(true); // TODO: change back to false
   return (
     <Flex direction='column' bgColor='black' minW={theme.__breakpoints?.asObject.sm}>
-      <Flex h='100vh' w='100vw' justify='center' align='flex-start' grow={1} pt='10vh'>
+      <Flex
+        h='100vh'
+        w='100vw'
+        align='flex-start'
+        grow={1}
+        justify={['flex-start', null, null, 'center']}
+        pt={['14vh', null, null, '20vh']}
+      >
         <Hero onAnimationEnd={() => setFinished(true)} />
       </Flex>
       {finished && (
