@@ -25,7 +25,7 @@ export default function HomePage(): JSX.Element {
         <Stack
           direction='column'
           spacing='8rem'
-          px={['1rem', '2.4rem', '4rem', '8rem', '16rem']}
+          px={['1rem', '2.4rem', '4rem', null, '16rem']}
           mb='8rem'
         >
           <Skills />
