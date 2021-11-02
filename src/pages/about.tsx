@@ -2,19 +2,19 @@
 import {Flex} from '@chakra-ui/react';
 import Link from 'next/link';
 import {Stack} from 'src/components/base';
-import {Logo} from 'src/components/logo';
-import {HeadTitle, SectionTitle} from 'src/components/title';
+// import {Logo} from 'src/components/logo';
+// import {HeadTitle, SectionTitle} from 'src/components/title';
 
 export default function AboutPage(): JSX.Element {
   return (
     <Flex>
-      <Logo />
+      {/* <Logo /> */}
       {/* <PageNavigator /> */}
       <Flex css={{paddingTop: '10rem'}}>
-        <HeadTitle description='About' />
+        {/* <HeadTitle description='About' /> */}
         <Flex flow='column' crossAxis='center'>
           <Flex flow='column' css={{maxWidth: '72rem'}}>
-            <SectionTitle heading='About' subheading='WHO I AM' />
+            {/* <SectionTitle heading='About' subheading='WHO I AM' /> */}
             <Stack flow='column' spacing='1.6rem' css={{fontSize: '2rem', marginTop: '3.6rem'}}>
               <p>Hey there! I'm Daniel, a software engineer from Toronto, Canada.</p>
               <p>
