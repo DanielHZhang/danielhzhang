@@ -13,6 +13,7 @@ export const Skills = (): JSX.Element => {
           xl: 'repeat(5, 15rem)', // use justify space-between for large screens
         }}
         justifyContent='space-between'
+        rowGap='3.2rem'
       >
         <SkillsRow title='Languages' data={skills.languages} />
         <SkillsRow title='Frameworks' data={skills.frameworks} />

@@ -46,10 +46,14 @@ type Props<T> = {
 export const WaterfallGrid = <T,>(props: Props<T>): JSX.Element => {
   return (
     <Grid
-      templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
+      templateColumns={{
+        // base: '100%',
+        sm: 'repeat(auto-fill, minmax(400px, 1fr))',
+      }}
+      // templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
       autoRows={`${ROW_HEIGHT}px`}
       rowGap={`${ROW_GAP}px`}
-      columnGap='32px'
+      columnGap={[null, null, '16px', '32px']}
     >
       {props.items.map((value, index) => (
         <WaterfallGridItem key={index} /* setRef={setChildRef(index)} */>
