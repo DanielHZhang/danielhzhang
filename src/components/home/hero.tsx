@@ -46,7 +46,9 @@ export const Hero = (props: Props): JSX.Element => {
           duration: 1,
         },
       }));
-      setScrollAnim(true);
+      if (window.scrollY < 20) {
+        setScrollAnim(true);
+      }
       props.onAnimationEnd?.();
     };
     run();
