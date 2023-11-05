@@ -1,9 +1,6 @@
-import {useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 
-export function useMemoCompare<T>(
-  next: T,
-  compare: (prev: T | undefined, next: T) => boolean
-): T | undefined {
+export function useMemoCompare<T>(next: T, compare: (prev: T | undefined, next: T) => boolean): T | undefined {
   const previousRef = useRef<T | undefined>();
   const previous = previousRef.current;
   const isEqual = compare(previous, next);

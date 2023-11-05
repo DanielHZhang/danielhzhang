@@ -1,7 +1,7 @@
+import { IS_BROWSER } from '@/config/constants';
+import { useLatest } from '@/hooks';
+import { rafThrottle } from '@/utils';
 import { RefObject, useLayoutEffect } from 'react';
-import { IS_BROWSER } from 'src/config/constants';
-import { useLatest } from 'src/hooks';
-import { rafThrottle } from 'src/utils';
 
 type Callback = (entry: ResizeObserverEntry, observer: ResizeObserver) => void;
 
@@ -13,7 +13,7 @@ class CachedResizeObserver {
       for (let i = 0; i < entries.length; ++i) {
         this.callbacks.get(entries[i].target)?.forEach((cb) => cb(entries[i], obs));
       }
-    })
+    }),
   );
 
   // eslint-disable-next-line
@@ -52,10 +52,7 @@ class CachedResizeObserver {
   }
 }
 
-export function useResizeObserver<T extends HTMLElement>(
-  callback: Callback,
-  target: RefObject<T> | T | null
-): void {
+export function useResizeObserver<T extends HTMLElement>(callback: Callback, target: RefObject<T> | T | null): void {
   if (!IS_BROWSER) {
     return; // Don't run on SSR
   }

@@ -1,9 +1,6 @@
-import {useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 
-export function useAnimationFrame(
-  callback: (timeElapsed: number) => void,
-  isActive: boolean
-): void {
+export function useAnimationFrame(callback: (timeElapsed: number) => void, isActive: boolean): void {
   const savedCallback = useRef<(timeElapsed: number) => void>();
 
   useEffect(() => {

@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import {ReactNode} from 'react';
-import {Flex, Grid, GridItem, Stack} from 'src/components/base';
-import {LinkItem} from 'src/components/home/link-item';
+import { ReactNode } from 'react';
+import { Flex, Grid, GridItem } from 'src/components/base';
+import { LinkItem } from 'src/components/home/link-item';
 
 type Props = {
   children?: ReactNode;

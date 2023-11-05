@@ -1,11 +1,11 @@
-import {MutableRefObject, useCallback, useEffect} from 'react';
-import {IS_BROWSER} from 'src/config/constants';
+import { IS_BROWSER } from '@/config/constants';
+import { MutableRefObject, useCallback, useEffect } from 'react';
 
 export function useEventListener(
   target: 'window' | 'document' | MutableRefObject<HTMLElement | null | undefined>,
   eventName: string,
   handler: (event: any) => any,
-  deps?: any[]
+  deps?: any[],
 ): void {
   if (!IS_BROWSER) {
     return; // Do not run on SSR
