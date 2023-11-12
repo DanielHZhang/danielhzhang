@@ -4,6 +4,6 @@
 
 <div class="flex flex-col mb-16">
 	<div>
-		<SectionTitle>Projects</SectionTitle>
+		<SectionTitle>Personal Projects</SectionTitle>
 	</div>
 </div>

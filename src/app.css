@@ -28,7 +28,3 @@
 		color: #ffffff;
 	}
 }
-
-.gradient-bg {
-	background: radial-gradient(ellipse at center, rgba(0, 225, 244, 0.15), var(--transparent));
-}

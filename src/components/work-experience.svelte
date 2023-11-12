@@ -1,23 +1,31 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import SectionTitle from './section-title.svelte';
+	import WorkItem from './work-item.svelte';
+
+	const baseColorRgb = '72, 194, 126';
+	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
 </script>
 
 <div class="flex flex-col">
-	<SectionTitle>Work Experience</SectionTitle>
-	<div class="flex flex-col border border-gray-500 border-opacity-25 rounded-2xl p-12 gradient-bg">
-		<div class="flex gap-1">
-			<img
-				src={`${base}/prezo-homepage.webp`}
-				alt="Prezo home page"
-				class="rounded-lg w-[430px] h-[225px] object-cover"
-			/>
-			<div>
-				<h1 class="text-2xl">Prezo - Software Engineer</h1>
-				<h2>Full stack development - Generative AI platform</h2>
-				<div>Technologies: TypeScript, Python, Deno, Supabase, Cloudflare</div>
-				<div>Feb 2023 - Present (Full Time)</div>
-			</div>
-		</div>
+	<SectionTitle color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
+	<div class="flex flex-col gap-5">
+		<WorkItem
+			company={{ name: 'Prezo', url: 'https://prezo.ai' }}
+			role="Software Engineer"
+			description="Full stack development - Generative AI platform"
+			tech="TypeScript, Python, Vue.js, Deno, Supabase, Cloudflare"
+			time="Feb 2023 - Present (Full Time)"
+			image="prezo-homepage.webp"
+			{gradientColor}
+		/>
+		<WorkItem
+			company={{ name: 'Clutch', url: 'https://clutch.ca' }}
+			role="Software Engineer"
+			description="Full stack development - Automotive platform"
+			tech="TypeScript, React, Node.js, PostgreSQL, Terraform, AWS"
+			time="Dec 2021 - Jan 2023 (Full Time)"
+			image="clutch-homepage.webp"
+			{gradientColor}
+		/>
 	</div>
 </div>
