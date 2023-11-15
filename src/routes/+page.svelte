@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '../components/footer.svelte';
 	import Hero from '../components/hero.svelte';
 	import Projects from '../components/projects.svelte';
 	import Skills from '../components/skills.svelte';
@@ -12,6 +13,7 @@
 		<Skills />
 		<Projects />
 	</div>
+	<Footer />
 </div>
 
 <style lang="postcss">

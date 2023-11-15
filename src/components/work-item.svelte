@@ -31,7 +31,7 @@
 	</div>
 </div>
 
-<style>
+<style scoped>
 	.gradient-bg {
 		background: radial-gradient(ellipse at center, var(--gradient-color), var(--transparent));
 	}
