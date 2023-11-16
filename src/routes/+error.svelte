@@ -4,7 +4,7 @@
 
 <div class="flex flex-col h-screen">
 	<div class="text-center p-4">
-		<a href="/">DANIEL HAIYAO ZHANG</a>
+		<a class="font-josefin text-gold" href="/">DANIEL HAIYAO ZHANG</a>
 	</div>
 	<div class="flex grow items-center justify-center">
 		<div class="flex flex-col">

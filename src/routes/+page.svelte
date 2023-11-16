@@ -1,17 +1,17 @@
 <script lang="ts">
+	import Contact from '../components/contact.svelte';
 	import Footer from '../components/footer.svelte';
 	import Hero from '../components/hero.svelte';
 	import Projects from '../components/projects.svelte';
-	import Skills from '../components/skills.svelte';
 	import WorkExperience from '../components/work-experience.svelte';
 </script>
 
 <div class="flex flex-col">
 	<Hero />
-	<div class="flex flex-col gap-32 px-[15%]">
+	<div class="flex flex-col gap-32 lg:px-[15%] md:px-[8%]">
 		<WorkExperience />
-		<Skills />
 		<Projects />
+		<Contact />
 	</div>
 	<Footer />
 </div>

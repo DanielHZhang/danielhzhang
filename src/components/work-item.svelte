@@ -16,12 +16,15 @@
 	style="--gradient-color: {gradientColor}"
 >
 	<div class="flex gap-12">
-		<img src={`${base}/${image}`} alt="Prezo home page" class="rounded-lg w-[430px] h-[225px] object-cover" />
+		<img
+			src={`${base}/${image}`}
+			alt="Prezo home page"
+			class="rounded-lg lg:w-[430px] h-[225px] md:w-80 object-cover"
+		/>
 		<div class="flex flex-col">
 			<h1 class="text-3xl mb-4 flex items-center">
 				<a href={company.url} class="text-blue-400 underline">{company.name}</a>
 				<ArrowRightIcon class="w-6 inline-block mx-4" />
-				<!-- <span class="mr-5" /> -->
 				<span class="text-white">{role}</span>
 			</h1>
 			<h2 class="text-lg text-gray-400">{description}</h2>
