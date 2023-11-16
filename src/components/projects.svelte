@@ -8,7 +8,7 @@
 
 <div class="flex flex-col mb-16" style="--gradient-color: {gradientColor}">
 	<SectionTitle color="rgb({baseColorRgb}, 0.75)">Personal Projects</SectionTitle>
-
+	<!-- <div class="conic absolute w-full h-52" /> -->
 	<div class="grid gap-5 waterfall-grid">
 		{#each projects as project}
 			<div class="flex flex-col gap-2 border border-gray-500 border-opacity-25 rounded-2xl p-8 gradient-bg" style="">
@@ -17,12 +17,12 @@
 						<h1 class="text-2xl">{project.title}</h1>
 					</div>
 				</div>
-				<div>
+				<div class="grow mb-4">
 					<p>{project.description}</p>
 				</div>
-				<div class="flex flex-wrap gap-2 items-start mt-4">
+				<div class="flex flex-wrap gap-2 items-start">
 					{#each project.tags as tag}
-						<div class="p-1 bg-slate-700 rounded-lg px-2">
+						<div class="p-1 border border-gray-500 border-opacity-25 rounded-lg px-2">
 							{tag}
 						</div>
 					{/each}
@@ -32,7 +32,11 @@
 	</div>
 </div>
 
-<style scoped lang="postcss">
+<style scoped>
+	.conic {
+		background-image: conic-gradient(from 90deg at 80% 50%, rgb(0, 2, 18), rgb(62, 36, 118));
+	}
+
 	.gradient-bg {
 		background: radial-gradient(ellipse at center, var(--gradient-color), var(--transparent));
 	}

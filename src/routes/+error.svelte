@@ -1,0 +1,15 @@
+<script>
+	import LinkButton from '../components/link-button.svelte';
+</script>
+
+<div class="flex flex-col h-screen">
+	<div class="text-center p-4">
+		<a href="/">DANIEL HAIYAO ZHANG</a>
+	</div>
+	<div class="flex grow items-center justify-center">
+		<div class="flex flex-col">
+			<h1 class="font-semibold text-2xl block mb-6">Page not found</h1>
+			<LinkButton href="/">Go Home</LinkButton>
+		</div>
+	</div>
+</div>
