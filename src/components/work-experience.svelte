@@ -10,7 +10,7 @@
 	<SectionTitle color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
 	<div class="flex flex-col gap-5">
 		<WorkItem
-			company={{ name: 'Prezo', url: 'https://prezo.ai' }}
+			company={{ name: 'Prezo', url: 'https://prezo.ai', brandColor: 'rgb(171, 102, 255)' }}
 			role="Software Engineer"
 			description="Full stack development - Generative AI platform"
 			tech="TypeScript, Python, Vue.js, Deno, Supabase, Cloudflare"
@@ -19,7 +19,7 @@
 			{gradientColor}
 		/>
 		<WorkItem
-			company={{ name: 'Clutch', url: 'https://clutch.ca' }}
+			company={{ name: 'Clutch', url: 'https://clutch.ca', brandColor: 'rgb(255, 70, 76)' }}
 			role="Software Engineer"
 			description="Full stack development - Automotive platform"
 			tech="TypeScript, React, Node.js, PostgreSQL, Terraform, AWS"

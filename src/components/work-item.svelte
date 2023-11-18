@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import ArrowRightIcon from '../icons/arrow-badge-right.svg?component';
 
-	export let company: { name: string; url: string };
+	export let company: { name: string; url: string; brandColor: string };
 	export let role: string;
 	export let description: string;
 	export let tech: string;
@@ -23,7 +23,7 @@
 		/>
 		<div class="flex flex-col">
 			<h1 class="text-3xl mb-4 flex items-center">
-				<a href={company.url} class="text-blue-400 underline">{company.name}</a>
+				<a href={company.url} class="underline" style="color: {company.brandColor}">{company.name}</a>
 				<ArrowRightIcon class="w-6 inline-block mx-4" />
 				<span class="text-white">{role}</span>
 			</h1>
