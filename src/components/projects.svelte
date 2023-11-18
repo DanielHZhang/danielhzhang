@@ -1,6 +1,9 @@
 <script>
 	import { projects } from '../content';
+	import { capitalizeFirst } from '../utils';
+	import Icon from './icon.svelte';
 	import SectionTitle from './section-title.svelte';
+	import Tag from './tag.svelte';
 
 	const baseColorRgb = '129, 182, 236';
 	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
@@ -20,10 +23,9 @@
 					<p class="text-gray-400">{project.description}</p>
 				</div>
 				<div class="flex flex-wrap gap-2 items-start">
+					<Tag icon={project.language}>{capitalizeFirst(project.language)}</Tag>
 					{#each project.tags as tag}
-						<div class="p-1 border border-gray-500 border-opacity-25 rounded-lg px-2">
-							{tag}
-						</div>
+						<Tag icon={tag.icon}>{tag.name}</Tag>
 					{/each}
 				</div>
 			</div>

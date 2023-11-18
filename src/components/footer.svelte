@@ -2,7 +2,7 @@
 	import GithubIcon from '../icons/github.svg?component';
 </script>
 
-<footer class="border-t border-t-gray-500 border-opacity-10">
+<footer class="border-t border-t-gray-500 border-opacity-10 text-base">
 	<div class="flex justify-between items-center p-12">
 		<div>
 			<a class="font-josefin text-gold" href="/">DANIEL HAIYAO ZHANG</a>
