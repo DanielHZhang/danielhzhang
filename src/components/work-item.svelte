@@ -27,8 +27,8 @@
 				<ArrowRightIcon class="w-6 inline-block mx-4" />
 				<span class="text-white">{role}</span>
 			</h1>
-			<h2 class="text-lg text-gray-400">{description}</h2>
-			<div class="text-lg text-gray-400">Technologies: {tech}</div>
+			<h2 class="text-gray-400">{description}</h2>
+			<div class="text-gray-400">Technologies: {tech}</div>
 			<div class="mt-auto text-gray-400">{time}</div>
 		</div>
 	</div>

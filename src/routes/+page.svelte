@@ -6,9 +6,9 @@
 	import WorkExperience from '../components/work-experience.svelte';
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col text-xl">
 	<Hero />
-	<div class="flex flex-col gap-32 lg:px-[15%] md:px-[8%]">
+	<div class="flex flex-col gap-32 xl:px-[10%] lg:px-[6%] md:px-4 sm:px-2">
 		<WorkExperience />
 		<Projects />
 		<Contact />

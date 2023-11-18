@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="grow mb-4">
-					<p class="text-gray-400 font-manrope">{project.description}</p>
+					<p class="text-gray-400">{project.description}</p>
 				</div>
 				<div class="flex flex-wrap gap-2 items-start">
 					{#each project.tags as tag}

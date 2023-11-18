@@ -5,8 +5,8 @@
 <footer class="border-t border-t-gray-500 border-opacity-10">
 	<div class="flex justify-between items-center p-12">
 		<div>
-			<p>Daniel Haiyao Zhang</p>
-			<p>Made with 🍁 from Canada</p>
+			<a class="font-josefin text-gold" href="/">DANIEL HAIYAO ZHANG</a>
+			<p class="text-gray-400">Made with 🍁 from Canada</p>
 		</div>
 		<div>
 			<GithubIcon width={24} />
