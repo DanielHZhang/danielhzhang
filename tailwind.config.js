@@ -8,7 +8,6 @@ export default {
 			fontFamily: {
 				sans: ['Lexend', ...defaultTheme.fontFamily.sans],
 				josefin: 'Josefin Sans',
-				manrope: 'Manrope',
 			},
 			colors: {
 				white: 'rgb(247, 248, 248)',

@@ -19,7 +19,7 @@ export const projects: ProjectData[] = [
 			{ name: 'Webpack', icon: 'webpack' },
 		],
 		description:
-			'MemorizeAnything is a web platform for students to create flashcards and lecture notes and optimize their studying time based on spaced repetition.',
+			'A web platform for students to create flashcards and lecture notes and optimize their studying time based on spaced repetition.',
 		url: 'https://www.memorizeanything.net',
 	},
 	{
@@ -32,7 +32,7 @@ export const projects: ProjectData[] = [
 			{ name: 'Firebase', icon: 'firebase' },
 		],
 		description:
-			'DevCertified is an online code editor and execution environment that simplifies conducting coding interviews with prospective candidates for recruiters.',
+			'An online code editor and execution environment that simplifies conducting coding interviews with prospective candidates for recruiters.',
 		url: 'https://www.devcertified.com',
 	},
 	{
@@ -40,58 +40,44 @@ export const projects: ProjectData[] = [
 		language: 'typescript',
 		tags: [
 			{ name: 'React', icon: 'react' },
-			// { name: 'Recoil', icon: 'recoil' },
 			{ name: 'Fastify', icon: 'fastify' },
 			{ name: 'Prisma', icon: 'prisma' },
 			{ name: 'PostgreSQL', icon: 'postgresql' },
 		],
-		description: 'Unlike the Others is an online multiplayer social deduction game.',
+		description: 'An online social deduction game based on Among Us.',
 		url: 'https://github.com/DanielHZhang/unlike-the-others',
 	},
 	{
 		title: 'Superbuffer',
 		language: 'typescript',
 		tags: [
-			// { name: 'Open Source', icon: 'open-source-initiative' },
-			// { name: 'Data Structure', icon: 'data-structure' },
-			// { name: 'Compression', icon: 'compression' },
-			// { name: 'Buffer', icon: 'buffer' },
+			{ name: 'Data Structures', icon: 'binary-tree' },
+			{ name: 'Compression', icon: 'stack-push' },
 		],
 		description:
-			'Superbuffer is a type-safe library for serializing and deserializing JSON into raw binary and for over 50% compression over the wire compared to regular JSON.',
+			'A type-safe library for serializing and deserializing JSON into raw binary and for over 50% compression over the wire compared to regular JSON.',
 		url: 'https://github.com/DanielHZhang/superbuffer',
 	},
 	{
 		title: 'rusty-avl',
 		language: 'rust',
-		tags: [
-			// { name: 'Open Source', icon: 'open-source-initiative' },
-			// { name: 'Data Structures', icon: 'data-structure' },
-		],
-		description: 'rusty-avl is a performant and purely iterative AVL tree implementation in Rust.',
+		tags: [{ name: 'Data Structures', icon: 'binary-tree' }],
+		description: 'A performant and purely iterative AVL tree implementation in Rust.',
 		url: 'https://github.com/DanielHZhang/rusty-avl',
 	},
 	{
 		title: 'xsurf',
 		language: 'typescript',
-		tags: [
-			// { name: 'Open Source', icon: 'open-source-initiative' },
-			// { name: 'Security', icon: 'security' },
-			// { name: 'Token', icon: 'token' },
-		],
-		description: 'xsurf is a middleware library for generating and validating CSRF tokens.',
+		tags: [{ name: 'Security', icon: 'shield-lock' }],
+		description: 'A middleware library for generating and validating CSRF tokens.',
 		url: 'https://github.com/DanielHZhang/xsurf',
 	},
 	{
 		title: 'tsc-suppress',
 		language: 'typescript',
-		tags: [
-			// { name: 'Open Source', icon: 'open-source-initiative' },
-			// { name: 'Compiler', icon: 'compiler' },
-			// { name: 'CLI', icon: 'cli' },
-		],
+		tags: [{ name: 'CLI', icon: 'terminal' }],
 		description:
-			'tsc-suppress is a lightweight extension of the TypeScript compiler that adds the ability to skip type-checking in order to speed up compilation times during development.',
+			'A lightweight extension of the TypeScript compiler that adds the ability to skip type-checking in order to speed up compilation times during development.',
 		url: 'https://github.com/DanielHZhang/tsc-suppress',
 	},
 	{
@@ -101,7 +87,6 @@ export const projects: ProjectData[] = [
 		language: 'typescript',
 		tags: [
 			{ name: 'GitHub Actions', icon: 'github-actions' },
-			// { name: 'CI/CD', icon: 'ci-cd' },
 			{ name: 'NPM', icon: 'npm' },
 		],
 		url: 'https://github.com/DanielHZhang/npm-publish-release',
@@ -109,10 +94,7 @@ export const projects: ProjectData[] = [
 	{
 		title: 'Leetcode',
 		language: 'python',
-		tags: [
-			// { name: 'Data Structures', icon: 'data-structure' },
-			// { name: 'Algorithms', icon: 'algorithms' },
-		],
+		tags: [{ name: 'Data Structures', icon: 'binary-tree' }],
 		description: 'A collection of leetcode problems that I have solved.',
 		url: 'https://github.com/DanielHZhang/npm-publish-release',
 	},
@@ -120,7 +102,7 @@ export const projects: ProjectData[] = [
 		title: 'vscode-theme-fullmetal',
 		description: 'A vibrant, balanced, and intuitive theme for VSCode.',
 		language: 'json',
-		tags: [],
+		tags: [{ name: 'VSCode', icon: 'vscode' }],
 		url: 'https://github.com/DanielHZhang/vscode-theme-fullmetal',
 	},
 ];

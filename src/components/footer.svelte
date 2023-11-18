@@ -1,5 +1,5 @@
 <script lang="ts">
-	import GithubIcon from '../icons/github.svg?component';
+	import Icon from './icon.svelte';
 </script>
 
 <footer class="border-t border-t-gray-500 border-opacity-10 text-base">
@@ -9,7 +9,9 @@
 			<p class="text-gray-400">Made with 🍁 from Canada</p>
 		</div>
 		<div>
-			<GithubIcon width={24} />
+			<a href="https://github.com/DanielHZhang">
+				<Icon kind="github" width={32} height={32} />
+			</a>
 		</div>
 	</div>
 </footer>
