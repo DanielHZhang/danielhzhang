@@ -44,8 +44,8 @@
 
 	onMount(() => {
 		const rect = element.getBoundingClientRect();
-		x = randInt(0, rect.width) - rect.left;
-		y = randInt(0, rect.height) - rect.top;
+		x = randInt(0, rect.width);
+		y = randInt(0, rect.height);
 	});
 </script>
 
