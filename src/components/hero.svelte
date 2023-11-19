@@ -55,6 +55,6 @@
 	}
 
 	.link-item:hover {
-		color: theme(colors.blue.400);
+		color: theme(colors.blue.500);
 	}
 </style>
