@@ -9,10 +9,10 @@
 
 	let element: HTMLDivElement;
 	let boundingRect: DOMRect | undefined;
-	let x: number;
-	let y: number;
-	let xRotation: number;
-	let yRotation: number;
+	let x: number = 0;
+	let y: number = 0;
+	let xRotation: number = 0;
+	let yRotation: number = 0;
 
 	const mouseEnter = (event: MouseEvent) => {
 		if (event.target instanceof HTMLElement) {

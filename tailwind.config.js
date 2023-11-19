@@ -5,6 +5,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			screens: {
+				xs: '100px',
+			},
 			fontFamily: {
 				sans: ['Lexend', ...defaultTheme.fontFamily.sans],
 				josefin: 'Josefin Sans',

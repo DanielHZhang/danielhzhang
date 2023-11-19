@@ -15,7 +15,7 @@
 				brandColor: 'rgb(171, 102, 255)',
 			},
 			role: 'Software Engineer',
-			description: 'Full stack development - Generative AI platform',
+			description: 'Full-stack development - Generative AI presentation platform',
 			tech: [
 				{ name: 'TypeScript', icon: 'typescript' },
 				{ name: 'Python', icon: 'python' },
@@ -33,7 +33,7 @@
 				brandColor: 'rgb(255, 70, 76)',
 			},
 			role: 'Software Engineer',
-			description: 'Full stack development - Automotive platform',
+			description: 'Full-stack development - Automotive platform',
 			tech: [
 				{ name: 'TypeScript', icon: 'typescript' },
 				{ name: 'React', icon: 'react' },
@@ -50,17 +50,17 @@
 
 <div class="flex flex-col">
 	<SectionTitle id="work-experience" color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
-	<div class="flex flex-col gap-5">
+	<div class="flex flex-col sm:gap-5 xs:gap-2">
 		{#each workExperiences as work}
 			<div
-				class="flex flex-col border border-gray-500 border-opacity-25 rounded-2xl p-12 gradient-bg"
+				class="flex flex-col border border-gray-500 border-opacity-25 rounded-2xl sm:p-12 xs:p-6 gradient-bg"
 				style="--gradient-color: {gradientColor}"
 			>
-				<div class="flex gap-12">
+				<div class="flex xs:flex-wrap lg:flex-nowrap sm:gap-12 xs:gap-4">
 					<img
 						src={`${base}/${work.image}`}
 						alt="Prezo home page"
-						class="rounded-lg lg:w-[430px] h-[225px] md:w-80 object-cover"
+						class="rounded-lg xl:w-[430px] lg:w-80 h-[225px] object-cover"
 					/>
 					<div class="flex flex-col gap-3">
 						<h1 class="text-3xl font-medium flex items-center">

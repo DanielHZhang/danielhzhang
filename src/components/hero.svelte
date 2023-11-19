@@ -16,7 +16,7 @@
 
 <svelte:window on:scroll={handleScroll} />
 
-<div class="flex flex-col items-center h-screen">
+<div class="flex flex-col items-center min-h-screen">
 	<div class="flex flex-col text-gold text-6xl leading-tight font-medium">
 		<div>Hey there! I'm Daniel Haiyao Zhang!</div>
 		<div>I'm a self-taught software engineer from Toronto.</div>
@@ -26,11 +26,11 @@
 	{#if atTopOfPage}
 		<div class="flex justify-between absolute bottom-8 left-20 right-20" transition:fly={{ duration: 200, y: -40 }}>
 			<a href="#work-experience" class="link-item">
-				<Icon kind="briefcase" width={26} height={26} />
+				<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
 				<span>Work Experience</span>
 			</a>
 			<a href="#projects" class="link-item">
-				<Icon kind="bulb" width={28} height={28} />
+				<Icon kind="bulb" width={28} height={28} stroke="#fff" />
 				<span>Projects</span>
 			</a>
 			<a href={githubProfileUrl} class="link-item">
@@ -51,6 +51,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		transition: color 200ms ease-out;
+		color: theme(colors.gold);
 	}
 
 	.link-item:hover {

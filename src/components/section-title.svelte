@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex flex-col mb-14">
-	<h1 {id} class="text-7xl font-semibold text-center pt-4" style="color: {color}">
+	<h1 {id} class="md:text-7xl xs:text-5xl font-semibold text-center pt-4" style="color: {color}">
 		<slot />
 	</h1>
 </div>

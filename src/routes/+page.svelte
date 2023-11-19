@@ -12,7 +12,7 @@
 
 <div class="flex flex-col text-xl">
 	<Hero />
-	<div class="flex flex-col gap-36 xl:px-[10%] lg:px-[6%] md:px-4 sm:px-2">
+	<div class="flex flex-col gap-36 xl:px-[10%] lg:px-[6%] md:px-4 xs:px-2 mx-auto">
 		<WorkExperience />
 		<Projects />
 		<Contact />
