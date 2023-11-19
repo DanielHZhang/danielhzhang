@@ -3,5 +3,5 @@
 </script>
 
 <div>
-	<SectionTitle>Let's Talk</SectionTitle>
+	<SectionTitle id="#contact">Let's Talk</SectionTitle>
 </div>

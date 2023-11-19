@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { githubProfileUrl } from '../utils/constants';
 	import Icon from './icon.svelte';
 </script>
 
@@ -9,7 +10,7 @@
 			<p class="text-gray-400">Made with 🍁 from Canada</p>
 		</div>
 		<div>
-			<a href="https://github.com/DanielHZhang">
+			<a href={githubProfileUrl}>
 				<Icon kind="github" width={32} height={32} />
 			</a>
 		</div>

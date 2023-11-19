@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ProjectData } from '../types';
+	import type { Project } from '../types';
 	import ProjectItem from './project-item.svelte';
 	import SectionTitle from './section-title.svelte';
 
-	const projects: ProjectData[] = [
+	const projects: Project[] = [
 		{
 			title: 'MemorizeAnything',
 			language: 'typescript',
@@ -81,20 +81,19 @@
 			title: 'npm-publish-release',
 			description:
 				'npm-publish-release is a GitHub action that automates publishing a package release to the NPM registry.',
-			language: 'typescript',
 			tags: [
 				{ name: 'GitHub Actions', icon: 'github-actions' },
 				{ name: 'NPM', icon: 'npm' },
 			],
 			url: 'https://github.com/DanielHZhang/npm-publish-release',
 		},
-		{
-			title: 'Leetcode',
-			language: 'python',
-			tags: [{ name: 'Data Structures', icon: 'binary-tree' }],
-			description: 'A collection of leetcode problems that I have solved.',
-			url: 'https://github.com/DanielHZhang/npm-publish-release',
-		},
+		// {
+		// 	title: 'Leetcode',
+		// 	language: 'python',
+		// 	tags: [{ name: 'Data Structures', icon: 'binary-tree' }],
+		// 	description: 'A collection of leetcode problems that I have solved.',
+		// 	url: 'https://github.com/DanielHZhang/leetcode',
+		// },
 		{
 			title: 'vscode-theme-fullmetal',
 			description: 'A vibrant, balanced, and intuitive theme for VSCode.',
@@ -108,8 +107,8 @@
 	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
 </script>
 
-<div class="flex flex-col mb-16">
-	<SectionTitle color="rgb({baseColorRgb}, 0.75)">Personal Projects</SectionTitle>
+<div class="flex flex-col">
+	<SectionTitle id="projects" color="rgb({baseColorRgb}, 0.75)">Personal Projects</SectionTitle>
 	<div class="grid gap-5 waterfall-grid">
 		{#each projects as project}
 			<ProjectItem {project} {gradientColor} />

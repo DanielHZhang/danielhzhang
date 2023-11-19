@@ -49,7 +49,7 @@
 </script>
 
 <div class="flex flex-col">
-	<SectionTitle color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
+	<SectionTitle id="work-experience" color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
 	<div class="flex flex-col gap-5">
 		{#each workExperiences as work}
 			<div
@@ -84,8 +84,8 @@
 	</div>
 </div>
 
-<style scoped>
+<style scoped lang="postcss">
 	.gradient-bg {
-		background: radial-gradient(ellipse at center, var(--gradient-color), var(--transparent));
+		background: radial-gradient(ellipse at center, var(--gradient-color), theme(colors.card));
 	}
 </style>

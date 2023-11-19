@@ -2,14 +2,7 @@
 	import { onMount } from 'svelte';
 	import { capitalizeFirst, randInt } from '../utils';
 	import Tag from './tag.svelte';
-
-	type Project = {
-		title: string;
-		language: string;
-		tags: { name: string; icon: string }[];
-		description: string;
-		url?: string;
-	};
+	import type { Project } from '../types';
 
 	export let project: Project;
 	export let gradientColor: string;
@@ -57,7 +50,7 @@
 </script>
 
 <div
-	class="project-item relative flex flex-col gap-4 border border-gray-500 border-opacity-25 rounded-2xl p-8 transition-transform duration-300 ease-out"
+	class="project-item relative flex flex-col gap-4 border border-gray-500 border-opacity-25 rounded-2xl p-8 transition-transform duration-300 ease-out bg-card"
 	style="--x: {x}px; --y: {y}px; --x-rotation: {xRotation}deg; --y-rotation: {yRotation}deg; --gradient-color: {gradientColor}"
 	role="article"
 	bind:this={element}
@@ -74,18 +67,18 @@
 		<p class="text-gray-400">{project.description}</p>
 	</div>
 	<div class="flex flex-wrap gap-2 items-start">
-		<Tag icon={project.language}>
-			{formatLanguage(project.language)}
-		</Tag>
+		{#if project.language}
+			<Tag icon={project.language}>{formatLanguage(project.language)}</Tag>
+		{/if}
 		{#each project.tags as tag}
 			<Tag icon={tag.icon}>{tag.name}</Tag>
 		{/each}
 	</div>
 </div>
 
-<style scoped>
+<style scoped lang="postcss">
 	.project-item {
-		background: radial-gradient(ellipse at var(--x) var(--y), var(--gradient-color), var(--transparent));
+		background: radial-gradient(ellipse at var(--x) var(--y), var(--gradient-color), theme(colors.card));
 	}
 
 	.project-item:hover {
