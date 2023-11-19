@@ -40,3 +40,7 @@ export function rafThrottle<T extends any[]>(
 export function capitalizeFirst(str: string) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+export function randInt(min: number, max: number) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}

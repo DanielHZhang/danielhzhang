@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import Icon from './icon.svelte';
 	import SectionTitle from './section-title.svelte';
+	import Tag from './tag.svelte';
 
 	const baseColorRgb = '72, 194, 126';
 	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
@@ -15,7 +16,13 @@
 			},
 			role: 'Software Engineer',
 			description: 'Full stack development - Generative AI platform',
-			tech: 'TypeScript, Python, Vue.js, Deno, Supabase, Cloudflare',
+			tech: [
+				{ name: 'TypeScript', icon: 'typescript' },
+				{ name: 'Python', icon: 'python' },
+				{ name: 'Vue.js', icon: 'vue-js' },
+				{ name: 'Deno', icon: 'deno' },
+				{ name: 'OpenAI', icon: 'open-ai' },
+			],
 			time: 'Feb 2023 - Present (Full Time)',
 			image: 'prezo-homepage.webp',
 		},
@@ -27,7 +34,14 @@
 			},
 			role: 'Software Engineer',
 			description: 'Full stack development - Automotive platform',
-			tech: 'TypeScript, React, Node.js, PostgreSQL, Terraform, AWS',
+			tech: [
+				{ name: 'TypeScript', icon: 'typescript' },
+				{ name: 'React', icon: 'react' },
+				{ name: 'Node.js', icon: 'node-js' },
+				{ name: 'PostgreSQL', icon: 'postgresql' },
+				{ name: 'Terraform', icon: 'terraform' },
+				{ name: 'AWS', icon: 'aws' },
+			],
 			time: 'Dec 2021 - Jan 2023 (Full Time)',
 			image: 'clutch-homepage.webp',
 		},
@@ -48,16 +62,20 @@
 						alt="Prezo home page"
 						class="rounded-lg lg:w-[430px] h-[225px] md:w-80 object-cover"
 					/>
-					<div class="flex flex-col">
-						<h1 class="text-3xl font-medium mb-4 flex items-center">
+					<div class="flex flex-col gap-3">
+						<h1 class="text-3xl font-medium flex items-center">
 							<a href={work.company.url} class="underline" style="color: {work.company.brandColor}">
 								{work.company.name}
 							</a>
-							<Icon kind="arrow-badge-right" class="w-6 inline-block mx-4" />
+							<Icon kind="arrow-right-circle" class="w-8 inline-block mx-4 stroke-gold" />
 							<span class="text-gold">{work.role}</span>
 						</h1>
 						<h2 class="text-gray-400">{work.description}</h2>
-						<div class="text-gray-400">Technologies: {work.tech}</div>
+						<div class="text-gray-400 flex flex-wrap gap-2 mt-2">
+							{#each work.tech as tech}
+								<Tag icon={tech.icon}>{tech.name}</Tag>
+							{/each}
+						</div>
 						<div class="mt-auto text-white">{work.time}</div>
 					</div>
 				</div>
