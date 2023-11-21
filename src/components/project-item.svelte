@@ -50,7 +50,7 @@
 </script>
 
 <div
-	class="project-item relative flex flex-col gap-4 border border-gray-500 border-opacity-25 rounded-2xl p-8 transition-transform duration-300 ease-out bg-card"
+	class="project-item anime anime-done relative flex flex-col gap-4 border border-gray-500 border-opacity-25 rounded-2xl p-8 transition-transform duration-300 ease-out bg-card"
 	style="--x: {x}px; --y: {y}px; --x-rotation: {xRotation}deg; --y-rotation: {yRotation}deg; --gradient-color: {gradientColor}"
 	role="article"
 	bind:this={element}

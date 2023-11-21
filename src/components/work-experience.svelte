@@ -48,12 +48,12 @@
 	];
 </script>
 
-<div class="flex flex-col">
+<div id="work-container" class="project project-transition flex flex-col">
 	<SectionTitle id="work-experience" color="rgb({baseColorRgb}, 0.75)">Work Experience</SectionTitle>
-	<div class="flex flex-col sm:gap-5 xs:gap-2">
+	<div class="anime anime-done flex flex-col sm:gap-5 xs:gap-2">
 		{#each workExperiences as work}
 			<div
-				class="flex flex-col border border-gray-500 border-opacity-25 rounded-2xl sm:p-12 xs:p-6 gradient-bg"
+				class="anime anime-done flex flex-col border border-gray-500 border-opacity-25 rounded-2xl sm:p-12 xs:p-6 gradient-bg"
 				style="--gradient-color: {gradientColor}"
 			>
 				<div class="flex xs:flex-wrap lg:flex-nowrap sm:gap-12 xs:gap-4">

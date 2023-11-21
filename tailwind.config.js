@@ -10,11 +10,11 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Lexend', ...defaultTheme.fontFamily.sans],
-				josefin: 'Josefin Sans',
 			},
 			colors: {
 				white: 'rgb(247, 248, 248)',
 				gray: {
+					300: '#D1E1E4',
 					400: 'rgb(180, 188, 208)',
 				},
 				gold: 'rgb(218, 201, 166)',

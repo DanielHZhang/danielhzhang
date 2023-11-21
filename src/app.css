@@ -4,12 +4,9 @@
 
 :root {
 	--transparent: hsla(0, 0%, 100%, 0);
-	/* --scrollbar-background: #202324; */
 	--scrollbar-thumb-color: #2b2d2e;
-	/* --scrollbar-corner-color: #181a1b; */
 	--background-color: #15141c;
 
-	/* color-scheme: light dark; */
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	background-color: var(--background-color);
@@ -35,16 +32,14 @@ body {
 	background-color: var(--scrollbar-thumb-color);
 	border-radius: 16px;
 }
-/* @media (prefers-color-scheme: light) {
-	:root {
-		color: #15141c;
-		background-color: #ffffff;
-	}
+
+.anime {
+	opacity: 0;
+	transform: translateY(-50px) scale(0.94);
+	transition: all 500ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		background-color: #15141c;
-		color: #ffffff;
-	}
-} */
+.anime-done {
+	opacity: 1;
+	transform: translateY(0px) scale(1);
+}

@@ -4,9 +4,9 @@
 	import SectionTitle from './section-title.svelte';
 </script>
 
-<div class="mb-16">
+<div>
 	<SectionTitle id="#contact">Let's Connect</SectionTitle>
-	<div class="flex justify-center gap-4">
+	<div class="anime anime-done flex justify-center gap-4">
 		<LinkButton href="mailto:hello@danielhzhang.com">Send email</LinkButton>
 		<LinkButton href={linkedinProfileUrl} bordered>LinkedIn message</LinkButton>
 	</div>
