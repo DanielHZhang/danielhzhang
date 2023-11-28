@@ -53,14 +53,14 @@
 	<div class="anime anime-done flex flex-col sm:gap-5 xs:gap-2">
 		{#each workExperiences as work}
 			<div
-				class="anime anime-done flex flex-col border border-gray-500 border-opacity-25 rounded-2xl sm:p-12 xs:p-6 gradient-bg"
+				class="anime anime-done flex flex-col border border-gray-500 border-opacity-25 rounded-2xl lg:p-12 sm:p-8 xs:p-6 gradient-bg"
 				style="--gradient-color: {gradientColor}"
 			>
-				<div class="flex xs:flex-wrap lg:flex-nowrap sm:gap-12 xs:gap-4">
+				<div class="flex xs:flex-col md:flex-row lg:gap-12 md:gap-6 xs:gap-4">
 					<img
 						src={`${base}/${work.image}`}
 						alt="Prezo home page"
-						class="rounded-lg xl:w-[430px] lg:w-80 h-[225px] object-cover"
+						class="rounded-lg xl:w-[430px] lg:w-80 md:w-60 h-[225px] object-cover"
 					/>
 					<div class="flex flex-col gap-3">
 						<h1 class="text-3xl font-medium flex items-center">

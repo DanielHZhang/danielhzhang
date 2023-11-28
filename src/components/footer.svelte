@@ -5,7 +5,7 @@
 
 <!-- border-t border-t-gray-500 border-opacity-10  -->
 <footer class="text-base">
-	<div class="flex justify-between items-center p-12">
+	<div class="flex justify-between items-center md:p-12 xs:p-2">
 		<div>
 			<a class="text-gold" href="/">DANIEL HAIYAO ZHANG</a>
 			<p class="text-gray-400">Made with 🍁 from Canada</p>

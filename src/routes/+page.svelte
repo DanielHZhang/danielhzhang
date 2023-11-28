@@ -31,7 +31,7 @@
 	<title>Daniel Haiyao Zhang - Software Engineer</title>
 </svelte:head>
 
-<div class="flex flex-col text-xl gap-36 xl:px-[12%] lg:px-[6%] md:px-4 xs:px-2 mx-auto">
+<div class="flex flex-col text-xl gap-36 xl:px-[12%] lg:px-[6%] md:px-[4%] sm:px-4 xs:px-2 mx-auto">
 	<Hero />
 	<WorkExperience />
 	<Projects />

@@ -3,6 +3,8 @@
 	import { expoOut } from 'svelte/easing';
 	import { githubProfileUrl, linkedinProfileUrl } from '../utils/constants';
 	import Icon from './icon.svelte';
+	import * as THREE from 'three';
+	import { onMount } from 'svelte';
 
 	let atTopOfPage = true;
 
@@ -13,40 +15,78 @@
 			atTopOfPage = true;
 		}
 	};
+
+	const threeContainerId = 'hero-canvas-container';
+
+	onMount(() => {
+		const scene = new THREE.Scene();
+		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+		const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+		const geometry = new THREE.BoxGeometry(1, 1, 1);
+		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+		const cube = new THREE.Mesh(geometry, material);
+		scene.add(cube);
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		camera.position.z = 5;
+
+		const container = document.getElementById(threeContainerId)!;
+		container.appendChild(renderer.domElement);
+
+		// renderer.render(scene, camera);
+		// function rerender() {
+		// 	requestAnimationFrame(rerender);
+		// 	cube.rotation.x += 0.01;
+		// 	cube.rotation.y += 0.01;
+		// 	renderer.render(scene, camera);
+		// }
+		// rerender();
+
+		window.addEventListener('resize', () => {
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+		});
+	});
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
-<div class="flex items-end pb-[20%] min-h-screen relative">
-	<div class="flex flex-col text-5xl text-gray-300 leading-tight font-medium">
-		<div>Hello!</div>
-		<div>I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.</div>
-		<div>My days are spent building web apps, graphics simulations, and artificial intelligence.</div>
-	</div>
+<div class="flex items-end min-h-screen">
+	<!-- <div id={threeContainerId} class="absolute -z-10 inset-0 overflow-hidden" /> -->
 
-	{#if atTopOfPage}
-		<div
-			class="flex justify-between absolute bottom-8 inset-x-0"
-			transition:fly={{ duration: 200, y: 40, easing: expoOut }}
-		>
-			<a href="#work-experience" class="link-item">
-				<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
-				<span>Work Experience</span>
-			</a>
-			<a href="#projects" class="link-item">
-				<Icon kind="bulb" width={28} height={28} stroke="#fff" />
-				<span>Projects</span>
-			</a>
-			<a href={githubProfileUrl} class="link-item">
-				<Icon kind="github" width={24} height={24} />
-				<span>Github</span>
-			</a>
-			<a href={linkedinProfileUrl} class="link-item">
-				<Icon kind="linkedin" width={24} height={24} />
-				<span>LinkedIn</span>
-			</a>
+	<div class="relative pb-[20%]">
+		<div class="flex flex-col text-5xl text-gray-300 leading-tight font-medium">
+			<div>Hello!</div>
+			<div>I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.</div>
+			<div>My days are spent building web apps, graphics simulations, and artificial intelligence.</div>
 		</div>
-	{/if}
+
+		{#if atTopOfPage}
+			<div
+				class="flex justify-between flex-wrap absolute bottom-8 inset-x-0"
+				transition:fly={{ duration: 200, y: 40, easing: expoOut }}
+			>
+				<a href="#work-experience" class="link-item">
+					<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
+					<span>Work Experience</span>
+				</a>
+				<a href="#projects" class="link-item">
+					<Icon kind="bulb" width={28} height={28} stroke="#fff" />
+					<span>Projects</span>
+				</a>
+				<a href={githubProfileUrl} class="link-item">
+					<Icon kind="github" width={24} height={24} />
+					<span>Github</span>
+				</a>
+				<a href={linkedinProfileUrl} class="link-item">
+					<Icon kind="linkedin" width={24} height={24} />
+					<span>LinkedIn</span>
+				</a>
+			</div>
+		{/if}
+	</div>
 </div>
 
 <style scoped lang="postcss">

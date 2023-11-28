@@ -6,6 +6,7 @@
 	--transparent: hsla(0, 0%, 100%, 0);
 	--scrollbar-thumb-color: #2b2d2e;
 	--background-color: #15141c;
+	--min-screen: 350px;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -16,11 +17,13 @@
 
 html,
 body {
-	min-width: 350px;
+	min-width: var(--min-screen);
+	min-height: 100%;
 }
 
 ::-webkit-scrollbar {
 	width: 12px;
+	height: 12px;
 	background-color: var(--background-color);
 }
 
