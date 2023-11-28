@@ -56,21 +56,26 @@
 <div class="flex items-end min-h-screen">
 	<!-- <div id={threeContainerId} class="absolute -z-10 inset-0 overflow-hidden" /> -->
 
-	<div class="relative pb-[20%]">
-		<div class="flex flex-col text-5xl text-gray-300 leading-tight font-medium">
-			<div>Hello!</div>
-			<div>I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.</div>
-			<div>My days are spent building web apps, graphics simulations, and artificial intelligence.</div>
+	<div class="relative pb-[20vh] xs:px-2">
+		<div class="flex flex-col gap-3 lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-gray-300 font-medium">
+			<div class="leading-normal text-gold">Hello!</div>
+			<div class="leading-tight text-gray-400">
+				I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.
+			</div>
+			<div class="leading-tight text-gray-450">
+				My days are spent building web apps, graphics simulations, and artificial intelligence.
+			</div>
 		</div>
 
 		{#if atTopOfPage}
 			<div
-				class="flex justify-between flex-wrap absolute bottom-8 inset-x-0"
+				class="grid md:grid-cols-[repeat(4,auto)] xs:grid-cols-[repeat(2,auto)] xs:px-2 justify-between gap-2 absolute bottom-10 inset-x-0"
 				transition:fly={{ duration: 200, y: 40, easing: expoOut }}
 			>
 				<a href="#work-experience" class="link-item">
 					<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
-					<span>Work Experience</span>
+					<span class="xs:hidden sm:inline md:hidden lg:inline">Work Experience</span>
+					<span class="xs:inline sm:hidden md:inline lg:hidden">Work</span>
 				</a>
 				<a href="#projects" class="link-item">
 					<Icon kind="bulb" width={28} height={28} stroke="#fff" />
