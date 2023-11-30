@@ -68,6 +68,7 @@
 
 	<div class="relative pb-[20vh] xs:px-2">
 		<div class="flex flex-col gap-3 lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-gray-300 font-medium">
+			<img src="favicon.svg" alt="logo" class="w-16 h-16" />
 			<div class="leading-normal text-gold">Hello!</div>
 			<div class="leading-tight text-gray-400">
 				I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.
