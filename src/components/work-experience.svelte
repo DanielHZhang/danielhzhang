@@ -56,19 +56,19 @@
 				class="anime anime-done flex flex-col border border-gray-500 border-opacity-25 rounded-2xl lg:p-12 sm:p-8 xs:p-6 gradient-bg"
 				style="--gradient-color: {gradientColor}"
 			>
-				<div class="flex xs:flex-col md:flex-row lg:gap-12 md:gap-6 xs:gap-4">
+				<div class="flex flex-col md:flex-row lg:gap-12 gap-4 md:gap-6">
 					<img
 						src={`${base}/${work.image}`}
 						alt="Prezo home page"
 						class="rounded-lg xl:w-[430px] lg:w-80 md:w-60 h-[225px] object-cover"
 					/>
 					<div class="flex flex-col gap-3">
-						<h1 class="text-3xl font-medium flex items-center">
+						<h1 class="text-3xl font-medium flex flex-col sm:flex-row sm:items-center xs:items-start">
 							<a href={work.company.url} class="underline" style="color: {work.company.brandColor}">
 								{work.company.name}
 							</a>
-							<Icon kind="arrow-right-circle" class="w-8 inline-block mx-4 stroke-gold" />
-							<span class="text-gold">{work.role}</span>
+							<Icon kind="arrow-right-circle" class="w-8 inline-block mx-4 stroke-gold xs:hidden sm:block" />
+							<span class="text-gold text-xl sm:text-3xl mt-3 sm:mt-0">{work.role}</span>
 						</h1>
 						<h2 class="text-gray-400">{work.description}</h2>
 						<div class="text-gray-400 flex flex-wrap gap-2 mt-2">

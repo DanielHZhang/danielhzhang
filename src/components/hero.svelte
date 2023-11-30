@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
 	import { expoOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
+	import * as THREE from 'three';
 	import { githubProfileUrl, linkedinProfileUrl } from '../utils/constants';
 	import Icon from './icon.svelte';
-	import * as THREE from 'three';
-	import { onMount } from 'svelte';
 
 	let atTopOfPage = true;
+
+	const threeContainerId = 'hero-canvas-container';
+	const renderEnabled = false;
 
 	const handleScroll = () => {
 		if (window.scrollY > 20) {
@@ -16,12 +19,19 @@
 		}
 	};
 
-	const threeContainerId = 'hero-canvas-container';
-
 	onMount(() => {
+		if (!renderEnabled) {
+			return;
+		}
+
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+		const webglContext = renderer.domElement.getContext('webgl2') || renderer.domElement.getContext('webgl');
+		if (!webglContext) {
+			return;
+		}
 
 		const geometry = new THREE.BoxGeometry(1, 1, 1);
 		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
