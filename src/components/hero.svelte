@@ -74,7 +74,7 @@
 				I'm <span class="text-blue-400">Daniel</span>, a self-taught software engineer from Toronto.
 			</div>
 			<div class="leading-tight text-gray-450">
-				My days are spent building web apps, graphics simulations, and artificial intelligence.
+				My days are spent building web apps, real-time graphics, and artificial intelligence.
 			</div>
 		</div>
 
