@@ -7,6 +7,7 @@
 	--scrollbar-thumb-color: #2b2d2e;
 	--background-color: #15141c;
 	--min-screen: 350px;
+	--gold: rgb(218, 201, 166);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -19,6 +20,25 @@ html,
 body {
 	min-width: var(--min-screen);
 	min-height: 100%;
+}
+
+.link {
+	position: relative;
+}
+.link::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: -4px;
+	left: 0;
+	background-color: var(--gold);
+	transform-origin: left;
+	transform: scaleX(0);
+	transition: transform 200ms ease-out;
+}
+.link:hover::after {
+	transform: scaleX(1);
 }
 
 ::-webkit-scrollbar {

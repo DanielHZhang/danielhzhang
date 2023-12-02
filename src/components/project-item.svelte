@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Project } from '../types';
 	import { capitalizeFirst, randInt } from '../utils';
 	import Tag from './tag.svelte';
-	import type { Project } from '../types';
 
 	export let project: Project;
 	export let gradientColor: string;
@@ -60,7 +60,7 @@
 >
 	<div class="flex justify-between">
 		<div class="flex">
-			<h1 class="text-3xl font-medium text-gold">{project.title}</h1>
+			<a href={project.url} class="link text-3xl font-medium text-gold">{project.title}</a>
 		</div>
 	</div>
 	<div class="grow mb-4">

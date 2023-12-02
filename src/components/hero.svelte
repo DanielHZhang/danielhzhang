@@ -83,20 +83,20 @@
 				class="grid md:grid-cols-[repeat(4,auto)] xs:grid-cols-[repeat(2,auto)] xs:px-2 justify-between gap-2 absolute bottom-10 inset-x-0"
 				transition:fly={{ duration: 200, y: 40, easing: expoOut }}
 			>
-				<a href="#work-experience" class="link-item">
+				<a href="#work-experience" class="link link-item">
 					<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
 					<span class="xs:hidden sm:inline md:hidden lg:inline">Work Experience</span>
 					<span class="xs:inline sm:hidden md:inline lg:hidden">Work</span>
 				</a>
-				<a href="#projects" class="link-item">
+				<a href="#projects" class="link link-item">
 					<Icon kind="bulb" width={28} height={28} stroke="#fff" />
 					<span>Projects</span>
 				</a>
-				<a href={githubProfileUrl} class="link-item">
+				<a href={githubProfileUrl} class="link link-item">
 					<Icon kind="github" width={24} height={24} />
 					<span>Github</span>
 				</a>
-				<a href={linkedinProfileUrl} class="link-item">
+				<a href={linkedinProfileUrl} class="link link-item">
 					<Icon kind="linkedin" width={24} height={24} />
 					<span>LinkedIn</span>
 				</a>
@@ -110,11 +110,6 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		transition: color 200ms ease-out;
 		color: theme(colors.gold);
-	}
-
-	.link-item:hover {
-		color: theme(colors.blue.500);
 	}
 </style>
