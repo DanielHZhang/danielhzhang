@@ -3,7 +3,6 @@
 	import Icon from './icon.svelte';
 </script>
 
-<!-- border-t border-t-gray-500 border-opacity-10  -->
 <footer class="text-base">
 	<div class="flex justify-between items-center md:p-12 xs:p-2">
 		<div>
