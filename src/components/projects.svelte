@@ -109,7 +109,7 @@
 
 <div class="flex flex-col">
 	<SectionTitle id="projects" color="rgb({baseColorRgb})">Personal Projects</SectionTitle>
-	<div class="grid gap-5 waterfall-grid">
+	<div class="grid gap-2 sm:gap-5 waterfall-grid">
 		{#each projects as project}
 			<ProjectItem {project} {gradientColor} />
 		{/each}
