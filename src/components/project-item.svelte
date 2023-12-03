@@ -10,11 +10,16 @@
 	const formatLanguage = (lang: string) => {
 		return lang === 'json' ? lang.toUpperCase() : capitalizeFirst(lang);
 	};
+
+	const onCardClick = () => {
+		window.open(project.url, '_blank')?.focus();
+	};
 </script>
 
 <PerspectiveCard
 	{gradientColor}
 	class="anime anime-done bg-card cursor-pointer flex flex-col relative gap-4 border border-gray-500 border-opacity-25 rounded-2xl xs:p-6 md:p-8"
+	on:click={onCardClick}
 >
 	<div class="flex justify-between">
 		<div class="flex">

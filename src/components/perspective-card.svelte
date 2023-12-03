@@ -55,6 +55,7 @@
 	on:mouseenter={mouseEnter}
 	on:mouseleave={mouseLeave}
 	on:mousemove={mouseMove}
+	on:click
 >
 	<slot />
 </div>

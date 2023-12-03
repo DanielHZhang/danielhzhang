@@ -47,6 +47,10 @@
 			image: 'clutch-homepage.webp',
 		},
 	];
+
+	const onCardClick = (url: string) => {
+		window.open(url, '_blank')?.focus();
+	};
 </script>
 
 <div id="work-container" class="project project-transition flex flex-col">
@@ -56,7 +60,7 @@
 			<PerspectiveCard
 				{gradientColor}
 				class="anime anime-done bg-card cursor-pointer flex flex-col border border-gray-500 border-opacity-25 rounded-2xl lg:p-12 sm:p-8 xs:p-6"
-				on:click={() => window.open(work.company.url, '_blank')?.focus()}
+				on:click={() => onCardClick(work.company.url)}
 			>
 				<div class="flex flex-col md:flex-row lg:gap-12 gap-4 md:gap-6">
 					<img
