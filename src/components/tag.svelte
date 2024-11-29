@@ -1,7 +1,12 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import Icon from './icon.svelte';
 
-	export let icon: string;
+	interface Props {
+		icon: string;
+		children: Snippet;
+	}
+	const { icon, children }: Props = $props();
 
 	function calcIconSize(iconName: string) {
 		switch (iconName) {
@@ -24,5 +29,5 @@
 	class="flex gap-2 items-center px-2 text-gray-500 border border-gray-500 border-opacity-25 rounded-lg h-11 text-base"
 >
 	<Icon kind={icon} width={iconSize} height={iconSize} />
-	<slot />
+	{@render children()}
 </div>

@@ -28,7 +28,7 @@
 				url: 'https://webflow.com',
 				brandColor: '#146ef5',
 			},
-			role: 'Backend Engineer, Applied AI',
+			role: 'Backend Engineer',
 			description: 'Full-stack development - Generative AI design assistant',
 			tech: [
 				{ name: 'TypeScript', icon: 'typescript' },

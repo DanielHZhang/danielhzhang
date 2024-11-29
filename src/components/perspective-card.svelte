@@ -3,20 +3,20 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { randInt } from '../utils';
 
-	interface $$Props extends HTMLAttributes<HTMLDivElement> {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		gradientColor: string;
 	}
-	export let gradientColor: string;
+	const { gradientColor, class: className, children, ...rest }: Props = $props();
 
-	let element: HTMLDivElement;
-	let boundingRect: DOMRect | undefined;
-	let x: number = 0;
-	let y: number = 0;
-	let xRotation: number = 0;
-	let yRotation: number = 0;
+	let element = $state<HTMLDivElement>();
+	let boundingRect = $state<DOMRect>();
+	let x = $state(0);
+	let y = $state(0);
+	let xRotation = $state(0);
+	let yRotation = $state(0);
 
 	const mouseEnter = (event: MouseEvent) => {
-		if (event.target instanceof HTMLElement) {
+		if (event.target instanceof HTMLElement && element) {
 			boundingRect = element.getBoundingClientRect();
 		}
 	};
@@ -40,6 +40,7 @@
 	};
 
 	onMount(() => {
+		if (!element) return;
 		const rect = element.getBoundingClientRect();
 		x = randInt(0, rect.width);
 		y = randInt(0, rect.height);
@@ -47,17 +48,16 @@
 </script>
 
 <div
-	{...$$restProps}
-	class="perspective-item relative {$$restProps.class ?? ''}"
+	{...rest}
+	class="perspective-item relative {className ?? ''}"
 	style="--x: {x}px; --y: {y}px; --x-rotation: {xRotation}deg; --y-rotation: {yRotation}deg; --gradient-color: {gradientColor}"
 	role="article"
 	bind:this={element}
-	on:mouseenter={mouseEnter}
-	on:mouseleave={mouseLeave}
-	on:mousemove={mouseMove}
-	on:click
+	onmouseenter={mouseEnter}
+	onmouseleave={mouseLeave}
+	onmousemove={mouseMove}
 >
-	<slot />
+	{@render children?.()}
 </div>
 
 <style scoped lang="postcss">

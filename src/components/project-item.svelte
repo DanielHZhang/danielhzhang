@@ -4,8 +4,11 @@
 	import PerspectiveCard from './perspective-card.svelte';
 	import Tag from './tag.svelte';
 
-	export let project: Project;
-	export let gradientColor: string;
+	interface Props {
+		project: Project;
+		gradientColor: string;
+	}
+	const { project, gradientColor }: Props = $props();
 
 	const formatLanguage = (lang: string) => {
 		return lang === 'json' ? lang.toUpperCase() : capitalizeFirst(lang);
@@ -19,7 +22,7 @@
 <PerspectiveCard
 	{gradientColor}
 	class="anime anime-done bg-card cursor-pointer flex flex-col relative gap-4 border border-gray-500 border-opacity-25 rounded-2xl xs:p-6 md:p-8"
-	on:click={onCardClick}
+	onclick={onCardClick}
 >
 	<div class="flex justify-between">
 		<div class="flex">
