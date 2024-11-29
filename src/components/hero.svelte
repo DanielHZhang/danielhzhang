@@ -64,7 +64,7 @@
 <svelte:window on:scroll={handleScroll} />
 
 <div class="flex items-end min-h-screen">
-	<div id={threeContainerId} class="absolute -z-10 inset-0 overflow-hidden" />
+	<div id={threeContainerId} class="absolute -z-10 inset-0 overflow-hidden"></div>
 
 	<div class="relative pb-[20vh] xs:px-2">
 		<div class="flex flex-col gap-3 lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-gray-300 font-medium">
