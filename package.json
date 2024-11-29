@@ -1,6 +1,6 @@
 {
 	"name": "danielhzhang",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -11,6 +11,9 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"engines": {
+		"node": ">=20"
 	},
 	"dependencies": {
 		"three": "^0.171.0"
