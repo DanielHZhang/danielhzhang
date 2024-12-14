@@ -5,6 +5,12 @@
 	import Hero from '../components/hero.svelte';
 	import Projects from '../components/projects.svelte';
 	import WorkExperience from '../components/work-experience.svelte';
+	import type { PageData } from './$types';
+
+	interface Props {
+		data: PageData;
+	}
+	let { data }: Props = $props();
 
 	onMount(() => {
 		const observer = new IntersectionObserver((entries) => {
@@ -37,8 +43,8 @@
 
 <div class="flex flex-col text-lg sm:text-xl gap-36 xl:px-[12%] lg:px-[6%] md:px-[4%] sm:px-4 xs:px-2 mx-auto">
 	<Hero />
-	<WorkExperience />
-	<Projects />
+	<WorkExperience data={data.workExperience} />
+	<Projects data={data.projects} />
 	<Contact />
 	<Footer />
 </div>
