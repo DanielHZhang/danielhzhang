@@ -34,7 +34,11 @@
 					/>
 					<div class="flex flex-col gap-3" style="--brand-color: {company.brandColor};">
 						<h1 class="text-3xl font-medium flex flex-col sm:flex-row sm:items-center xs:items-start">
-							<a href={company.url} class="link text-[var(--brand-color)] after:bg-[var(--brand-color)]">
+							<a
+								href={company.url}
+								target="_blank"
+								class="link text-[var(--brand-color)] after:bg-[var(--brand-color)]"
+							>
 								{company.name}
 							</a>
 							<IconArrowRightCircle class="w-8 inline-block mx-4 stroke-gold xs:hidden sm:block" />
