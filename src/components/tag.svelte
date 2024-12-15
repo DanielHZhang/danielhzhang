@@ -1,33 +1,35 @@
 <script lang="ts">
+	import { getIcon, type IconName } from '$lib/assets/icons';
 	import type { Snippet } from 'svelte';
-	import Icon from './icon.svelte';
 
 	interface Props {
-		icon: string;
+		icon: IconName;
 		children: Snippet;
 	}
-	const { icon, children }: Props = $props();
+	let { icon, children }: Props = $props();
+	let iconSize = $state(28);
 
-	function calcIconSize(iconName: string) {
-		switch (iconName) {
-			case 'javascript':
-			case 'typescript':
-			case 'github-actions':
-			case 'vscode':
-			case 'open-ai':
-			case 'vue-js':
-				return 26;
+	if (typeof icon === 'string') {
+		switch (icon) {
+			case 'Javascript':
+			case 'Typescript':
+			case 'GithubActions':
+			case 'Vscode':
+			case 'OpenAi':
+			case 'VueJs':
+				iconSize = 26;
+				break;
 			default:
-				return 28;
+				iconSize = 28;
 		}
 	}
 
-	const iconSize = calcIconSize(icon);
+	const Icon = getIcon(icon)!;
 </script>
 
 <div
 	class="flex gap-2 items-center px-2 text-gray-500 border border-gray-500 border-opacity-25 rounded-lg h-11 text-base"
 >
-	<Icon kind={icon} width={iconSize} height={iconSize} />
+	<Icon width={iconSize} height={iconSize} />
 	{@render children()}
 </div>

@@ -1,10 +1,10 @@
 <script lang="ts">
+	import { IconBriefcase, IconBulb, IconGithub, IconLinkedin } from '$lib/assets/icons';
+	import { githubProfileUrl, linkedinProfileUrl } from '$lib/config/constants';
 	import { onMount } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 	import * as THREE from 'three';
-	import { githubProfileUrl, linkedinProfileUrl } from '../utils/constants';
-	import Icon from './icon.svelte';
 
 	let atTopOfPage = true;
 
@@ -84,20 +84,20 @@
 				transition:fly={{ duration: 200, y: 40, easing: expoOut }}
 			>
 				<a href="#work-experience" class="link link-item">
-					<Icon kind="briefcase" width={26} height={26} stroke="#fff" />
+					<IconBriefcase width={26} height={26} stroke="#fff" />
 					<span class="xs:hidden sm:inline md:hidden lg:inline">Work Experience</span>
 					<span class="xs:inline sm:hidden md:inline lg:hidden">Work</span>
 				</a>
 				<a href="#projects" class="link link-item">
-					<Icon kind="bulb" width={28} height={28} stroke="#fff" />
+					<IconBulb width={28} height={28} stroke="#fff" />
 					<span>Projects</span>
 				</a>
 				<a href={githubProfileUrl} class="link link-item">
-					<Icon kind="github" width={24} height={24} />
+					<IconGithub width={24} height={24} />
 					<span>Github</span>
 				</a>
 				<a href={linkedinProfileUrl} class="link link-item">
-					<Icon kind="linkedin" width={24} height={24} />
+					<IconLinkedin width={24} height={24} />
 					<span>LinkedIn</span>
 				</a>
 			</div>

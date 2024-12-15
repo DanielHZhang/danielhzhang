@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { IconArrowRightCircle } from '$lib/assets/icons';
 	import type { WorkExperience } from '$lib/types';
-	import Icon from './icon.svelte';
 	import PerspectiveCard from './perspective-card.svelte';
 	import SectionTitle from './section-title.svelte';
 	import Tag from './tag.svelte';
@@ -39,7 +39,7 @@
 							<a href={company.url} class="link text-[var(--brand-color)] after:bg-[var(--brand-color)]">
 								{company.name}
 							</a>
-							<Icon kind="arrow-right-circle" class="w-8 inline-block mx-4 stroke-gold xs:hidden sm:block" />
+							<IconArrowRightCircle class="w-8 inline-block mx-4 stroke-gold xs:hidden sm:block" />
 							<span class="text-gold text-xl sm:text-3xl mt-3 sm:mt-0">{role}</span>
 						</h1>
 						<h2 class="text-gray-400">{description}</h2>

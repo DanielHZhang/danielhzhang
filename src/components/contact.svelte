@@ -1,5 +1,5 @@
 <script>
-	import { linkedinProfileUrl } from '../utils/constants';
+	import { linkedinProfileUrl } from '$lib/config/constants';
 	import LinkButton from './link-button.svelte';
 	import SectionTitle from './section-title.svelte';
 

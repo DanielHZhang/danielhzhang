@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { githubProfileUrl } from '../utils/constants';
-	import Icon from './icon.svelte';
+	import { IconGithub } from '$lib/assets/icons';
+	import { githubProfileUrl } from '$lib/config/constants';
 </script>
 
 <footer class="text-base">
@@ -11,7 +11,7 @@
 		</div>
 		<div>
 			<a href={githubProfileUrl}>
-				<Icon kind="github" width={32} height={32} />
+				<IconGithub width={32} height={32} />
 			</a>
 		</div>
 	</div>

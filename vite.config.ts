@@ -3,5 +3,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), svg()]
+	plugins: [
+		sveltekit(),
+		svg({
+			includePaths: ['./src/lib/assets/icons'],
+			svgoOptions: false,
+		}),
+	],
 });

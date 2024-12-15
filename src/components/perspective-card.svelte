@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { randomInteger } from '$lib/utils/number';
 	import { onMount } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { randInt } from '../utils';
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		gradientColor: string;
@@ -42,8 +42,8 @@
 	onMount(() => {
 		if (!element) return;
 		const rect = element.getBoundingClientRect();
-		x = randInt(0, rect.width);
-		y = randInt(0, rect.height);
+		x = randomInteger(0, rect.width);
+		y = randomInteger(0, rect.height);
 	});
 </script>
 

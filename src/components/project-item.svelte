@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { Project } from '../types';
-	import { capitalizeFirst } from '../utils';
+	import type { Project } from '$lib/types';
+	import { capitalize } from '$lib/utils/string';
 	import PerspectiveCard from './perspective-card.svelte';
 	import Tag from './tag.svelte';
+	import * as Icons from '$lib/assets/icons';
 
 	interface Props {
 		project: Project;
@@ -11,7 +12,7 @@
 	const { project, gradientColor }: Props = $props();
 
 	const formatLanguage = (lang: string) => {
-		return lang === 'json' ? lang.toUpperCase() : capitalizeFirst(lang);
+		return lang === 'json' ? lang.toUpperCase() : capitalize(lang);
 	};
 
 	const onCardClick = () => {

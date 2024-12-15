@@ -1,3 +1,5 @@
+import type { IconName } from './assets/icons';
+
 export type WorkExperience = {
 	company: {
 		name: string;
@@ -6,15 +8,15 @@ export type WorkExperience = {
 	};
 	role: string;
 	description: string;
-	tech: { name: string; icon: string }[];
+	tech: { name: string; icon: IconName }[];
 	time: string;
 	image: string;
 };
 
 export type Project = {
 	title: string;
-	tags: { name: string; icon: string }[];
-	language?: string;
+	tags: { name: string; icon: IconName }[];
+	language?: IconName;
 	description: string;
 	url?: string;
 };
