@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { IconArrowRightCircle } from '$lib/assets/icons';
+	import { colors } from '$lib/config/constants';
 	import type { WorkExperience } from '$lib/types';
 	import PerspectiveCard from './perspective-card.svelte';
 	import SectionTitle from './section-title.svelte';
@@ -11,20 +12,17 @@
 	}
 	let { data }: Props = $props();
 
-	const baseColorRgb = '33, 176, 124';
-	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
-
 	const onCardClick = (url: string) => {
 		window.open(url, '_blank')?.focus();
 	};
 </script>
 
 <div id="work-container" class="project project-transition flex flex-col">
-	<SectionTitle id="work-experience" color="rgb({baseColorRgb})">Work Experience</SectionTitle>
+	<SectionTitle id="work-experience" class="text-brand-primary">Work Experience</SectionTitle>
 	<div class="anime anime-done flex flex-col gap-2 sm:gap-5">
 		{#each data as { company, image, description, role, tech, time }}
 			<PerspectiveCard
-				{gradientColor}
+				gradientColor={colors.primary.gradient}
 				class="anime anime-done bg-card cursor-pointer flex flex-col border border-gray-500 border-opacity-25 rounded-2xl lg:p-12 sm:p-8 xs:p-6"
 				onclick={() => onCardClick(company.url)}
 			>

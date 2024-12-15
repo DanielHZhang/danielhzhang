@@ -2,21 +2,19 @@
 	import ProjectItem from './project-item.svelte';
 	import SectionTitle from './section-title.svelte';
 	import type { Project } from '$lib/types';
+	import { colors } from '$lib/config/constants';
 
 	interface Props {
 		data: Project[];
 	}
 	let { data }: Props = $props();
-
-	const baseColorRgb = '129, 182, 236';
-	const gradientColor = `rgba(${baseColorRgb}, 0.15)`;
 </script>
 
 <div class="flex flex-col">
-	<SectionTitle id="projects" color="rgb({baseColorRgb})">Personal Projects</SectionTitle>
+	<SectionTitle id="projects" class="text-brand-secondary">Personal Projects</SectionTitle>
 	<div class="grid gap-2 sm:gap-5 waterfall-grid">
 		{#each data as project}
-			<ProjectItem {project} {gradientColor} />
+			<ProjectItem {project} gradientColor={colors.secondary.gradient} />
 		{/each}
 	</div>
 </div>
