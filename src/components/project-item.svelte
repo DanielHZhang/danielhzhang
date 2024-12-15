@@ -27,7 +27,7 @@
 >
 	<div class="flex justify-between">
 		<div class="flex">
-			<a href={project.url} class="link text-3xl font-medium text-gold">{project.title}</a>
+			<a href={project.url} target="_blank" class="link text-3xl font-medium text-gold">{project.title}</a>
 		</div>
 	</div>
 	<div class="grow mb-4">

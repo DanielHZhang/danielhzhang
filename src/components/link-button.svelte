@@ -10,7 +10,7 @@
 
 	let variantClass = $state('');
 	if (variant === 'solid') {
-		variantClass = tw`border-transparent bg-brand-primary hover:bg-brand-primary/80 active:bg-brand-primary/60`;
+		variantClass = tw`border-transparent bg-brand-primary hover:bg-brand-primary/80`;
 	} else if (variant === 'ghost') {
 		variantClass = tw`border-gray-500 border-opacity-50 hover:border-opacity-80`;
 	}
