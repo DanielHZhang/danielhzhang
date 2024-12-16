@@ -1,10 +1,10 @@
 <script lang="ts">
+	import Contact from '$lib/components/contact.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import Hero from '$lib/components/hero.svelte';
+	import Projects from '$lib/components/projects.svelte';
+	import WorkExperience from '$lib/components/work-experience.svelte';
 	import { onMount } from 'svelte';
-	import Contact from '../components/contact.svelte';
-	import Footer from '../components/footer.svelte';
-	import Hero from '../components/hero.svelte';
-	import Projects from '../components/projects.svelte';
-	import WorkExperience from '../components/work-experience.svelte';
 	import type { PageData } from './$types';
 
 	interface Props {
