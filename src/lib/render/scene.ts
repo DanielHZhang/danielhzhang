@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { Timer } from 'three/addons/misc/Timer.js';
 import starTextureUrl from '../assets/textures/star.png';
 import { colors } from '$lib/config/constants';
 
@@ -7,7 +8,7 @@ export class App {
 	camera: THREE.PerspectiveCamera;
 	textureLoader = new THREE.TextureLoader();
 	scene = new THREE.Scene();
-	clock = new THREE.Clock();
+	timer = new Timer();
 	private animationId: number = 0;
 	private mouse: { x: number; y: number } = { x: 0, y: 0 };
 	private windowExtents: { halfX: number; halfY: number };
@@ -57,25 +58,28 @@ export class App {
 		document.addEventListener('pointermove', this.onPointerMove);
 	}
 
-	start(onStart?: () => void) {
+	start() {
+		this.timer.reset();
 		this.render();
-		onStart?.();
 	}
 
-	stop(onStop?: () => void) {
+	stop() {
 		cancelAnimationFrame(this.animationId);
-		onStop?.();
 	}
 
-	render = () => {
-		const deltaTime = this.clock.getDelta();
+	render = (timestamp?: number) => {
+		// Request animation frame before update
+		this.animationId = requestAnimationFrame(this.render);
+		this.timer.update(timestamp);
+		const deltaTime = this.timer.getDelta();
 
+		// Perform frame updates
 		this.camera.position.x += (this.mouse.x - this.camera.position.x) * 0.005 * deltaTime;
 		this.camera.position.y += (-this.mouse.y - this.camera.position.y) * 0.005 * deltaTime;
 		this.camera.lookAt(this.scene.position);
 
+		// Render scene
 		this.renderer.render(this.scene, this.camera);
-		this.animationId = requestAnimationFrame(this.render);
 	};
 
 	private onPointerMove = (event: MouseEvent) => {
@@ -119,6 +123,7 @@ export class App {
 				}
 			}
 		});
+		this.timer.dispose();
 		this.renderer.dispose();
 	};
 }

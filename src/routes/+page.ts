@@ -120,7 +120,7 @@ export function load() {
 		{
 			title: 'xsurf',
 			language: 'Typescript',
-			tags: [{ name: 'Security', icon: 'ShieldLock' }],
+			tags: [{ name: 'Security', icon: 'ShieldHalf' }],
 			description: 'A middleware library for generating and validating CSRF tokens.',
 			url: 'https://github.com/DanielHZhang/xsurf',
 		},

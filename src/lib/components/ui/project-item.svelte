@@ -3,7 +3,6 @@
 	import { capitalize } from '$lib/utils/string';
 	import PerspectiveCard from './perspective-card.svelte';
 	import Tag from './tag.svelte';
-	import * as Icons from '$lib/assets/icons';
 
 	interface Props {
 		project: Project;

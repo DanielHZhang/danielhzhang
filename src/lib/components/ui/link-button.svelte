@@ -4,14 +4,14 @@
 
 	interface Props extends HTMLAnchorAttributes {
 		href: string;
-		variant?: 'solid' | 'ghost';
+		variant?: 'solid' | 'outline';
 	}
 	let { href, variant = 'solid', color = 'primary', class: className, children, ...rest }: Props = $props();
 
 	let variantClass = $state('');
 	if (variant === 'solid') {
 		variantClass = tw`border-transparent bg-brand-primary hover:bg-brand-primary/80`;
-	} else if (variant === 'ghost') {
+	} else if (variant === 'outline') {
 		variantClass = tw`border-gray-500 border-opacity-50 hover:border-opacity-80`;
 	}
 </script>
