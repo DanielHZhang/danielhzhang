@@ -3,9 +3,9 @@
 	import { IconArrowRightCircle } from '$lib/assets/icons';
 	import { colors } from '$lib/config/constants';
 	import type { WorkExperience } from '$lib/types';
-	import PerspectiveCard from './perspective-card.svelte';
-	import SectionTitle from './ui/section-title.svelte';
-	import Tag from './ui/tag.svelte';
+	import PerspectiveCard from '../ui/perspective-card.svelte';
+	import SectionTitle from '../ui/section-title.svelte';
+	import Tag from '../ui/tag.svelte';
 
 	interface Props {
 		data: WorkExperience[];

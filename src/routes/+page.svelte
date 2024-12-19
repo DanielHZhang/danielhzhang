@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Contact from '$lib/components/contact.svelte';
-	import Footer from '$lib/components/footer.svelte';
-	import Hero from '$lib/components/hero.svelte';
-	import Projects from '$lib/components/projects.svelte';
-	import WorkExperience from '$lib/components/work-experience.svelte';
+	import Contact from '$lib/components/home/contact.svelte';
+	import Footer from '$lib/components/home/footer.svelte';
+	import Hero from '$lib/components/home/hero.svelte';
+	import Projects from '$lib/components/home/projects.svelte';
+	import WorkExperience from '$lib/components/home/work-experience.svelte';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { App } from '$lib/render/scene';
