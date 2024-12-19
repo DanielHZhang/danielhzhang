@@ -38,7 +38,7 @@ export class App {
 			alphaTest: 0.5,
 			transparent: true,
 		});
-		material.color.setHSL(1.0, 0.3, 0.7, THREE.SRGBColorSpace);
+		material.color.setHex(0xa0c9f4, THREE.SRGBColorSpace);
 
 		const geometry = new THREE.BufferGeometry();
 		const vertices: number[] = [];
@@ -55,6 +55,16 @@ export class App {
 
 		window.addEventListener('resize', this.onWindowResize);
 		document.addEventListener('pointermove', this.onPointerMove);
+	}
+
+	start(onStart?: () => void) {
+		this.render();
+		onStart?.();
+	}
+
+	stop(onStop?: () => void) {
+		cancelAnimationFrame(this.animationId);
+		onStop?.();
 	}
 
 	render = () => {

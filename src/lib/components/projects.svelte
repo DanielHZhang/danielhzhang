@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProjectItem from './project-item.svelte';
-	import SectionTitle from './section-title.svelte';
+	import SectionTitle from './ui/section-title.svelte';
 	import type { Project } from '$lib/types';
 	import { colors } from '$lib/config/constants';
 
