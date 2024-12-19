@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { IconBriefcase, IconBulb, IconGithub, IconLinkedin } from '$lib/assets/icons';
-	import { colors, githubProfileUrl, linkedinProfileUrl } from '$lib/config/constants';
-	import { App } from '$lib/render/scene';
-	import { onMount } from 'svelte';
+	import { githubProfileUrl, linkedinProfileUrl } from '$lib/config/constants';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
