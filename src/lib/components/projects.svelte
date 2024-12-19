@@ -19,8 +19,8 @@
 	</div>
 </div>
 
-<style scoped>
+<style scoped lang="postcss">
 	.waterfall-grid {
-		grid-template-columns: repeat(auto-fill, minmax(var(--min-screen), 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(theme(minWidth.screen), 1fr));
 	}
 </style>

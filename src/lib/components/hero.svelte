@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { IconBriefcase, IconBulb, IconGithub, IconLinkedin } from '$lib/assets/icons';
-	import { githubProfileUrl, linkedinProfileUrl } from '$lib/config/constants';
+	import { colors, githubProfileUrl, linkedinProfileUrl } from '$lib/config/constants';
+	import { App } from '$lib/render/scene';
 	import { onMount } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-	import * as THREE from 'three';
 
-	let atTopOfPage = true;
-
-	const threeContainerId = 'hero-canvas-container';
-	const renderEnabled = false;
+	let atTopOfPage = $state(true);
 
 	const handleScroll = () => {
 		if (window.scrollY > 20) {
@@ -18,54 +15,11 @@
 			atTopOfPage = true;
 		}
 	};
-
-	onMount(() => {
-		if (!renderEnabled) {
-			return;
-		}
-
-		const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-		const renderer = new THREE.WebGLRenderer({ alpha: true });
-
-		const webglContext = renderer.domElement.getContext('webgl2') || renderer.domElement.getContext('webgl');
-		if (!webglContext) {
-			return;
-		}
-
-		const geometry = new THREE.BoxGeometry(1, 1, 1);
-		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-		const cube = new THREE.Mesh(geometry, material);
-		scene.add(cube);
-
-		renderer.setSize(window.innerWidth, window.innerHeight);
-		camera.position.z = 5;
-
-		const container = document.getElementById(threeContainerId)!;
-		container.appendChild(renderer.domElement);
-
-		// renderer.render(scene, camera);
-		// function rerender() {
-		// 	requestAnimationFrame(rerender);
-		// 	cube.rotation.x += 0.01;
-		// 	cube.rotation.y += 0.01;
-		// 	renderer.render(scene, camera);
-		// }
-		// rerender();
-
-		window.addEventListener('resize', () => {
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-		});
-	});
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
 <div class="flex items-end min-h-screen">
-	<div id={threeContainerId} class="absolute -z-10 inset-0 overflow-hidden"></div>
-
 	<div class="flex flex-grow relative pb-[20vh] xs:px-2">
 		<div class="flex flex-col gap-3 lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-gray-300 font-medium">
 			<img src="favicon.svg" alt="logo" class="w-16 h-16" />

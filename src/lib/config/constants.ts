@@ -8,4 +8,5 @@ export const colors = {
 	secondary: {
 		gradient: 'rgba(129, 182, 236, 0.15)',
 	},
+	ground: '#15141c',
 };

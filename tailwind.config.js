@@ -1,10 +1,19 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import { colors } from './src/lib/config/constants';
 
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		screens: {
+			...defaultTheme.screens,
+			xl: '1390px',
+			'2xl': '1636px',
+		},
 		extend: {
+			minWidth: {
+				screen: '350px',
+			},
 			screens: {
 				xs: '100px',
 			},
@@ -19,7 +28,7 @@ export default {
 					450: '#8c92a1',
 				},
 				brand: {
-					ground: '#15141c',
+					ground: colors.ground,
 					primary: 'rgb(33, 176, 124)',
 					secondary: 'rgb(129, 182, 236)',
 					sakura: '#f778ba',

@@ -6,11 +6,16 @@
 	import WorkExperience from '$lib/components/work-experience.svelte';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import { App } from '$lib/render/scene';
 
 	interface Props {
 		data: PageData;
 	}
 	let { data }: Props = $props();
+
+	let canvasEl = $state<HTMLCanvasElement>();
+	let isRendering = $state(false);
+	const renderEnabled = true;
 
 	onMount(() => {
 		const observer = new IntersectionObserver((entries) => {
@@ -31,6 +36,19 @@
 			observer.observe(element);
 		}
 	});
+
+	onMount(() => {
+		if (!renderEnabled) return;
+		if (!canvasEl) return;
+
+		const webglContext = canvasEl.getContext('webgl2');
+		if (!webglContext) return;
+
+		const app = new App(canvasEl);
+		app.render();
+		isRendering = true;
+		return app.dispose;
+	});
 </script>
 
 <svelte:head>
@@ -41,7 +59,9 @@
 	/>
 </svelte:head>
 
-<div class="flex flex-col text-lg sm:text-xl gap-36 xl:px-[12%] lg:px-[6%] md:px-[4%] sm:px-4 xs:px-2 mx-auto">
+<canvas bind:this={canvasEl} class="fixed inset-0 w-full h-full z-0 overflow-hidden"></canvas>
+
+<div class="flex flex-col text-lg sm:text-xl gap-36 px-2 2xl:w-[65vw] xl:w-[75vw] lg:w-[85vw] md:w-[95vw] mx-auto">
 	<Hero />
 	<WorkExperience data={data.workExperience} />
 	<Projects data={data.projects} />

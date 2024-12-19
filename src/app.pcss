@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		text-rendering: optimizeLegibility;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	html,
+	body {
+		min-width: 350px;
+		min-height: 100%;
+		@apply bg-brand-ground text-white;
+	}
+
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 12px;
+		@apply bg-brand-ground;
+	}
+
+	::-webkit-scrollbar-corner {
+		@apply bg-brand-ground;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: #2b2d2e;
+		border-radius: 16px;
+	}
+}
+
+@layer base {
+	.link {
+		position: relative;
+	}
+	.link::after {
+		@apply bg-gold absolute w-full;
+		content: '';
+		height: 2px;
+		bottom: -4px;
+		left: 0;
+		transform-origin: left;
+		transform: scaleX(0);
+		transition: transform 200ms ease-out;
+	}
+	.link:hover::after {
+		transform: scaleX(1);
+	}
+}
+
+@layer base {
+	.anime {
+		opacity: 0;
+		transform: translateY(-50px) scale(0.94);
+		transition: all 500ms ease;
+	}
+	.anime-done {
+		opacity: 1;
+		transform: translateY(0px) scale(1);
+	}
+}
