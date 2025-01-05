@@ -1,8 +1,8 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import { colors } from './src/lib/config/constants';
+import type { Config } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} */
-export default {
+const config: Config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		screens: {
@@ -42,3 +42,5 @@ export default {
 	},
 	plugins: [],
 };
+
+export default config;
