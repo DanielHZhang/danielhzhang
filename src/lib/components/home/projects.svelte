@@ -1,8 +1,7 @@
 <script lang="ts">
+	import type { Project } from '$lib/types';
 	import ProjectItem from '../ui/project-item.svelte';
 	import SectionTitle from '../ui/section-title.svelte';
-	import type { Project } from '$lib/types';
-	import { colors } from '$lib/config/constants';
 
 	interface Props {
 		data: Project[];
@@ -14,7 +13,7 @@
 	<SectionTitle id="projects" class="text-brand-secondary">Personal Projects</SectionTitle>
 	<div class="grid gap-2 sm:gap-5 waterfall-grid">
 		{#each data as project}
-			<ProjectItem {project} gradientColor={colors.secondary.gradient} />
+			<ProjectItem {project} />
 		{/each}
 	</div>
 </div>

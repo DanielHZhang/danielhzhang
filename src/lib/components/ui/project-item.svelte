@@ -6,9 +6,8 @@
 
 	interface Props {
 		project: Project;
-		gradientColor: string;
 	}
-	const { project, gradientColor }: Props = $props();
+	const { project }: Props = $props();
 
 	const formatLanguage = (lang: string) => {
 		return lang === 'json' ? lang.toUpperCase() : capitalize(lang);
@@ -20,7 +19,7 @@
 </script>
 
 <PerspectiveCard
-	{gradientColor}
+	gradientColor="var(--color-secondary-gradient)"
 	class="anime anime-done bg-card cursor-pointer flex flex-col relative gap-4 xs:p-6 md:p-8"
 	onclick={onCardClick}
 >

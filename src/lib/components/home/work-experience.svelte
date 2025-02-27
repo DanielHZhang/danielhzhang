@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { IconArrowRightCircle } from '$lib/assets/icons';
-	import { colors } from '$lib/config/constants';
 	import type { WorkExperience } from '$lib/types';
 	import PerspectiveCard from '../ui/perspective-card.svelte';
 	import SectionTitle from '../ui/section-title.svelte';
@@ -22,7 +21,7 @@
 	<div class="anime anime-done flex flex-col gap-2 sm:gap-5">
 		{#each data as { company, image, description, role, tech, time }}
 			<PerspectiveCard
-				gradientColor={colors.primary.gradient}
+				gradientColor="var(--color-primary-gradient)"
 				class="anime anime-done bg-card cursor-pointer flex flex-col lg:p-12 sm:p-8 xs:p-6"
 				onclick={() => onCardClick(company.url)}
 			>

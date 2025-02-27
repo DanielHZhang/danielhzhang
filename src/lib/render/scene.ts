@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { Timer } from 'three/addons/misc/Timer.js';
 import starTextureUrl from '../assets/textures/star.png';
-import { colors } from '$lib/config/constants';
 
 export class App {
 	renderer: THREE.WebGLRenderer;
@@ -19,8 +18,11 @@ export class App {
 			halfY: window.innerHeight / 2,
 		};
 
+		const styles = getComputedStyle(document.documentElement);
+		const groundColor = styles.getPropertyValue('--color-brand-ground');
+
 		this.renderer = new THREE.WebGLRenderer({ alpha: true, canvas });
-		this.renderer.setClearColor(new THREE.Color(colors.ground));
+		this.renderer.setClearColor(new THREE.Color(groundColor));
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
 
