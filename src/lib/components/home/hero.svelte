@@ -66,6 +66,5 @@
 		align-items: center;
 		gap: 0.5rem;
 		color: var(--color-gold);
-		/* theme(colors.gold); */
 	}
 </style>

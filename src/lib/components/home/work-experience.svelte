@@ -23,7 +23,7 @@
 		{#each data as { company, image, description, role, tech, time }}
 			<PerspectiveCard
 				gradientColor={colors.primary.gradient}
-				class="anime anime-done bg-card cursor-pointer flex flex-col border border-gray-500 border-opacity-25 rounded-2xl lg:p-12 sm:p-8 xs:p-6"
+				class="anime anime-done bg-card cursor-pointer flex flex-col lg:p-12 sm:p-8 xs:p-6"
 				onclick={() => onCardClick(company.url)}
 			>
 				<div class="flex flex-col md:flex-row lg:gap-12 gap-4 md:gap-6">

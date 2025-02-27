@@ -27,9 +27,7 @@
 	const Icon = getIcon(icon)!;
 </script>
 
-<div
-	class="flex gap-2 items-center px-2 text-gray-500 border border-gray-500 border-opacity-25 rounded-lg h-11 text-base"
->
+<div class="flex gap-2 items-center px-2 text-gray-500 border border-gray-500/25 rounded-lg h-11 text-base">
 	<Icon width={iconSize} height={iconSize} />
 	{@render children()}
 </div>

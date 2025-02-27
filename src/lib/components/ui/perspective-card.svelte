@@ -49,7 +49,7 @@
 
 <div
 	{...rest}
-	class="perspective-item relative {className ?? ''}"
+	class="perspective-item relative border border-gray-500/25 rounded-2xl {className ?? ''}"
 	style="--x: {x}px; --y: {y}px; --x-rotation: {xRotation}deg; --y-rotation: {yRotation}deg; --gradient-color: {gradientColor}"
 	role="article"
 	bind:this={element}
@@ -62,7 +62,6 @@
 
 <style scoped lang="postcss">
 	.perspective-item {
-		/* theme(colors.card) */
 		background: radial-gradient(ellipse at var(--x) var(--y), var(--gradient-color), var(--color-card));
 		transition: transform 300ms ease-out;
 		will-change: transform;

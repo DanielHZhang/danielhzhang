@@ -1,7 +1,27 @@
 @import 'tailwindcss';
 
-@theme {
+@theme inline {
+	--font-body: Lexend, sans-serif;
+
+	--breakpoint-xs: 100px;
+	--breakpoint-xl: 1390px;
+	--breakpoint-2xl: 1636px;
+
 	--color-gold: rgb(218, 201, 166);
+	--color-white: rgb(247, 248, 248);
+	--color-gray-300: #d1e1e4;
+	--color-gray-400: rgb(180, 188, 208);
+	--color-gray-450: #8c92a1;
+	--color-brand-ground: #15141c;
+	--color-brand-primary: rgb(33, 176, 124);
+	--color-brand-secondary: rgb(129, 182, 236);
+	--color-brand-sakura: #f778ba;
+	--color-brand-sakura-dark: #da68a3;
+	--color-brand-sakura-bright: #fa88c3;
+	--color-gold: rgb(218, 201, 166);
+	--color-card: #191a21;
+
+	--min-width-screen: 350px;
 }
 
 @layer base {
@@ -16,17 +36,19 @@
 	body {
 		min-width: 350px;
 		min-height: 100%;
-		@reference bg-brand-ground text-white;
+		font-family: var(--font-body);
+		background-color: var(--color-brand-ground);
+		color: var(--color-white);
 	}
 
 	::-webkit-scrollbar {
 		width: 8px;
 		height: 12px;
-		@reference bg-brand-ground;
+		background-color: var(--color-brand-ground);
 	}
 
 	::-webkit-scrollbar-corner {
-		@reference bg-brand-ground;
+		background-color: var(--color-brand-ground);
 	}
 
 	::-webkit-scrollbar-thumb {
@@ -40,7 +62,9 @@
 		position: relative;
 	}
 	.link::after {
-		@reference bg-gold absolute w-full;
+		background-color: var(--color-gold);
+		position: absolute;
+		width: 100%;
 		content: '';
 		height: 2px;
 		bottom: -4px;

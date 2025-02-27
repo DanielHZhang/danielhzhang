@@ -21,7 +21,7 @@
 
 <PerspectiveCard
 	{gradientColor}
-	class="anime anime-done bg-card cursor-pointer flex flex-col relative gap-4 border border-gray-500 border-opacity-25 rounded-2xl xs:p-6 md:p-8"
+	class="anime anime-done bg-card cursor-pointer flex flex-col relative gap-4 xs:p-6 md:p-8"
 	onclick={onCardClick}
 >
 	<div class="flex justify-between">
