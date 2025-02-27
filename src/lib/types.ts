@@ -19,4 +19,5 @@ export type Project = {
 	language?: IconName;
 	description: string;
 	url?: string;
+	githubUrl?: string;
 };
