@@ -1,3 +1,4 @@
+import IconArrowLeft from './arrow-left.svg?component';
 import IconArrowRightCircle from './arrow-right-circle.svg?component';
 import IconAws from './aws.svg?component';
 import IconBinaryTree from './binary-tree.svg?component';
@@ -37,6 +38,7 @@ import IconVueJs from './vue-js.svg?component';
 import IconWebpack from './webpack.svg?component';
 
 export {
+	IconArrowLeft,
 	IconArrowRightCircle,
 	IconAws,
 	IconBinaryTree,
