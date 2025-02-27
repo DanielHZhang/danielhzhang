@@ -1,8 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+	--color-gold: rgb(218, 201, 166);
+}
 
 @layer base {
+	@reference "tailwindcss/theme";
+
 	:root {
 		text-rendering: optimizeLegibility;
 		-webkit-text-size-adjust: 100%;
@@ -12,17 +16,17 @@
 	body {
 		min-width: 350px;
 		min-height: 100%;
-		@apply bg-brand-ground text-white;
+		@reference bg-brand-ground text-white;
 	}
 
 	::-webkit-scrollbar {
 		width: 8px;
 		height: 12px;
-		@apply bg-brand-ground;
+		@reference bg-brand-ground;
 	}
 
 	::-webkit-scrollbar-corner {
-		@apply bg-brand-ground;
+		@reference bg-brand-ground;
 	}
 
 	::-webkit-scrollbar-thumb {
@@ -36,7 +40,7 @@
 		position: relative;
 	}
 	.link::after {
-		@apply bg-gold absolute w-full;
+		@reference bg-gold absolute w-full;
 		content: '';
 		height: 2px;
 		bottom: -4px;

@@ -62,7 +62,8 @@
 
 <style scoped lang="postcss">
 	.perspective-item {
-		background: radial-gradient(ellipse at var(--x) var(--y), var(--gradient-color), theme(colors.card));
+		/* theme(colors.card) */
+		background: radial-gradient(ellipse at var(--x) var(--y), var(--gradient-color), var(--color-card));
 		transition: transform 300ms ease-out;
 		will-change: transform;
 	}

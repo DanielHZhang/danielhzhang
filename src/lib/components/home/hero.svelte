@@ -27,7 +27,7 @@
 			</div>
 			<div class="leading-tight text-gray-450 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl">
 				<p>I love exploring diverse areas of software and hardware.</p>
-				<p>Currently obsessed with AI, web dev, and game dev.</p>
+				<p>Currently working on AI, web dev, and game dev.</p>
 			</div>
 		</div>
 
@@ -59,10 +59,13 @@
 </div>
 
 <style scoped lang="postcss">
+	@reference "tailwindcss/theme";
+
 	.link-item {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		color: theme(colors.gold);
+		color: var(--color-gold);
+		/* theme(colors.gold); */
 	}
 </style>

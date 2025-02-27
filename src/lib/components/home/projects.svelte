@@ -21,6 +21,7 @@
 
 <style scoped lang="postcss">
 	.waterfall-grid {
-		grid-template-columns: repeat(auto-fill, minmax(theme(minWidth.screen), 1fr));
+		/* theme(minWidth.screen) */
+		grid-template-columns: repeat(auto-fill, minmax(var(--min-width-screen), 1fr));
 	}
 </style>

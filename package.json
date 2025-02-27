@@ -27,6 +27,8 @@
 		"@sveltejs/adapter-cloudflare": "^5.0.3",
 		"@sveltejs/kit": "^2.17.3",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@tailwindcss/postcss": "^4.0.9",
+		"@tailwindcss/vite": "^4.0.9",
 		"@types/bun": "^1.2.4",
 		"@types/three": "^0.173.0",
 		"@typescript-eslint/eslint-plugin": "^8.25.0",
