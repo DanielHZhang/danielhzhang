@@ -20,7 +20,10 @@
 	let objectUrl = $state<string>();
 
 	async function fetchWasmBindGenJsCode() {
-		const response = await fetch(`${assetUrl}/conways_golot.js`, { mode: 'cors' });
+		const response = await fetch(`${assetUrl}/conways_golot.js`, {
+			mode: 'cors',
+			headers: { origin: window.location.origin },
+		});
 		const blob = await response.blob();
 		return blob.slice(0, blob.size, 'text/javascript');
 	}
