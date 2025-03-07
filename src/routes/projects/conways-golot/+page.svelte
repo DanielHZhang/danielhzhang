@@ -20,7 +20,7 @@
 	let objectUrl = $state<string>();
 
 	async function fetchWasmBindGenJsCode() {
-		const response = await fetch(`${assetUrl}/conways_golot.js`);
+		const response = await fetch(`${assetUrl}/conways_golot.js`, { mode: 'cors' });
 		const blob = await response.blob();
 		return blob.slice(0, blob.size, 'text/javascript');
 	}
@@ -66,6 +66,10 @@
 		}
 	});
 </script>
+
+<svelte:head>
+	<title>{project.title} - Daniel Haiyao Zhang</title>
+</svelte:head>
 
 <div class="flex flex-col h-screen">
 	<Nav />

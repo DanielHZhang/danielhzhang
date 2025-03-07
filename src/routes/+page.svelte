@@ -69,10 +69,6 @@
 
 <svelte:head>
 	<title>Daniel Haiyao Zhang - Software Engineer</title>
-	<meta
-		name="description"
-		content="Hi there, I'm Daniel Zhang, a software engineer with 3+ years of experience in web development. My interests are in distributed systems, real-time graphics, and machine learning. Check out my portfolio site to see my work experience and some of the projects I've worked on."
-	/>
 </svelte:head>
 
 <canvas bind:this={canvasEl} class="fixed inset-0 w-full h-full z-0 overflow-hidden"></canvas>
