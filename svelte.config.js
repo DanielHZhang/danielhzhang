@@ -6,9 +6,6 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter(),
-		paths: {
-			assets: process.env.NODE_ENV === 'production' ? 'https://static.danielhzhang.com' : undefined,
-		},
 	},
 	compilerOptions: {
 		// disable all warnings coming from node_modules and all accessibility warnings

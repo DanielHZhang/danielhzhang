@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { IconArrowRightCircle } from '$lib/assets/icons';
+	import { assetUrl } from '$lib/config/constants';
 	import type { WorkExperience } from '$lib/types';
 	import PerspectiveCard from '../ui/perspective-card.svelte';
 	import SectionTitle from '../ui/section-title.svelte';
@@ -27,7 +27,7 @@
 			>
 				<div class="flex flex-col md:flex-row lg:gap-12 gap-4 md:gap-6">
 					<img
-						src={`${base}/${image}`}
+						src={`${assetUrl}/${image}`}
 						alt="{company.name} home page"
 						class="rounded-lg xl:w-[430px] lg:w-80 md:w-60 h-[225px] object-cover"
 					/>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
 	import { IconGithub } from '$lib/assets/icons';
 	import Nav from '$lib/components/ui/nav.svelte';
+	import { assetUrl } from '$lib/config/constants';
 	import { onDestroy, onMount } from 'svelte';
 	import type { PageData } from './$types';
 
@@ -20,7 +20,7 @@
 	let objectUrl = $state<string>();
 
 	async function fetchWasmBindGenJsCode() {
-		const response = await fetch(`${base}/conways_golot.js`);
+		const response = await fetch(`${assetUrl}/conways_golot.js`);
 		const blob = await response.blob();
 		return blob.slice(0, blob.size, 'text/javascript');
 	}
@@ -44,7 +44,7 @@
 				/* @vite-ignore */
 				objectUrl
 			);
-			await mod.default(`${base}/conways_golot_bg.wasm`);
+			await mod.default(`${assetUrl}/conways_golot_bg.wasm`);
 
 			const rect = canvasWrapper?.getBoundingClientRect();
 			// this statement will only return if the Rust program exits
