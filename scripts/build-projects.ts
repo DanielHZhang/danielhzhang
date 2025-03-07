@@ -3,8 +3,22 @@ import * as esbuild from 'esbuild';
 
 const workingDir = process.cwd();
 const staticDir = `${workingDir}/static`;
-
 process.chdir('crates/conways_golot');
+
+const output = await $`wasm-bindgen --version`.nothrow().quiet();
+if (output.exitCode !== 0) {
+	type CargoToml = {
+		dependencies: Record<string, string>;
+		features: Record<string, string[]>;
+		package: Record<string, string>;
+	};
+	const cargoToml: CargoToml = await import(`${process.cwd()}/Cargo.toml`);
+	const wasmBindgenVersion = cargoToml.dependencies['wasm-bindgen'];
+	if (!wasmBindgenVersion) {
+		throw new Error('wasm-bindgen version not found in Cargo.toml');
+	}
+	await $`cargo binstall wasm-bindgen-cli --version ${wasmBindgenVersion} --no-confirm`;
+}
 
 await $`cargo build --profile release --features bevy/webgpu --target wasm32-unknown-unknown`;
 await $`wasm-bindgen --out-dir ${staticDir} --out-name conways_golot --target web target/wasm32-unknown-unknown/release/conways_golot.wasm`;

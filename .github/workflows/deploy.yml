@@ -68,10 +68,6 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Install wasm-bindgen-cli
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: cargo install wasm-bindgen-cli
-
       - name: Build projects
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm build:projects
@@ -82,5 +78,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          preCommands: './scripts/upload-to-r2.sh'
+          preCommands: bun run scripts/upload-static-folder.ts
           command: pages deploy .svelte-kit/cloudflare --project-name=danielhzhang
