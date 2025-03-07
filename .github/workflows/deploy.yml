@@ -70,7 +70,7 @@ jobs:
 
       - name: Install Cargo binstall
         if: steps.cache.outputs.cache-hit != 'true'
-        uses: cargo-bins/cargo-binstall@v1.11
+        uses: cargo-bins/cargo-binstall@v1.9
 
       - name: Build projects
         if: steps.cache.outputs.cache-hit != 'true'
