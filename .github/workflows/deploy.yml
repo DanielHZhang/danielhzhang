@@ -68,6 +68,10 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      - name: Install Cargo binstall
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: cargo-bins/cargo-binstall@v1.11
+
       - name: Build projects
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm build:projects
